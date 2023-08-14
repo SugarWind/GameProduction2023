@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5151809883560754776}
   - component: {fileID: 8577473251455428821}
   - component: {fileID: 3744616188388603444}
+  - component: {fileID: -6475904234658127093}
+  - component: {fileID: -388385831722578073}
   m_Layer: 0
   m_Name: Accel Ammo
   m_TagString: Untagged
@@ -106,3 +108,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-6475904234658127093
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623921507652914157}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &-388385831722578073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623921507652914157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6e89f68493d4e498e455f2e7ec4c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
