@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -388385831722578073}
   m_Layer: 0
   m_Name: Accel Ammo
-  m_TagString: Untagged
+  m_TagString: Acammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

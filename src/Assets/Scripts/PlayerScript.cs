@@ -6,8 +6,8 @@ public class PlayerScript : MonoBehaviour
 {
     public float speed =3f;
     public float Pspeed = 1;
-
-     Rigidbody2D rb;
+    public float floorSpeed = 0f;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +26,11 @@ public class PlayerScript : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            rb.velocity = new Vector2(speed+floorSpeed, rb.velocity.y);
         }
        else  if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = new  Vector2(-speed, rb.velocity.y);
+            rb.velocity = new  Vector2(-speed+floorSpeed, rb.velocity.y);
         } 
         //else
         //{
@@ -38,4 +38,24 @@ public class PlayerScript : MonoBehaviour
         //}
     }
 
+ 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "floor")
+        {
+            Debug.Log("è∞Ç∆ÉvÉåÉCÉÑÅ[");
+            FloorScript flscript = collision.gameObject.GetComponent<FloorScript>();
+            floorSpeed = flscript.floorSpeed;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "floor")
+        {
+            floorSpeed = 0f;
+        }
+    }
 }
+
+
