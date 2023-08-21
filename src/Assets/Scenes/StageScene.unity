@@ -1172,4 +1172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletA: {fileID: 1623921507652914157, guid: ae44b081fdb0a7b44ba9a2ac46b709a4, type: 3}
+  bulletD: {fileID: 7527415538968966617, guid: d5e07756d2cabce4b9f3eb442ee30c9f, type: 3}
   bulletSpeed: 10
