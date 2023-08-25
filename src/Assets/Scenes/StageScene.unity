@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 286395735}
   - component: {fileID: 286395739}
   - component: {fileID: 286395738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_UseGlobalAngle: 0
   m_ForceAngle: 90
   m_ForceMagnitude: 10
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 1721268403}
   - component: {fileID: 1721268406}
   - component: {fileID: 1721268407}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1197,7 +1197,7 @@ GameObject:
   - component: {fileID: 2066180720}
   - component: {fileID: 2066180721}
   - component: {fileID: 2066180722}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
