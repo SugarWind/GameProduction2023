@@ -8,6 +8,7 @@ TagManager:
   - wall
   - floor
   - Acammo
+  - Dcammo
   layers:
   - Default
   - TransparentFX
