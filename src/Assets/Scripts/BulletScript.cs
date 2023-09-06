@@ -9,9 +9,14 @@ public class BulletScript : MonoBehaviour
     public GameObject bulletD;
     public float bulletSpeed = 10f;
 
+    private bool isLeft;
+    private bool isRight;
+    private float ShootTime = 0f;
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 左クリックで弾を発射
+        ShootTime += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0)&& isRight == false && ShootTime >0.15f) // 左クリックで弾を発射
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; // Z軸を0に固定
@@ -21,9 +26,16 @@ public class BulletScript : MonoBehaviour
             Rigidbody2D rb = Abullet.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0f; // 重力影響なし
             rb.velocity = shootDirection * bulletSpeed;
+
+            isLeft = true;
+            ShootTime = 0f;
+        }
+        else
+        {
+            isLeft = false;
         }
 
-        if (Input.GetMouseButtonDown(1)) // 左クリックで弾を発射
+        if (Input.GetMouseButtonDown(1)&& isLeft == false && ShootTime > 0.15f) // 左クリックで弾を発射
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; // Z軸を0に固定
@@ -33,6 +45,12 @@ public class BulletScript : MonoBehaviour
             Rigidbody2D rb = Dbullet.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0f; // 重力影響なし
             rb.velocity = shootDirection * bulletSpeed;
+            isRight = true;
+            ShootTime = 0f;
+        }
+        else
+        {
+            isRight = false;
         }
     }
 }
