@@ -9,6 +9,7 @@ TagManager:
   - floor
   - Acammo
   - Dcammo
+  - Missile
   layers:
   - Default
   - TransparentFX
