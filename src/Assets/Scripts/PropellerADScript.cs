@@ -33,5 +33,17 @@ public class PropellerADScript : MonoBehaviour
             }
             
         }
+
+        if(collision.gameObject.tag == "Dcammo")
+        {
+            Debug.Log("ŒŸ’mŒ¸‘¬ƒvƒƒyƒ‰");
+
+            Paf.forceMagnitude -= 2f;
+
+            if(Paf.forceMagnitude < 1)
+            {
+                Paf.forceMagnitude = 1f;
+            }
+        }
     }
 }
