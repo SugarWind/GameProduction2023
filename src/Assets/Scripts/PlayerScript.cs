@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "floor")
+        if (collision.gameObject.tag == "floor") //è∞Ç©ÇÁó£ÇÍÇΩÇÁ
         {
             floorSpeed = 0f;
         }
