@@ -26,7 +26,6 @@ public class StoneScript : MonoBehaviour
             GravitySpeed += 1.0f; //—Ž‰º‘¬“xŒ¸Š
         }
     }
-
     private void Update()
     {
         if(GravitySpeed > 0.0f)
