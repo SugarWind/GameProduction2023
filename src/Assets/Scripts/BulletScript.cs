@@ -5,52 +5,63 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
 
-    public GameObject bulletA;
-    public GameObject bulletD;
-    public float bulletSpeed = 10f;
+    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float shotInterval = 0.15f;
 
-    private bool isLeft;
-    private bool isRight;
-    private float ShootTime = 0f;
+    public GameObject accelBullet;
+    public GameObject deccelBullet;
+    public GameObject gunShaft;
+
+    private bool canShot = true;
 
     private void Update()
     {
-        ShootTime += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0)&& isRight == false && ShootTime >0.15f) // 左クリックで弾を発射
-        {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // Z軸を0に固定
+        // マウスの位置を取得
+        Vector3 mousePosition = Input.mousePosition;
 
-            Vector3 shootDirection = (mousePosition - transform.position).normalized;
-            GameObject Abullet = Instantiate(bulletA, transform.position, Quaternion.identity);
-            Rigidbody2D rb = Abullet.GetComponent<Rigidbody2D>();
-            rb.gravityScale = 0f; // 重力影響なし
-            rb.velocity = shootDirection * bulletSpeed;
+        // マウスの位置をワールド座標に変換
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-            isLeft = true;
-            ShootTime = 0f;
-        }
-        else
+        // 銃を向ける方向を計算
+        Vector3 direction = mouseWorldPosition - gunShaft.transform.position;
+
+        // シャフトをマウスカーソルの位置に合わせて自転させる
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        gunShaft.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        if (Input.GetMouseButtonDown(1) && canShot) // 右クリックで弾（減速）を発射
         {
-            isLeft = false;
+            ShootCoolTime();
+            ShotBullet(deccelBullet);
         }
 
-        if (Input.GetMouseButtonDown(1)&& isLeft == false && ShootTime > 0.15f) // 左クリックで弾を発射
+        if (Input.GetMouseButtonDown(0) && canShot) // 左クリックで弾（加速）を発射
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // Z軸を0に固定
+            ShootCoolTime();
+            ShotBullet(accelBullet);
+        }
+    }
 
-            Vector3 shootDirection = (mousePosition - transform.position).normalized;
-            GameObject Dbullet = Instantiate(bulletD, transform.position, Quaternion.identity);
-            Rigidbody2D rb = Dbullet.GetComponent<Rigidbody2D>();
-            rb.gravityScale = 0f; // 重力影響なし
-            rb.velocity = shootDirection * bulletSpeed;
-            isRight = true;
-            ShootTime = 0f;
-        }
-        else
-        {
-            isRight = false;
-        }
+    private void ShotBullet(GameObject bulletPrefab)
+    {
+        // mousePositionをmousePosに変更 
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0; // Z軸を0に固定
+
+        // 弾の発射方向を計算
+        Vector3 shootDirection = (mousePos - transform.position).normalized;
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f; // 重力影響なし
+
+        rb.velocity = shootDirection * bulletSpeed;
+    }
+
+    private IEnumerator ShootCoolTime()
+    {
+        canShot = false;
+        yield return new WaitForSeconds(shotInterval);
+        canShot = true;
     }
 }
