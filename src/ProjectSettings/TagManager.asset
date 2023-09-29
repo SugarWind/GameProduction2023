@@ -10,6 +10,8 @@ TagManager:
   - Acammo
   - Dcammo
   - Missile
+  - Arm
+  - Enemy
   layers:
   - Default
   - TransparentFX

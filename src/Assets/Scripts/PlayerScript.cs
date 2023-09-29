@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] private int jumpForce;
+    [SerializeField] private int jumpForce = 12;
     [SerializeField] private float speed = 4f;
     [SerializeField] private float floorSpeed = 0f;
     [SerializeField] private float flashInterval = 0.04f;
     [SerializeField] private float knockbackForce = 200.0f;
     [SerializeField] private float invincibleInterval = 2.0f;
     [SerializeField] private Animator animator;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] public SpriteRenderer spriteRenderer;
 
     private Rigidbody2D rb;
-    private bool isHit;
+    private GameObject armObj;
+    private ArmMove arm;
     private bool isJumping;
-    public bool isInvincible;
     private bool isFacingRight = true;  // キャラの向きを管理
     private bool hitDirection = true;  // 攻撃がきた方向を管理
+    public bool isInvincible;
+    public bool isHit;
 
     public AnimationClip jumpRightClip;  // 右向きジャンプアニメーション
     public AnimationClip jumpLeftClip;   // 左向きジャンプアニメーション
@@ -28,12 +30,16 @@ public class PlayerScript : MonoBehaviour
     public AnimationClip standLeftClip;  // 左向き停止アニメーション
     public AnimationClip damageRightClip;  // 右から当たったアニメーション
     public AnimationClip damageLeftClip;  // 左から当たったアニメーション
+    public AnimationClip backRightClip;  // 右向き後ろ歩きアニメーション
+    public AnimationClip backLeftClip;  // 左向き後ろ歩きアニメーション
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        armObj = GameObject.FindGameObjectWithTag("Arm");
+        arm = armObj.GetComponent<ArmMove>();
         isHit = false;
         isJumping = false;
         isInvincible = false;
@@ -59,16 +65,8 @@ public class PlayerScript : MonoBehaviour
         // キャラの垂直方向の速度が0でない場合、true
         isJumping = rb.velocity.y != 0;
 
-        // キャラの向きを更新
-        if (moveDirection > 0.1f && !isJumping)
-        {
-            isFacingRight = true;
-        }
-        else if (moveDirection < -0.1f && !isJumping)
-        {
-            isFacingRight = false;
-        }
-
+        // ArmRotation_yの左右反転に応じてキャラの向きを更新
+        isFacingRight = arm.Right;
 
         // ジャンプアニメーションを設定
         if (isJumping && !isHit)
@@ -79,9 +77,15 @@ public class PlayerScript : MonoBehaviour
         else if (!isJumping && !isHit)
         {
             // 移動アニメーションを設定
-            if (moveDirection != 0)
+            if (moveDirection > 0)
             {
-                animator.Play(isFacingRight ? runRightClip.name : runLeftClip.name);
+                animator.Play(isFacingRight ? runRightClip.name : backLeftClip.name);
+                speed = (isFacingRight ? 4f : 3f);
+            }
+            else if (moveDirection < 0)
+            {
+                animator.Play(isFacingRight ? backRightClip.name : runLeftClip.name);
+                speed = (isFacingRight ? 3f : 4f);
             }
             // 停止アニメーションを設定
             else
@@ -92,8 +96,6 @@ public class PlayerScript : MonoBehaviour
         // ダメージアニメーションを設定
         else if (isHit)
         {
-            // 攻撃が右から来たならキャラの向きを右向きに、左からなら左向きに
-            isFacingRight = hitDirection;
             animator.Play(isFacingRight ? damageLeftClip.name : damageRightClip.name);
         }
     }

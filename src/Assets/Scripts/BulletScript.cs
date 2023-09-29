@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float shotInterval = 0.15f;
+    [SerializeField] private GameObject accelBulletPrefab;
+    [SerializeField] private GameObject deccelBulletPrefab;
+    [SerializeField] private GameObject gunShaft;
+    [SerializeField] private GameObject gunMuzzle;
 
-    public GameObject accelBullet;
-    public GameObject deccelBullet;
-    public GameObject gunShaft;
+    private GameObject playerObj;
+    private PlayerScript player;
 
+    private bool isHit = false;
     private bool canShot = true;
+
+    private void Start()
+    {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.GetComponent<PlayerScript>();
+    }
 
     private void Update()
     {
+        isHit = player.isHit;
+
         // マウスの位置を取得
         Vector3 mousePosition = Input.mousePosition;
 
@@ -29,16 +40,16 @@ public class BulletScript : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gunShaft.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        if (Input.GetMouseButtonDown(1) && canShot) // 右クリックで弾（減速）を発射
+        if (Input.GetMouseButtonDown(0) && canShot && !isHit) // 左クリックで弾（減速）を発射
         {
             ShootCoolTime();
-            ShotBullet(deccelBullet);
+            ShotBullet(deccelBulletPrefab);
         }
 
-        if (Input.GetMouseButtonDown(0) && canShot) // 左クリックで弾（加速）を発射
+        if (Input.GetMouseButtonDown(1) && canShot && !isHit) // 左クリックで弾（加速）を発射
         {
             ShootCoolTime();
-            ShotBullet(accelBullet);
+            ShotBullet(accelBulletPrefab);
         }
     }
 
@@ -51,7 +62,8 @@ public class BulletScript : MonoBehaviour
         // 弾の発射方向を計算
         Vector3 shootDirection = (mousePos - transform.position).normalized;
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        // マズルオブジェクトからセットしたバレットプレハブを発射
+        GameObject bullet = Instantiate(bulletPrefab, gunMuzzle.transform.position, Quaternion.identity);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // 重力影響なし
 
