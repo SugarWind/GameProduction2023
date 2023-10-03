@@ -29,5 +29,16 @@ public class FloorScript : MonoBehaviour
                 floorSpeed = 3;
             }
         }
+
+        if (collision.gameObject.tag == "Dcammo")
+        {
+            Debug.Log("è∞å∏ë¨");
+            floorSpeed -= 2.0f; //óéâ∫ë¨ìxå∏êä
+
+            if( floorSpeed < 0)
+            {
+                floorSpeed = 0;
+            }
+        }
     }
 }
