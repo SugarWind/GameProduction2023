@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour
+
+public class STAGE1 : MonoBehaviour
 {
-    public  void LoadingNewScene()
+    public void LoadingNewScene()
     {
-        SceneManager.LoadScene("StageSlect"); 
+        SceneManager.LoadScene("StageScene");
     }
 }
