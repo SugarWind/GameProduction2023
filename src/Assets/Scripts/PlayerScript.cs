@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private int jumpForce = 12;
-    [SerializeField] private float speed = 4f;
+    [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float floorSpeed = 0f;
+    [SerializeField] private float missileSpeed = 0f;
+    [SerializeField] private float otherSpeed = 0f;  // キー操作による移動以外に加わるスピード
     [SerializeField] private float flashInterval = 0.04f;
     [SerializeField] private float knockbackForce = 200.0f;
     [SerializeField] private float invincibleInterval = 2.0f;
@@ -19,6 +21,8 @@ public class PlayerScript : MonoBehaviour
     private bool isJumping;
     private bool isFacingRight = true;  // キャラの向きを管理
     private bool hitDirection = true;  // 攻撃がきた方向を管理
+    private bool isRidingMissile = false;
+    private bool isRidingFloor = false;
     public bool isInvincible;
     public bool isHit;
 
@@ -43,13 +47,14 @@ public class PlayerScript : MonoBehaviour
         isHit = false;
         isJumping = false;
         isInvincible = false;
+
     }
 
     private void Update()
     {
         float moveDirection = Input.GetAxis("Horizontal");
 
-        // ジャンプ
+        // ジャンプ    
         if (Input.GetKeyDown(KeyCode.W) && !isJumping && !isHit)
         {
             Jump();
@@ -80,12 +85,12 @@ public class PlayerScript : MonoBehaviour
             if (moveDirection > 0)
             {
                 animator.Play(isFacingRight ? runRightClip.name : backLeftClip.name);
-                speed = (isFacingRight ? 4f : 3f);
+                moveSpeed = (isFacingRight ? 4f : 3f);  // 前進は速く後進は遅く
             }
             else if (moveDirection < 0)
             {
                 animator.Play(isFacingRight ? backRightClip.name : runLeftClip.name);
-                speed = (isFacingRight ? 3f : 4f);
+                moveSpeed = (isFacingRight ? 3f : 4f);
             }
             // 停止アニメーションを設定
             else
@@ -104,9 +109,18 @@ public class PlayerScript : MonoBehaviour
     {
         float moveDirection = Input.GetAxis("Horizontal");
 
+        if (!isRidingFloor)
+        {
+            if (rb.velocity.y == 0)
+            {
+                floorSpeed = 0f;  // 地面に着くまでは慣性が働く
+            }
+        }
+
         if (!isHit)
         {
-            rb.velocity = new Vector2(moveDirection * speed + floorSpeed, rb.velocity.y);
+            otherSpeed = (isRidingMissile ? missileSpeed : floorSpeed);
+            rb.velocity = new Vector2(moveDirection * moveSpeed + otherSpeed, rb.velocity.y);
         }
     }
 
@@ -115,7 +129,6 @@ public class PlayerScript : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    // 敵とぶつかったら
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
@@ -169,6 +182,18 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("床とプレイヤー");
             FloorScript flscript = collision.gameObject.GetComponent<FloorScript>();
             floorSpeed = flscript.floorSpeed;
+            isRidingFloor = true;
+        }
+
+        if(collision.gameObject.tag == "Missile")
+        {
+            MissileScript missile = collision.gameObject.GetComponent<MissileScript>();
+
+            if(transform.position.y > missile.transform.position.y)  // 下からの接触判定を防止
+            {
+                missileSpeed = missile.Mspeed;
+                isRidingMissile = true;
+            }
         }
     }
 
@@ -176,7 +201,12 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "floor") //床から離れたら
         {
-            floorSpeed = 0f;
+            isRidingFloor = false;
+        }
+
+        if (collision.gameObject.tag == "Missile")
+        {
+            isRidingMissile = false;
         }
     }
 }

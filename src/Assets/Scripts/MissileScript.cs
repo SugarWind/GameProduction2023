@@ -5,7 +5,8 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour
 {
     Rigidbody2D Mrb;
-    private float Mspeed = -5f;
+    public float Mspeed = -5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,5 @@ public class MissileScript : MonoBehaviour
                 Mspeed = -1f;
             }
         }
-
-       
     }
 }

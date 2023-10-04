@@ -248,7 +248,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.25
+  orthographic size: 11.78125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 1694025820}
   - component: {fileID: 1694025819}
   - component: {fileID: 1694025824}
+  - component: {fileID: 1694025825}
   m_Layer: 3
   m_Name: Chara
   m_TagString: Player
@@ -1035,7 +1036,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.008776188, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1046,7 +1047,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 0.9330187, y: 1.6}
   m_EdgeRadius: 0
 --- !u!95 &1694025821
 Animator:
@@ -1149,8 +1150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 6
-  speed: 4
+  moveSpeed: 4
   floorSpeed: 0
+  missileSpeed: 0
+  otherSpeed: 0
   flashInterval: 0.04
   knockbackForce: 200
   invincibleInterval: 2
@@ -1168,6 +1171,19 @@ MonoBehaviour:
   damageLeftClip: {fileID: 7400000, guid: 8a4fa0c1efeb07f488046cf3e7e29c0c, type: 2}
   backRightClip: {fileID: 7400000, guid: b36380bb3dcedde4a899b92359d85cf6, type: 2}
   backLeftClip: {fileID: 7400000, guid: dffcfc1a29a46bc4b848597d7e0fa27b, type: 2}
+--- !u!114 &1694025825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694025818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a80170b6cc88040b89669d0f059cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathHeight: -14
 --- !u!1001 &1722361923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2223,7 +2239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799628332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0016021729, y: 0.0014722347, z: 0.2}
+  m_LocalPosition: {x: 0.001602173, y: 0.001472235, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
