@@ -37,6 +37,8 @@ public class PlayerScript : MonoBehaviour
     public AnimationClip backRightClip;  // 右向き後ろ歩きアニメーション
     public AnimationClip backLeftClip;  // 左向き後ろ歩きアニメーション
 
+    public float moveDirection;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,7 +54,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
-        float moveDirection = Input.GetAxis("Horizontal");
+        moveDirection = Input.GetAxis("Horizontal");
 
         // ジャンプ    
         if (Input.GetKeyDown(KeyCode.W) && !isJumping && !isHit)
@@ -107,15 +109,23 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float moveDirection = Input.GetAxis("Horizontal");
+        /*float*/moveDirection = Input.GetAxis("Horizontal");
 
-        if (!isRidingFloor)
+        if (!isRidingFloor && floorSpeed != 0)
         {
             if (rb.velocity.y == 0)
             {
                 floorSpeed = 0f;  // 地面に着くまでは慣性が働く
             }
         }
+        else if (!isRidingMissile && missileSpeed != 0)
+        {
+            if (rb.velocity.y == 0)
+            {
+                missileSpeed = 0f;  // 地面に着くまでは慣性が働く
+            }
+        }
+
 
         if (!isHit)
         {
@@ -185,7 +195,7 @@ public class PlayerScript : MonoBehaviour
             isRidingFloor = true;
         }
 
-        if(collision.gameObject.tag == "Missile")
+        if (collision.gameObject.tag == "Missile")
         {
             MissileScript missile = collision.gameObject.GetComponent<MissileScript>();
 
@@ -201,12 +211,34 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "floor") //床から離れたら
         {
-            isRidingFloor = false;
+            //isRidingFloor = false;
+
+            if(moveDirection == 0)
+            {
+                floorSpeed = 0;
+                isRidingFloor = false;
+            }
+            else
+            {
+                
+                isRidingFloor = false;
+            }
         }
 
         if (collision.gameObject.tag == "Missile")
         {
-            isRidingMissile = false;
+            //isRidingMissile = false;
+
+            if (moveDirection == 0)
+            {
+                floorSpeed = 0;
+                isRidingFloor = false;
+            }
+            else
+            {
+
+                isRidingFloor = false;
+            }
         }
     }
 }
