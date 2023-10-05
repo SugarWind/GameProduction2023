@@ -8,7 +8,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float floorSpeed = 0f;
     [SerializeField] private float missileSpeed = 0f;
-    [SerializeField] private float otherSpeed = 0f;  // キー操作による移動以外に加わるスピード
     [SerializeField] private float flashInterval = 0.04f;
     [SerializeField] private float knockbackForce = 200.0f;
     [SerializeField] private float invincibleInterval = 2.0f;
@@ -118,7 +117,8 @@ public class PlayerScript : MonoBehaviour
                 floorSpeed = 0f;  // 地面に着くまでは慣性が働く
             }
         }
-        else if (!isRidingMissile && missileSpeed != 0)
+        
+        if (!isRidingMissile && missileSpeed != 0)
         {
             if (rb.velocity.y == 0)
             {
@@ -129,8 +129,7 @@ public class PlayerScript : MonoBehaviour
 
         if (!isHit)
         {
-            otherSpeed = (isRidingMissile ? missileSpeed : floorSpeed);
-            rb.velocity = new Vector2(moveDirection * moveSpeed + otherSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(moveDirection * moveSpeed + floorSpeed + missileSpeed, rb.velocity.y);
         }
     }
 
@@ -229,15 +228,15 @@ public class PlayerScript : MonoBehaviour
         {
             //isRidingMissile = false;
 
-            if (moveDirection == 0)
+            if (moveDirection >= 0)
             {
-                floorSpeed = 0;
-                isRidingFloor = false;
+                missileSpeed = 0;
+                isRidingMissile = false;
+
             }
             else
             {
-
-                isRidingFloor = false;
+                isRidingMissile = false;
             }
         }
     }
