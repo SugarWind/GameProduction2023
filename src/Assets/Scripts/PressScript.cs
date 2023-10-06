@@ -21,4 +21,17 @@ public class PressScript : MonoBehaviour
 
         transform.position = PressPosition + new Vector2(0, topbPos);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag =="Dcammo")
+        {
+            MoveSpeed -= 0.5f;
+
+            if(MoveSpeed <1f)
+            {
+                MoveSpeed = 1f;
+            }
+        }
+    }
 }
