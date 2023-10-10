@@ -99,9 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   shotInterval: 0.15
-  accelBullet: {fileID: 0}
-  deccelBullet: {fileID: 0}
+  accelBulletPrefab: {fileID: 0}
+  deccelBulletPrefab: {fileID: 0}
   gunShaft: {fileID: 0}
+  gunMuzzle: {fileID: 0}
 --- !u!1 &8675149297561937593
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,14 +251,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0
-  speed: 3
+  moveSpeed: 4
   floorSpeed: 0
+  missileSpeed: 0
   flashInterval: 0.04
   knockbackForce: 200
   invincibleInterval: 2
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
   isInvincible: 0
+  isHit: 0
   jumpRightClip: {fileID: 0}
   jumpLeftClip: {fileID: 0}
   runRightClip: {fileID: 0}
@@ -266,3 +269,6 @@ MonoBehaviour:
   standLeftClip: {fileID: 0}
   damageRightClip: {fileID: 0}
   damageLeftClip: {fileID: 0}
+  backRightClip: {fileID: 0}
+  backLeftClip: {fileID: 0}
+  moveDirection: 0
