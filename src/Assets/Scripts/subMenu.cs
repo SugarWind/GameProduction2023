@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class subMenu : MonoBehaviour
 {
-    public bool menuDisplay = false;
+    private bool menuDisplay = false;  // メニュー画面の表示/非表示
 
     public GameObject menuUI;
 
@@ -12,20 +12,27 @@ public class subMenu : MonoBehaviour
     void Start()
     {
         menuUI.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(2) && !menuDisplay)
+        if(Input.GetMouseButtonDown(2))  // マウスホイールをクリック
         {
-            menuUI.SetActive(true);
-            menuDisplay = true;
-        }
-        else if (Input.GetMouseButtonDown(2) && menuDisplay)
-        {
-            menuUI.SetActive(false);
-            menuDisplay = false;
+            if(!menuDisplay)
+            {
+                // メニューを表示し、時間を停止
+                menuUI.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                menuUI.SetActive(false);
+                Time.timeScale = 1;
+            }
+
+            menuDisplay = !menuDisplay;
         }
     }
 }

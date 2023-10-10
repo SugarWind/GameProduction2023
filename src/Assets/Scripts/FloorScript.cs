@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FloorScript : MonoBehaviour
 {
-    float animationSpeed;
+    float animationSpeed;  // ベルコンのアニメーションの速度
 
-    public float floorSpeed = 0f;
+    public float floorSpeed = 0f;  // ベルコンに乗った時の移動速度
     
     Animator animator;
 
@@ -27,7 +27,35 @@ public class FloorScript : MonoBehaviour
     {
         if (collision.gameObject.tag =="Acammo")
         {
-            Debug.Log("床判定");
+            if(transform.rotation.y == 0)  // 正転
+            {
+                Debug.Log("床判定");
+                floorSpeed += 1f;
+                animationSpeed -= 0.3f;
+
+                if (floorSpeed > 3)
+                {
+                    floorSpeed = 3;
+                    animationSpeed = -0.9f;
+                }
+
+                animator.SetFloat("AnimationSpeed", animationSpeed);
+            }
+            else if (transform.rotation.y != 0)  // 逆転
+            {
+                Debug.Log("床判定");
+                floorSpeed -= 1f;
+                animationSpeed -= 0.3f;
+
+                if (floorSpeed < -3)
+                {
+                    floorSpeed = -3;
+                    animationSpeed = -0.9f;
+                }
+
+                animator.SetFloat("AnimationSpeed", animationSpeed);
+            }
+            /*Debug.Log("床判定");
             floorSpeed += 1f;
             animationSpeed -= 0.3f;
 
@@ -37,12 +65,41 @@ public class FloorScript : MonoBehaviour
                 animationSpeed = -0.9f;
             }
 
-            animator.SetFloat("AnimationSpeed", animationSpeed);
+            animator.SetFloat("AnimationSpeed", animationSpeed);*/
         }
 
         if (collision.gameObject.tag == "Dcammo")
         {
-            Debug.Log("床減速");
+            if (transform.rotation.y == 0)  // 正転
+            {
+                Debug.Log("床減速");
+                floorSpeed -= 2.0f; //落下速度減衰
+                animationSpeed += 0.3f;
+
+                if (floorSpeed < 0)
+                {
+                    floorSpeed = 0;
+                    animationSpeed = 0;
+                }
+
+                animator.SetFloat("AnimationSpeed", animationSpeed);
+            }
+            else if (transform.rotation.y != 0)  // 逆転
+            {
+                Debug.Log("床減速");
+                floorSpeed += 2.0f; //落下速度減衰
+                animationSpeed += 0.3f;
+
+                if (floorSpeed > 0)
+                {
+                    floorSpeed = 0;
+                    animationSpeed = 0;
+                }
+
+                animator.SetFloat("AnimationSpeed", animationSpeed);
+            }
+
+            /*Debug.Log("床減速");
             floorSpeed -= 2.0f; //落下速度減衰
             animationSpeed += 0.3f;
 
@@ -52,7 +109,7 @@ public class FloorScript : MonoBehaviour
                 animationSpeed = 0;
             }
 
-            animator.SetFloat("AnimationSpeed", animationSpeed);
+            animator.SetFloat("AnimationSpeed", animationSpeed);*/
         }
     }
 }
