@@ -37,7 +37,18 @@ public class PressMachineScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Dcammo")
+        if (collision.gameObject.tag == "Acammo")
+        {
+            Debug.Log("ƒvƒŒƒX‰Á‘¬");
+            MoveSpeed += 1f;
+
+            if(MoveSpeed >35f)
+            {
+                MoveSpeed = 35f;
+            }
+
+        }
+            if (collision.gameObject.tag == "Dcammo")
         {
             MoveSpeed -= 0.5f;
 

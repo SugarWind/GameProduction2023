@@ -5,7 +5,7 @@ using UnityEngine;
 public class StoneScript : MonoBehaviour
 {
     private Rigidbody2D Srb;
-    private float GravitySpeed = - 8f; //—Ž‰º‘¬“x
+    [SerializeField]private float GravitySpeed = - 8f; //—Ž‰º‘¬“x
 
     private void Start()
     {

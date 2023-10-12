@@ -5,11 +5,12 @@ using UnityEngine;
 public class InstantiateMissleScript : MonoBehaviour
 {
     [SerializeField] private GameObject MissleOb;
-    [SerializeField] private float MissleRate = 5f; 
+    [SerializeField] private float MissleRate = 5f;
+    [SerializeField] private float StartMissle = 1f;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("CreateMissle", 1f, MissleRate);
+        InvokeRepeating("CreateMissle", StartMissle, MissleRate);
     }
 
     // Update is called once per frame
