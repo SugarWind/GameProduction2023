@@ -35,7 +35,7 @@ public class MissileScript : MonoBehaviour
         {
             Mspeed += 1f;
 
-            if(Mspeed > 0)
+            if(Mspeed == 0)
             {
                 Mspeed = -1f;
             }
