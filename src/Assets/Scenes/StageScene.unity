@@ -3177,6 +3177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissleOb: {fileID: 7653926821977531432, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
   MissleRate: 5
+  StartMissle: 1
 --- !u!212 &1459750382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3567,6 +3568,7 @@ GameObject:
   - component: {fileID: 1694025825}
   - component: {fileID: 1694025826}
   - component: {fileID: 1694025827}
+  - component: {fileID: 1694025828}
   m_Layer: 3
   m_Name: Chara
   m_TagString: Player
@@ -3772,6 +3774,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8580494, y: 1.8210375}
   m_EdgeRadius: 0
+--- !u!114 &1694025828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694025818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277090b49da2df64cbfea21f57866c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1722361923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5417,6 +5431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a000b2b49a0be804180c18d8a05951ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GravitySpeed: -8
 --- !u!1 &1799628332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6430,6 +6445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine)
       objectReference: {fileID: 0}
+    - target: {fileID: 1919187153534572975, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1001 &4921088989763974129
@@ -6547,6 +6566,18 @@ PrefabInstance:
     - target: {fileID: 7653926821977531435, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653926821977531444, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
+      propertyPath: m_Size.x
+      value: 4.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653926821977531444, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653926821977531444, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}

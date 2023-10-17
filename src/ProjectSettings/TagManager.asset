@@ -12,6 +12,7 @@ TagManager:
   - Missile
   - Arm
   - Enemy
+  - Enemy1
   layers:
   - Default
   - TransparentFX
