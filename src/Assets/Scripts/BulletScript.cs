@@ -11,8 +11,8 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private GameObject gunShaft;
     [SerializeField] private GameObject gunMuzzle;
 
-    [SerializeField] private int AcBullet = 50;
-    [SerializeField] private int DcBullet = 50;
+    [SerializeField] public int AcBullet = 50;
+    [SerializeField] public int DcBullet = 50;
 
     private GameObject playerObj;
     private PlayerScript player;
