@@ -9,10 +9,34 @@ public class PressMachineScript : MonoBehaviour
 
     public float MoveSpeed = 3.0f;
     int direction = -1;
+
+    private SpriteRenderer pressSprite;
+    public Sprite PressDefault;
+    public Sprite PressAcc;
+    public Sprite PressDec;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        pressSprite = gameObject.GetComponent<SpriteRenderer>();
+
+}
+
+private void Update()
+    {
+        if (MoveSpeed == 3.0f)
+        {
+            pressSprite.sprite = PressDefault;
+        }
+        else if (MoveSpeed > 3.0f)
+        {
+            pressSprite.sprite = PressAcc;
+        }
+        else if (MoveSpeed < 3.0f)
+        {
+            pressSprite.sprite = PressDec;
+        }
     }
 
     private void FixedUpdate()
@@ -24,6 +48,7 @@ public class PressMachineScript : MonoBehaviour
         {
             direction *= -direction;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,9 +73,11 @@ public class PressMachineScript : MonoBehaviour
             }
 
         }
-            if (collision.gameObject.tag == "Dcammo")
+        if (collision.gameObject.tag == "Dcammo")
         {
             MoveSpeed -= 0.5f;
+
+
 
             Debug.Log("ƒvƒŒƒXŒ¸‘¬");
 
@@ -59,6 +86,7 @@ public class PressMachineScript : MonoBehaviour
                 MoveSpeed = 1f;
             }
         }
+
     }
 
 }
