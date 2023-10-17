@@ -7,27 +7,32 @@ public class FloorScript : MonoBehaviour
     float animationSpeed;  // ÉxÉãÉRÉìÇÃÉAÉjÉÅÅ[ÉVÉáÉìÇÃë¨ìx
 
     public float floorSpeed = 0f;  // ÉxÉãÉRÉìÇ…èÊÇ¡ÇΩéûÇÃà⁄ìÆë¨ìx
-    
-    Animator animator;
+
+    Animator animator_normal;
+
+    public AnimationClip animator_a;
+    public AnimationClip animator_d;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator_normal = GetComponent<Animator>();
         //animationSpeed = animator.GetFloat("AnimationSpeed");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag =="Acammo")
+        if (collision.gameObject.tag == "Acammo")
         {
-            if(transform.rotation.y == 0)  // ê≥ì]
+            animator_normal.Play(animator_a.name);
+
+            if (transform.rotation.y == 0)  // ê≥ì]
             {
                 Debug.Log("è∞îªíË");
                 floorSpeed += 1f;
@@ -39,7 +44,7 @@ public class FloorScript : MonoBehaviour
                     animationSpeed = -0.9f;
                 }
 
-                animator.SetFloat("AnimationSpeed", animationSpeed);
+                animator_normal.SetFloat("AnimationSpeed", animationSpeed);
             }
             else if (transform.rotation.y != 0)  // ãtì]
             {
@@ -53,7 +58,7 @@ public class FloorScript : MonoBehaviour
                     animationSpeed = -0.9f;
                 }
 
-                animator.SetFloat("AnimationSpeed", animationSpeed);
+                animator_normal.SetFloat("AnimationSpeed", animationSpeed);
             }
             /*Debug.Log("è∞îªíË");
             floorSpeed += 1f;
@@ -70,6 +75,8 @@ public class FloorScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Dcammo")
         {
+            animator_normal.Play(animator_d.name);
+
             if (transform.rotation.y == 0)  // ê≥ì]
             {
                 Debug.Log("è∞å∏ë¨");
@@ -82,7 +89,7 @@ public class FloorScript : MonoBehaviour
                     animationSpeed = 0;
                 }
 
-                animator.SetFloat("AnimationSpeed", animationSpeed);
+                animator_normal.SetFloat("AnimationSpeed", animationSpeed);
             }
             else if (transform.rotation.y != 0)  // ãtì]
             {
@@ -96,7 +103,7 @@ public class FloorScript : MonoBehaviour
                     animationSpeed = 0;
                 }
 
-                animator.SetFloat("AnimationSpeed", animationSpeed);
+                animator_normal.SetFloat("AnimationSpeed", animationSpeed);
             }
 
             /*Debug.Log("è∞å∏ë¨");
