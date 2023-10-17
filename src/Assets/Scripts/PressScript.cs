@@ -6,7 +6,7 @@ public class PressScript : MonoBehaviour
 {
 
     public float MoveSpeed = 3f;
-    public float MoveRange = 5f; 
+    public float MoveRange = 5f;
 
     private Vector2 PressPosition;
     // Start is called before the first frame update

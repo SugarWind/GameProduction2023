@@ -11,6 +11,9 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private GameObject gunShaft;
     [SerializeField] private GameObject gunMuzzle;
 
+    [SerializeField] private int AcBullet = 50;
+    [SerializeField] private int DcBullet = 50;
+
     private GameObject playerObj;
     private PlayerScript player;
 
@@ -43,13 +46,15 @@ public class BulletScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canShot && !isHit) // 左クリックで弾（減速）を発射
         {
             ShootCoolTime();
-            ShotBullet(deccelBulletPrefab);
+            ShotBullet(accelBulletPrefab);
+            AcBullet -= 1;
         }
 
         if (Input.GetMouseButtonDown(1) && canShot && !isHit) // 左クリックで弾（加速）を発射
         {
             ShootCoolTime();
-            ShotBullet(accelBulletPrefab);
+            ShotBullet(deccelBulletPrefab);
+            DcBullet -= 1;
         }
     }
 
