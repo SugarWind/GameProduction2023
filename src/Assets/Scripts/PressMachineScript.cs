@@ -20,7 +20,7 @@ public class PressMachineScript : MonoBehaviour
 
         rb.MovePosition(new Vector2(transform.position.x, transform.position.y + MoveSpeed * Time.fixedDeltaTime * direction));
 
-        if (transform.position.y > TopPos.position.y)
+        if (transform.position.y > TopPos.position.y + 8)
         {
             direction *= -direction;
         }
@@ -28,7 +28,7 @@ public class PressMachineScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "floor")
         {
             direction = -direction;
             Debug.Log("ÉvÉåÉXê⁄êG");
