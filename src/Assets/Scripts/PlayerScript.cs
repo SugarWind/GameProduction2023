@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject armObj;
     private ArmMove arm;
+    private GameObject jumpObj;
+    private JumpTrigger jump;
     private bool isJumping;
     private bool isFacingRight = true;  // キャラの向きを管理
     private bool hitDirection = true;  // 攻撃がきた方向を管理
@@ -45,6 +47,8 @@ public class PlayerScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         armObj = GameObject.FindGameObjectWithTag("Arm");
         arm = armObj.GetComponent<ArmMove>();
+        jumpObj = GameObject.FindGameObjectWithTag("Jump");
+        jump = jumpObj.GetComponent<JumpTrigger>();
         isHit = false;
         isJumping = false;
         isInvincible = false;
@@ -69,7 +73,8 @@ public class PlayerScript : MonoBehaviour
     {
         // ジャンプ中かを更新
         // キャラの垂直方向の速度が0でない場合、true
-        isJumping = rb.velocity.y != 0;
+        //isJumping = rb.velocity.y != 0;
+        isJumping = jump.isJumping;
 
         // ArmRotation_yの左右反転に応じてキャラの向きを更新
         isFacingRight = arm.Right;

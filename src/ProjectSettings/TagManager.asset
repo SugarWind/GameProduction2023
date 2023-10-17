@@ -13,6 +13,7 @@ TagManager:
   - Arm
   - Enemy
   - Enemy1
+  - Jump
   layers:
   - Default
   - TransparentFX
