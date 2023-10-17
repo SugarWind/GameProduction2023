@@ -7,10 +7,16 @@ public class MissileScript : MonoBehaviour
     Rigidbody2D Mrb;
     public float Mspeed = -5f;
 
+    private Animator missileAnimator_normal;
+
+    public AnimationClip missileAnimator_a;
+    public AnimationClip missileAnimator_d;
+
     // Start is called before the first frame update
     void Start()
     {
-         Mrb = GetComponent<Rigidbody2D>();
+        Mrb = GetComponent<Rigidbody2D>();
+        Animator missileAnimator_normal = GetComponent<Animator>();
     }
 
     // Update is called once per frame
