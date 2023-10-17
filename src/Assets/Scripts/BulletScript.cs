@@ -56,6 +56,18 @@ public class BulletScript : MonoBehaviour
             ShotBullet(deccelBulletPrefab);
             DcBullet -= 1;
         }
+
+        if(AcBullet < 0)
+        {
+            AcBullet = 0;
+        }
+
+        if(DcBullet < 0)
+        {
+            DcBullet = 0;
+        }
+
+        Debug.Log(AcBullet);
     }
 
     private void ShotBullet(GameObject bulletPrefab)
