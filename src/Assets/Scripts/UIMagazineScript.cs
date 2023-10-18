@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+//using TMPro;
 
 public class UIMagazineScript : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class UIMagazineScript : MonoBehaviour
 
     BulletScript buScript;
 
-    [SerializeField] TextMeshProUGUI ABulletText;
+    // [SerializeField] TextMeshProUGUI ABulletText;
+    public Text ABulletText;
     // Start is called before the first frame update
     void Start()
     {
