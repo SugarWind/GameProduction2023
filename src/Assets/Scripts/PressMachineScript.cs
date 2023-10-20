@@ -7,9 +7,15 @@ public class PressMachineScript : MonoBehaviour
     [SerializeField] private Transform TopPos;
     Rigidbody2D rb;
 
-    public float MoveSpeed = 3.0f;
+    [SerializeField] private float MoveSpeed = 3.0f;
+    [SerializeField] private float ChangeSpeed = 2; //変化の倍率
+    [SerializeField] private float ChangeScale = 2; //変化の段階
+
     int direction = -1;
 
+    private float _moveSpeed;
+    private float _maxSpeed;    //最高速度
+    private float _minSpeed;    //最低速度
     private SpriteRenderer pressSprite;
     public Sprite PressDefault;
     public Sprite PressAcc;
@@ -20,24 +26,12 @@ public class PressMachineScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         pressSprite = gameObject.GetComponent<SpriteRenderer>();
-
-}
-
-private void Update()
-    {
-        if (MoveSpeed == 3.0f)
-        {
-            pressSprite.sprite = PressDefault;
-        }
-        else if (MoveSpeed > 3.0f)
-        {
-            pressSprite.sprite = PressAcc;
-        }
-        else if (MoveSpeed < 3.0f)
-        {
-            pressSprite.sprite = PressDec;
-        }
+        _moveSpeed = MoveSpeed;
+        _maxSpeed = MoveSpeed * Mathf.Pow(ChangeSpeed, ChangeScale); 
+        _minSpeed = MoveSpeed / Mathf.Pow(ChangeSpeed, ChangeScale); 
     }
+
+    
 
     private void FixedUpdate()
     {
@@ -64,29 +58,40 @@ private void Update()
     {
         if (collision.gameObject.tag == "Acammo")
         {
+            MoveSpeed *= ChangeSpeed;
             Debug.Log("プレス加速");
-            MoveSpeed += 1f;
 
-            if(MoveSpeed >35f)
+            if(MoveSpeed > _maxSpeed)
             {
-                MoveSpeed = 35f;
+                MoveSpeed = _maxSpeed;
             }
-
         }
         if (collision.gameObject.tag == "Dcammo")
         {
-            MoveSpeed -= 0.5f;
-
-
-
+            MoveSpeed /= ChangeSpeed;
             Debug.Log("プレス減速");
 
-            if (MoveSpeed < 1f)
+            if (MoveSpeed < _minSpeed)
             {
-                MoveSpeed = 1f;
+                MoveSpeed = _minSpeed;
             }
         }
-
+        ChangePressSprite();
     }
 
+    private void ChangePressSprite()    //加減速状態に応じてプレス機のスプライトを変更
+    {
+        if (MoveSpeed == _moveSpeed)
+        {
+            pressSprite.sprite = PressDefault;
+        }
+        else if (MoveSpeed > _moveSpeed)
+        {
+            pressSprite.sprite = PressAcc;
+        }
+        else if (MoveSpeed < _moveSpeed)
+        {
+            pressSprite.sprite = PressDec;
+        }
+    }
 }
