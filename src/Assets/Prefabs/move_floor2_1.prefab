@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorSpeed: 0
+  animator_default: {fileID: 7400000, guid: 39297d79f02ec57489685ce8f72dc697, type: 2}
   animator_a: {fileID: 7400000, guid: d390e96d0e86f7f4b8cddef1aabe1769, type: 2}
   animator_d: {fileID: 7400000, guid: 175b48e7bf9c91d40bf47d569c8a8713, type: 2}
 --- !u!95 &8608650514119973279
