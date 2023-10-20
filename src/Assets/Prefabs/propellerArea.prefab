@@ -417,6 +417,9 @@ MonoBehaviour:
   Paf: {fileID: 0}
   PropellerMax: 20
   PropellerMin: 1
+  propeller_default: {fileID: 7400000, guid: 1ba38c1fa8cb98040874b857a70842b6, type: 2}
+  propeller_a: {fileID: 7400000, guid: 3d05949143591f24cbf35ec026d2930a, type: 2}
+  propeller_d: {fileID: 7400000, guid: fa5ede4c1a7828c4b92d4ba76917eaf3, type: 2}
 --- !u!95 &4184000893284580477
 Animator:
   serializedVersion: 4

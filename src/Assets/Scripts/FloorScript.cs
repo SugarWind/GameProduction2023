@@ -8,8 +8,10 @@ public class FloorScript : MonoBehaviour
 
     public float floorSpeed = 0f;  // ベルコンに乗った時の移動速度
 
-    Animator animator_normal;
+    private float defaultSpeed;
 
+    Animator animator_normal;
+    public AnimationClip animator_default;
     public AnimationClip animator_a;
     public AnimationClip animator_d;
 
@@ -17,13 +19,17 @@ public class FloorScript : MonoBehaviour
     void Start()
     {
         animator_normal = GetComponent<Animator>();
+        defaultSpeed = floorSpeed;
         //animationSpeed = animator.GetFloat("AnimationSpeed");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        /*if(floorSpeed == defaultSpeed)
+        {
+            animator_normal.Play(animator_default.name);
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +44,11 @@ public class FloorScript : MonoBehaviour
                 floorSpeed += 1f;
                 animationSpeed -= 0.3f;
 
+                /*if(floorSpeed > defaultSpeed)
+                {
+                    animator_normal.Play(animator_a.name);
+                }*/
+
                 if (floorSpeed > 3)
                 {
                     floorSpeed = 3;
@@ -51,6 +62,11 @@ public class FloorScript : MonoBehaviour
                 Debug.Log("床判定");
                 floorSpeed -= 1f;
                 animationSpeed -= 0.3f;
+
+                /*if (floorSpeed < defaultSpeed)
+                {
+                    animator_normal.Play(animator_a.name);
+                }*/
 
                 if (floorSpeed < -3)
                 {
@@ -83,6 +99,11 @@ public class FloorScript : MonoBehaviour
                 floorSpeed -= 2.0f; //落下速度減衰
                 animationSpeed += 0.3f;
 
+                /*if (floorSpeed < defaultSpeed)
+                {
+                    animator_normal.Play(animator_d.name);
+                }*/
+
                 if (floorSpeed < 0)
                 {
                     floorSpeed = 0;
@@ -96,6 +117,11 @@ public class FloorScript : MonoBehaviour
                 Debug.Log("床減速");
                 floorSpeed += 2.0f; //落下速度減衰
                 animationSpeed += 0.3f;
+
+                /*if (floorSpeed > defaultSpeed)
+                {
+                    animator_normal.Play(animator_d.name);
+                }*/
 
                 if (floorSpeed > 0)
                 {
