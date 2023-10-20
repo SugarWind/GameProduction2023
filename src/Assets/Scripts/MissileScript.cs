@@ -28,10 +28,10 @@ public class MissileScript : MonoBehaviour
     {
         Mrb.velocity = new Vector2(Mspeed, 0);
 
-        if(Mspeed == defaultSpeed)
+        /*if(Mspeed == defaultSpeed)
         {
             missileAnimator_normal.Play(missile_default.name);
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
