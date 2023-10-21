@@ -13,7 +13,7 @@ public class BTriggerSctipt : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if(collision.gameObject.tag != "Acammo"&& collision.gameObject.tag != "Arm"&& collision.gameObject.tag != "Player" && collision.gameObject.tag != "Jump")
+        if(collision.gameObject.tag != "Acammo"&& collision.gameObject.tag != "Dcammo" && collision.gameObject.tag != "Arm"&& collision.gameObject.tag != "Player" && collision.gameObject.tag != "Jump")
         {
             Destroy(this.gameObject);
         }
