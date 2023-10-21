@@ -117,7 +117,7 @@ public class PlayerScript : MonoBehaviour
 
         if (!isRidingFloor && floorSpeed != 0)
         {
-            if (rb.velocity.y == 0)
+            if (!isJumping)
             {
                 floorSpeed = 0f;  // 地面に着くまでは慣性が働く
             }
@@ -125,7 +125,7 @@ public class PlayerScript : MonoBehaviour
         
         if (!isRidingMissile && missileSpeed != 0)
         {
-            if (rb.velocity.y == 0)
+            if (!isJumping)
             {
                 missileSpeed = 0f;  // 地面に着くまでは慣性が働く
             }
@@ -191,7 +191,7 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "floor")
+        if (collision.gameObject.tag == "floor" && !jump.isJumping)
         {
             Debug.Log("床とプレイヤー");
             FloorScript flscript = collision.gameObject.GetComponent<FloorScript>();
