@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleMoveObject : MonoBehaviour
+/*public class SimpleMoveObject : MonoBehaviour
 {
     [SerializeField] private Transform _objDestination;
 
@@ -34,4 +34,4 @@ public class SimpleMoveObject : MonoBehaviour
     {
         
     }
-}
+}*/
