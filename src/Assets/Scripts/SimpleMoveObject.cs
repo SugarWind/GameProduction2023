@@ -4,100 +4,156 @@ using UnityEngine;
 
 public class SimpleMoveObject : MonoBehaviour
 {
-    [SerializeField] private Transform _objDestination;
-
-    [SerializeField] private float _movePositionX = 12.0f;  //X軸の移動距離
-    [SerializeField] private float _movePositionY = 0.0f;  //Y軸の移動距離
-    [SerializeField] private float _moveSpeedX = 3.0f;  //X軸の速度
-    [SerializeField] private float _moveSpeedY = 0.0f;  //Y軸の速度
+    private Vector2 _objPos;
+    [SerializeField] private Vector2 _movePos;  //移動距離
+    [SerializeField] private Vector2 _moveSpeed;    //速度
     [SerializeField] private float _changeSpeed = 2;    //変化の倍率
     [SerializeField] private float _changeScale = 2;    //変化の段階
+    private Vector2 _defaultPos;    //デフォルトの座標
+    private Vector2 _targetPos; //移動先の座標
+    private Vector2 _fromPos;   //移動元の座標
+    private Vector2 _defaultMoveSpeed;  //デフォルトの速度
+    private Vector2 _maxSpeed;  //最高速度
+    private Vector2 _minSpeed;  //最低速度
 
-    private Rigidbody2D _rbObj;
-    private float _defaultPositionX;
-    private float _defaultPositionY;
-    [SerializeField] private float _targetPositionX; //移動先のX座標
-    [SerializeField] private float _targetPositionY; //移動先のY座標
-    [SerializeField] private float _fromPositionX;   //移動元のX座標
-    [SerializeField] private float _fromPositionY;   //移動元のY座標
-    private float _defaultMoveSpeedX;
-    private float _defaultMoveSpeedY;
-    private float _maxSpeedX;    //X軸の最高速度
-    private float _maxSpeedY;    //Y軸の最高速度
-    private float _minSpeedX;    //X軸の最低速度
-    private float _minSpeedY;    //Y軸の最低速度
+    [SerializeField] bool _canDestroy = false;
+    [SerializeField] bool _hasSprite = false;
+    [SerializeField] bool _hasAnim = false;
+    private bool _canMovedX, _canMovedY;
+    private bool _isReturn;
 
-    [SerializeField] private bool _hasReturned = false;
 
     private SpriteRenderer _objSprite;
-    [SerializeField] private Sprite _objDefault;
-    [SerializeField] private Sprite _objAcc;
-    [SerializeField] private Sprite _objDec;
+    [SerializeField] private Sprite _objDefault, _objAcc, _objDec;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _rbObj = GetComponent<Rigidbody2D>();
+        _objPos = transform.position;
+        _defaultPos = _objPos;
+        _movePos = new Vector2(_defaultPos.x + _movePos.x, _defaultPos.y + _movePos.y);
+        _targetPos = _movePos;
+        _fromPos = new Vector2(_defaultPos.x, _defaultPos.y);
+        _defaultMoveSpeed = new Vector2(_moveSpeed.x, _moveSpeed.y);
+        _maxSpeed = new Vector2(_moveSpeed.x * Mathf.Pow(_changeSpeed, _changeScale), _moveSpeed.y * Mathf.Pow(_changeSpeed, _changeScale));
+        _minSpeed = new Vector2(_moveSpeed.x / Mathf.Pow(_changeSpeed, _changeScale),_moveSpeed.y / Mathf.Pow(_changeSpeed, _changeScale));
+
+        _canMovedX = true;
+        _canMovedY = true;
+        _isReturn = false;
+
         _objSprite = gameObject.GetComponent<SpriteRenderer>();
-        _defaultPositionX = transform.position.x;
-        _defaultPositionY = transform.position.y;
-        _movePositionX = transform.position.x + _movePositionX;
-        _movePositionY = transform.position.y + _movePositionY;
-        _targetPositionX = _movePositionX;
-        _targetPositionY = _movePositionY;
-        _fromPositionX = _defaultPositionX;
-        _fromPositionY = _defaultPositionY;
-        _defaultMoveSpeedX = _moveSpeedX;
-        _defaultMoveSpeedY = _moveSpeedY;
-        _maxSpeedX = _moveSpeedX * Mathf.Pow(_changeSpeed, _changeScale);
-        _maxSpeedY = _moveSpeedY * Mathf.Pow(_changeSpeed, _changeScale);
-        _minSpeedX = _moveSpeedX / Mathf.Pow(_changeSpeed, _changeScale);
-        _minSpeedY = _moveSpeedY / Mathf.Pow(_changeSpeed, _changeScale);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-        _rbObj.MovePosition(new Vector2(transform.position.x + _moveSpeedX * Time.fixedDeltaTime, transform.position.y + _moveSpeedY * Time.fixedDeltaTime));
+        if(_canMovedX)
+        {
+            _objPos.x += _moveSpeed.x * Time.fixedDeltaTime; 
+        }
+        if(_canMovedY)
+        {
+            _objPos.y += _moveSpeed.y * Time.fixedDeltaTime;
+        }
 
-        if ((_fromPositionX < _targetPositionX && transform.position.x > _targetPositionX)
-            || (_fromPositionX > _targetPositionX && transform.position.x < _targetPositionX))
+        if ((_fromPos.x < _targetPos.x && _objPos.x > _targetPos.x) || (_fromPos.x > _targetPos.x && _objPos.x < _targetPos.x) || _fromPos.x == _targetPos.x)
         {
-            _rbObj.MovePosition(new Vector2(_targetPositionX, transform.position.y));
+            _objPos.x = _targetPos.x;
+            CanMoveX(false);
         }
-        if ((_fromPositionY < _targetPositionY && transform.position.y > _targetPositionY)
-            || (_fromPositionY > _targetPositionY && transform.position.y < _targetPositionY))
+        if ((_fromPos.y < _targetPos.y && _objPos.y > _targetPos.y) || (_fromPos.y > _targetPos.y && _objPos.y < _targetPos.y) || _fromPos.y == _targetPos.y)
         {
-            _rbObj.MovePosition(new Vector2(transform.position.x, _targetPositionY));
+            _objPos.y = _targetPos.y;
+            CanMoveY(false);
         }
+
+        this.transform.position = _objPos;
         
-        if (transform.position.x == _targetPositionX && transform.position.y == _targetPositionY)
+        if (_canMovedX == false && _canMovedY == false)
         {
-            _moveSpeedX = -_moveSpeedX;
-            _moveSpeedY = -_moveSpeedY;
-            switch (_hasReturned)
+            if(_canDestroy)
+            {
+                CanDestroy();
+            }
+            _moveSpeed.x *= -1;
+            _moveSpeed.y *= -1;
+            CanMoveX(true);
+            CanMoveY(true);
+
+            switch (_isReturn)
             {
                 case true:
-                    _targetPositionX = _defaultPositionX;
-                    _targetPositionY = _defaultPositionY;
-                    _fromPositionX = _movePositionX;
-                    _fromPositionY = _movePositionY;
-                    _rbObj.MovePosition(new Vector2(transform.position.x, _targetPositionY));
-                    _hasReturned = false;
+                    _targetPos.x = _movePos.x;
+                    _targetPos.y = _movePos.y;
+                    _fromPos.x = _defaultPos.x;
+                    _fromPos.y = _defaultPos.y;
+                    _isReturn = false;
                     break;
                 case false:
-                    _targetPositionX = _movePositionX;
-                    _targetPositionY = _movePositionY;
-                    _fromPositionX = _defaultPositionX;
-                    _fromPositionY = _defaultPositionY;
-                    _hasReturned = true;
+                    _targetPos.x = _defaultPos.x;
+                    _targetPos.y = _defaultPos.y;
+                    _fromPos.x = _movePos.x;
+                    _fromPos.y = _movePos.y;
+                    _isReturn = true;
                     break;
             }
+        }
+    }
+
+    public void CanMoveX(bool _canMX)
+    {
+        _canMovedX = _canMX;
+    }
+
+    public void CanMoveY(bool _canMY)
+    {
+        _canMovedY = _canMY;
+    }
+
+    public void CanDestroy()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Acammo")
+        {
+            _moveSpeed *= _changeSpeed;
+
+            if(_moveSpeed.x > _maxSpeed.x && _moveSpeed.y > _maxSpeed.y)
+            {
+                _moveSpeed = _maxSpeed;
+            }
+        }
+        if (collision.gameObject.tag == "Dcammo")
+        {
+            _moveSpeed /= _changeSpeed;
+
+            if (_moveSpeed.x < _minSpeed.x && _moveSpeed.y < _minSpeed.y)
+            {
+                _moveSpeed = _minSpeed;
+            }
+        }
+        if(_hasSprite){
+            ChangePressSprite();
+        }
+    }
+
+    private void ChangePressSprite()    //加減速状態に応じてプレス機のスプライトを変更
+    {
+        if (_moveSpeed == _defaultMoveSpeed)
+        {
+            _objSprite.sprite = _objDefault;
+        }
+        else if (_moveSpeed.x > _defaultMoveSpeed.x && _moveSpeed.y > _defaultMoveSpeed.y)
+        {
+            _objSprite.sprite = _objAcc;
+        }
+        else if (_moveSpeed.x < _defaultMoveSpeed.x && _moveSpeed.y < _defaultMoveSpeed.y)
+        {
+            _objSprite.sprite = _objDec;
         }
     }
 }
