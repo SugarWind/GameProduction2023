@@ -45,7 +45,7 @@ public class ReverseMissileScript : MonoBehaviour
                 missileAnimator_normal.Play(missileAnimator_a.name);
             }*/
 
-            if (Mspeed < 15f)
+            if (Mspeed > 15f)
             {
                 Mspeed = 15f;
             }
