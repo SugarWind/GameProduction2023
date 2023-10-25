@@ -76,10 +76,10 @@ public class PressMachineScript : MonoBehaviour
                 MoveSpeed = _minSpeed;
             }
         }
-        ChangePressSprite();
+        ChangeSprite();
     }
 
-    private void ChangePressSprite()    //加減速状態に応じてプレス機のスプライトを変更
+    private void ChangeSprite()    //加減速状態に応じてプレス機のスプライトを変更
     {
         if (MoveSpeed == _moveSpeed)
         {
