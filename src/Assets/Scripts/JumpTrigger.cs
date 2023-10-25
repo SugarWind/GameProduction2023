@@ -30,6 +30,10 @@ public class JumpTrigger : MonoBehaviour
         {
             isJumping = false;
         }
+        if (collision.gameObject.tag == "Rmissile")
+        {
+            isJumping = false;
+        }
         else if (collision.gameObject.tag == "floor")
         {
             isJumping = false;
@@ -51,6 +55,10 @@ public class JumpTrigger : MonoBehaviour
         {
             isJumping = true;
         }
+        if (collision.gameObject.tag == "Rmissile")
+        {
+            isJumping = true;
+        }
         else if (collision.gameObject.tag == "floor")
         {
             isJumping = true;
@@ -67,11 +75,21 @@ public class JumpTrigger : MonoBehaviour
         {
             isJumping = false;
         }
+        
+        if(collision.gameObject.tag == "Rmissile")
+        {
+            isJumping = false;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Missile")
+        {
+            isJumping = true;
+        }
+
+        if (collision.gameObject.tag == "Rmissile")
         {
             isJumping = true;
         }

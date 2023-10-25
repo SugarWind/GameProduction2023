@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float floorSpeed = 0f;
     [SerializeField] private float missileSpeed = 0f;
+    [SerializeField] private float RmissileSpeed = 0f;
     [SerializeField] private float flashInterval = 0.04f;
     [SerializeField] private float knockbackForce = 200.0f;
     [SerializeField] private float invincibleInterval = 2.0f;
@@ -23,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     private bool isFacingRight = true;  // ƒLƒƒƒ‰‚ÌŒü‚«‚ğŠÇ—
     private bool hitDirection = true;  // UŒ‚‚ª‚«‚½•ûŒü‚ğŠÇ—
     private bool isRidingMissile = false;
+    private bool isRidingRmissile = false;
     private bool isRidingFloor = false;
     public bool isInvincible;
     public bool isHit;
@@ -131,10 +133,18 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        if (!isRidingRmissile && RmissileSpeed != 0)
+        {
+            if (!isJumping)
+            {
+                RmissileSpeed = 0f;  // ’n–Ê‚É’…‚­‚Ü‚Å‚ÍŠµ«‚ª“­‚­
+            }
+        }
+
 
         if (!isHit)
         {
-            rb.velocity = new Vector2(moveDirection * moveSpeed + floorSpeed + missileSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(moveDirection * moveSpeed + floorSpeed + missileSpeed+RmissileSpeed, rb.velocity.y);
         }
     }
 
@@ -209,6 +219,17 @@ public class PlayerScript : MonoBehaviour
                 isRidingMissile = true;
             }
         }
+
+        if(collision.gameObject.tag =="Rmissile")
+        {
+            ReverseMissileScript Rmissile = collision.gameObject.GetComponent<ReverseMissileScript>();
+
+            if (transform.position.y > Rmissile.transform.position.y)  
+            {
+                RmissileSpeed = Rmissile.Mspeed;
+                isRidingRmissile = true;
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -242,6 +263,20 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 isRidingMissile = false;
+            }
+        }
+
+        if(collision.gameObject.tag =="Rmissile")
+        {
+            if (moveDirection >= 0)
+            {
+                RmissileSpeed = 0;
+                isRidingRmissile = false;
+
+            }
+            else
+            {
+                isRidingRmissile = false;
             }
         }
     }
