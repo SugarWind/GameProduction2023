@@ -5,22 +5,53 @@ using UnityEngine;
 public class InstantiateMissleScript : MonoBehaviour
 {
     [SerializeField] private GameObject MissleOb;
-    [SerializeField] private float MissleRate = 5f;
-    [SerializeField] private float StartMissle = 1f;
+    [SerializeField] private float MissleRate;
+    [SerializeField] private float StartMissle;
+    [SerializeField] private float DetectionRange = 20f;
+
+    private GameObject player;
+    private bool isPlayerNear;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("CreateMissle", StartMissle, MissleRate);
+        MissleRate = 5f;
+        StartMissle = 0f;
+
+        InvokeRepeating("CheckIsPlayerNear", StartMissle, MissleRate);
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CheckPlayerInRange();
+    }
+
+    void CheckPlayerInRange()
+    {
+        /*if (Vector3.Distance(transform.position, player.transform.position) < DetectionRange)
+        {
+            isPlayerNear = true;
+        }
+        else
+        {
+            isPlayerNear = false;
+        }*/
+
+        isPlayerNear = (Vector3.Distance(transform.position, player.transform.position) < DetectionRange ? true : false);
+    }
+
+    void CheckIsPlayerNear()
+    {
+        if(isPlayerNear)
+        {
+            CreateMissle();
+        }
     }
 
     void CreateMissle()
     {
-      GameObject mP =  Instantiate(MissleOb,transform.position,Quaternion.identity);
+      GameObject mP =  Instantiate(MissleOb, transform.position, Quaternion.identity);
     }
 }
