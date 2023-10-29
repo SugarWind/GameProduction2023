@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 81706d798f621e24eb05e5efce34211d
   - enabled: 1
+    path: Assets/Scenes/stage1.unity
+    guid: d8a9bb6f112e7d84089b71b94b81870c
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: 15df2b736c56b004f93679910e8e953c
+  - enabled: 1
+    path: Assets/Scenes/Stage3.unity
+    guid: 15c927ea2d4933946ad363cf47d46e8c
+  - enabled: 1
     path: Assets/Scenes/StageScene.unity
     guid: 66dacb7681d551b4d87a8addc1b6180f
   - enabled: 1
@@ -21,17 +30,8 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: 8d84a4d1d46969b4a9ab31a5598b5127
   - enabled: 1
-    path: Assets/Scenes/Stage3.unity
-    guid: 15c927ea2d4933946ad363cf47d46e8c
-  - enabled: 1
     path: Assets/Scenes/announcement.unity
     guid: 1f65c1c01b55b0344aa35b0f65e38dfc
-  - enabled: 1
-    path: Assets/Scenes/stage1.unity
-    guid: d8a9bb6f112e7d84089b71b94b81870c
-  - enabled: 1
-    path: Assets/Scenes/Stage2.unity
-    guid: 15df2b736c56b004f93679910e8e953c
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 38fa0a266b78439499f1aa1610fb6085

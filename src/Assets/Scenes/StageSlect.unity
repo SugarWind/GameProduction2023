@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 533245254}
   - component: {fileID: 533245253}
   - component: {fileID: 533245252}
+  - component: {fileID: 533245255}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -453,7 +454,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 533245253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 533245255}
+        m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
+        m_MethodName: LoadingNewScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &533245253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +505,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533245250}
   m_CullTransparentMesh: 1
+--- !u!114 &533245255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533245250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f93913c40e9484eb00cca7a741f9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &553995654
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +531,7 @@ GameObject:
   - component: {fileID: 553995657}
   - component: {fileID: 553995656}
   m_Layer: 5
-  m_Name: Button (7)
+  m_Name: STAGE9Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,6 +787,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602061915}
   m_CullTransparentMesh: 1
+--- !u!1 &615881750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615881752}
+  - component: {fileID: 615881751}
+  m_Layer: 0
+  m_Name: Stageselect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &615881751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615881750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9b0f9634187ad42af74007fb54cdde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stageButton:
+  - {fileID: 1419752230}
+  - {fileID: 1867564642}
+  - {fileID: 802164320}
+  - {fileID: 1541620822}
+  - {fileID: 1978414703}
+  - {fileID: 1846640134}
+  - {fileID: 671132894}
+  - {fileID: 845566574}
+  - {fileID: 553995656}
+  - {fileID: 1989794763}
+--- !u!4 &615881752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615881750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 452.16376, y: 255.5907, z: -1.0188746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671132892
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +856,7 @@ GameObject:
   - component: {fileID: 671132895}
   - component: {fileID: 671132894}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: STAGE7Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,7 +1227,7 @@ GameObject:
   - component: {fileID: 802164321}
   - component: {fileID: 802164320}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: 'STAGE3Button '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,7 +1503,7 @@ GameObject:
   - component: {fileID: 845566575}
   - component: {fileID: 845566574}
   m_Layer: 5
-  m_Name: Button (6)
+  m_Name: STAGE8Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2189,9 +2269,8 @@ GameObject:
   - component: {fileID: 1419752232}
   - component: {fileID: 1419752231}
   - component: {fileID: 1419752230}
-  - component: {fileID: 1419752233}
   m_Layer: 5
-  m_Name: Button
+  m_Name: STAGE1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2262,14 +2341,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1419752233}
-        m_TargetAssemblyTypeName: STAGE1, Assembly-CSharp
-        m_MethodName: LoadingNewScene
-        m_Mode: 1
+      - m_Target: {fileID: 615881751}
+        m_TargetAssemblyTypeName: select, Assembly-CSharp
+        m_MethodName: StageSelect
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2312,18 +2391,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419752228}
   m_CullTransparentMesh: 1
---- !u!114 &1419752233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419752228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1478957049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,7 +2540,7 @@ GameObject:
   - component: {fileID: 1541620823}
   - component: {fileID: 1541620822}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: STAGE4Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2608,7 +2675,7 @@ GameObject:
   - component: {fileID: 1846640135}
   - component: {fileID: 1846640134}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: STAGE6Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2877,9 +2944,8 @@ GameObject:
   - component: {fileID: 1867564644}
   - component: {fileID: 1867564643}
   - component: {fileID: 1867564642}
-  - component: {fileID: 1867564646}
   m_Layer: 5
-  m_Name: Button
+  m_Name: STAGE2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2950,14 +3016,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867564646}
-        m_TargetAssemblyTypeName: STAGE2, Assembly-CSharp
-        m_MethodName: LoadingNewScene
-        m_Mode: 1
+      - m_Target: {fileID: 615881751}
+        m_TargetAssemblyTypeName: select, Assembly-CSharp
+        m_MethodName: StageSelect
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3012,18 +3078,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867564640}
   m_CullTransparentMesh: 1
---- !u!114 &1867564646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867564640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752dbfba7ab4c014f937747db312c0d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1978414701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,7 +3092,7 @@ GameObject:
   - component: {fileID: 1978414704}
   - component: {fileID: 1978414703}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: STAGE5Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3173,7 +3227,7 @@ GameObject:
   - component: {fileID: 1989794764}
   - component: {fileID: 1989794763}
   m_Layer: 5
-  m_Name: Button (8)
+  m_Name: STAGE10Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
