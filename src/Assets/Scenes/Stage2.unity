@@ -313,6 +313,7 @@ MonoBehaviour:
   MissleOb: {fileID: 7653926821977531432, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
   MissleRate: 5
   StartMissle: 1
+  DetectionRange: 20
 --- !u!212 &95743721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1115,6 +1116,7 @@ MonoBehaviour:
   MissleOb: {fileID: 7653926821977531432, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
   MissleRate: 5
   StartMissle: 1
+  DetectionRange: 20
 --- !u!212 &484466919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7085,6 +7087,7 @@ MonoBehaviour:
   moveSpeed: 4
   floorSpeed: 0
   missileSpeed: 0
+  RmissileSpeed: 0
   flashInterval: 0.04
   knockbackForce: 200
   invincibleInterval: 2

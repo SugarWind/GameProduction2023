@@ -21,12 +21,12 @@ public class ObjectAutoMove : MonoBehaviour
     
     private bool _canMoveX, _canMoveY;    //現在移動可能か
     private bool _isGoingBack;  //戻っているのか
-    private bool _spriteExists; //スプライトが存在するか
-    private bool _animationExists;   //アニメーションが存在するか
+    private bool _spriteExists = false; //スプライトが存在するか
+    private bool _animationExists = false;   //アニメーションが存在するか
 
     private SpriteRenderer _objSprite;
     [SerializeField] private Sprite _defaultSprite, _accSprite, _decSprite;  //ここにスプライトを入れる
-
+    private Animator _objAnimator;
     [SerializeField] private AnimationClip _defaultAnimation, _accAnimation, _decAnimation;  //ここにアニメーションを入れる
 
     // Start is called before the first frame update
@@ -44,19 +44,18 @@ public class ObjectAutoMove : MonoBehaviour
         _canMoveX = true;
         _canMoveY = true;
         _isGoingBack = false;
-        if(_defaultSprite && _accSprite && _decSprite)
+        if(_defaultAnimation && _accAnimation && _decAnimation)
+        {
+            _animationExists = true;
+            _objAnimator = GetComponent<Animator>();
+            _objAnimator.Play(_defaultAnimation.name);
+        }
+        else if (_defaultSprite && _accSprite && _decSprite)
         {
             _spriteExists = true;
             _objSprite = gameObject.GetComponent<SpriteRenderer>();
             _objSprite.sprite = _defaultSprite;
         }
-        if(_defaultAnimation && _accAnimation && _decAnimation)
-        {
-            _animationExists = true;
-            _spriteExists = false;
-        }
-
-        _objSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
