@@ -7,16 +7,22 @@ public class JumpTrigger : MonoBehaviour
     // ƒWƒƒƒ“ƒv’†‚©‚Ç‚¤‚©
     public bool isJumping;
 
+    private GameObject playerObj;
+    private PlayerScript player;
+
+    public bool debug = false;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -26,7 +32,7 @@ public class JumpTrigger : MonoBehaviour
         {
             isJumping = false;
         }
-        else if (collision.gameObject.tag == "Missile")
+        if (collision.gameObject.tag == "Missile")
         {
             isJumping = false;
         }
@@ -38,10 +44,12 @@ public class JumpTrigger : MonoBehaviour
         {
             isJumping = false;
         }
-        else if (collision.gameObject.tag == "Untagged")
+        else if (collision.gameObject.tag == "SlipThrough" && player.rb.velocity.y == 0)  // ‚·‚è”²‚¯Žž‚Ì–³ŒÀƒWƒƒƒ“ƒv–hŽ~
         {
             isJumping = false;
         }
+
+        debug = collision.gameObject.tag == "Untagged";
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -63,10 +71,12 @@ public class JumpTrigger : MonoBehaviour
         {
             isJumping = true;
         }
-        else if (collision.gameObject.tag == "Untagged")
+        else if (collision.gameObject.tag == "SlipThrough")
         {
             isJumping = true;
         }
+
+        debug = collision.gameObject.tag == "Untagged";
     }
 
     private void OnCollisionStay2D(Collision2D collision)

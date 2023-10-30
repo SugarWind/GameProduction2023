@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] public SpriteRenderer spriteRenderer;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private GameObject armObj;
     private ArmMove arm;
     private GameObject jumpObj;
@@ -75,8 +75,7 @@ public class PlayerScript : MonoBehaviour
     {
         // ジャンプ中かを更新
         // キャラの垂直方向の速度が0でない場合、true
-        //isJumping = rb.velocity.y != 0;
-        isJumping = jump.isJumping;
+        isJumping = jump.isJumping/* || rb.velocity.y != 0*/;
 
         // ArmRotation_yの左右反転に応じてキャラの向きを更新
         isFacingRight = arm.Right;

@@ -15,6 +15,7 @@ TagManager:
   - Enemy1
   - Jump
   - Rmissile
+  - SlipThrough
   layers:
   - Default
   - TransparentFX
