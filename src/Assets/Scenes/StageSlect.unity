@@ -2932,8 +2932,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: select, Assembly-CSharp
+      - m_Target: {fileID: 615881753}
+        m_TargetAssemblyTypeName: Select, Assembly-CSharp
         m_MethodName: StageSelect
         m_Mode: 3
         m_Arguments:
