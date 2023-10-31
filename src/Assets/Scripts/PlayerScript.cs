@@ -204,7 +204,17 @@ public class PlayerScript : MonoBehaviour
         {
             Debug.Log("è∞Ç∆ÉvÉåÉCÉÑÅ[");
             FloorScript flscript = collision.gameObject.GetComponent<FloorScript>();
-            floorSpeed = flscript.floorSpeed;
+            
+            if(collision.gameObject.transform.rotation.y == 0)
+            {
+                floorSpeed = flscript.normal_floorSpeed;
+            }
+            else if (collision.gameObject.transform.rotation.y != 0)
+            {
+                floorSpeed = flscript.reverse_floorSpeed;
+            }
+
+            //floorSpeed = flscript.floorSpeed;
             isRidingFloor = true;
         }
 

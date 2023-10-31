@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FloorScript : MonoBehaviour
 {
-    float animationSpeed;  // ベルコンのアニメーションの速度
-
-    public float floorSpeed = 0f;  // ベルコンに乗った時の移動速度
-
-    private float defaultSpeed;
+    [SerializeField] private float animationSpeed;  // ベルコンのアニメーションの速度
+    [SerializeField] public float normal_floorSpeed = 3f;  // ベルコンに乗った時の移動速度
+    [SerializeField] public float reverse_floorSpeed = -3f;  // ベルコンに乗った時の移動速度
+    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float minSpeed = 1f;
+    private float normal_defaultSpeed;  // ベルコンの初期スピード
+    private float reverse_defaultSpeed;  // ベルコンの初期スピード
 
     Animator animator_normal;
     public AnimationClip animator_default;
@@ -19,40 +21,57 @@ public class FloorScript : MonoBehaviour
     void Start()
     {
         animator_normal = GetComponent<Animator>();
-        defaultSpeed = floorSpeed;
+        normal_defaultSpeed = normal_floorSpeed;
+        reverse_defaultSpeed = reverse_floorSpeed;
+
+        if (transform.rotation.y == 0)
+        {
+            animationSpeed = -0.6f;
+        }
+        else if (transform.rotation.y != 0)
+        {
+            animationSpeed = 0.6f;
+        }
+        animator_normal.SetFloat("AnimationSpeed", animationSpeed);
         //animationSpeed = animator.GetFloat("AnimationSpeed");
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if(floorSpeed == defaultSpeed)
+        if (normal_floorSpeed == normal_defaultSpeed && transform.rotation.y == 0 ||
+            reverse_floorSpeed == reverse_defaultSpeed && transform.rotation.y != 0)
         {
             animator_normal.Play(animator_default.name);
-        }*/
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Acammo")
         {
-            animator_normal.Play(animator_a.name);
+            //animator_normal.Play(animator_a.name);
 
             if (transform.rotation.y == 0)  // 正転
             {
                 Debug.Log("床判定");
-                floorSpeed += 1f;
+                normal_floorSpeed += 1f;
                 animationSpeed -= 0.3f;
+
+                if (normal_floorSpeed > normal_defaultSpeed)
+                {
+                    animator_normal.Play(animator_a.name);
+                }
 
                 /*if(floorSpeed > defaultSpeed)
                 {
                     animator_normal.Play(animator_a.name);
                 }*/
 
-                if (floorSpeed > 3)
+                if (normal_floorSpeed > maxSpeed)
                 {
-                    floorSpeed = 3;
-                    animationSpeed = -0.9f;
+                    normal_floorSpeed = maxSpeed;
+                    animationSpeed = -1.2f;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
@@ -60,18 +79,23 @@ public class FloorScript : MonoBehaviour
             else if (transform.rotation.y != 0)  // 逆転
             {
                 Debug.Log("床判定");
-                floorSpeed -= 1f;
+                reverse_floorSpeed -= 1f;
                 animationSpeed -= 0.3f;
+
+                if (reverse_floorSpeed < reverse_defaultSpeed)
+                {
+                    animator_normal.Play(animator_a.name);
+                }
 
                 /*if (floorSpeed < defaultSpeed)
                 {
                     animator_normal.Play(animator_a.name);
                 }*/
 
-                if (floorSpeed < -3)
+                if (reverse_floorSpeed < -maxSpeed)
                 {
-                    floorSpeed = -3;
-                    animationSpeed = -0.9f;
+                    reverse_floorSpeed = -maxSpeed;
+                    animationSpeed = -1.2f;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
@@ -91,23 +115,28 @@ public class FloorScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Dcammo")
         {
-            animator_normal.Play(animator_d.name);
+            //animator_normal.Play(animator_d.name);
 
             if (transform.rotation.y == 0)  // 正転
             {
                 Debug.Log("床減速");
-                floorSpeed -= 2.0f; //落下速度減衰
+                normal_floorSpeed -= 1f; //落下速度減衰
                 animationSpeed += 0.3f;
+
+                if (normal_floorSpeed < normal_defaultSpeed)
+                {
+                    animator_normal.Play(animator_d.name);
+                }
 
                 /*if (floorSpeed < defaultSpeed)
                 {
                     animator_normal.Play(animator_d.name);
                 }*/
 
-                if (floorSpeed < 0)
+                if (normal_floorSpeed < minSpeed)
                 {
-                    floorSpeed = 0;
-                    animationSpeed = 0;
+                    normal_floorSpeed = minSpeed;
+                    animationSpeed = -0.1f;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
@@ -115,18 +144,23 @@ public class FloorScript : MonoBehaviour
             else if (transform.rotation.y != 0)  // 逆転
             {
                 Debug.Log("床減速");
-                floorSpeed += 2.0f; //落下速度減衰
-                animationSpeed += 0.3f;
+                reverse_floorSpeed += 1f; //落下速度減衰
+                animationSpeed -= 0.3f;     /////
+
+                if (reverse_floorSpeed > reverse_defaultSpeed)
+                {
+                    animator_normal.Play(animator_d.name);
+                }
 
                 /*if (floorSpeed > defaultSpeed)
                 {
                     animator_normal.Play(animator_d.name);
                 }*/
 
-                if (floorSpeed > 0)
+                if (reverse_floorSpeed > -minSpeed)
                 {
-                    floorSpeed = 0;
-                    animationSpeed = 0;
+                    reverse_floorSpeed = -minSpeed;
+                    animationSpeed = 0.1f;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
