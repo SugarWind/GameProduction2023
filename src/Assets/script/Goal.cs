@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("ÉSÅ[Éã");
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Reselt");
         }
     }
 }

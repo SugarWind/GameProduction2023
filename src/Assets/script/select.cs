@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-public class select : MonoBehaviour
+public class Select : MonoBehaviour
 {
+    //ステージ制限
     [SerializeField] private Button[] _stageButton;
     void Start()
     {
@@ -19,6 +19,8 @@ public class select : MonoBehaviour
                 _stageButton[i].interactable = false;
         }
     }
+
+    //ステージセレクト
     public void StageSelect(int stage)
     {
         SceneManager.LoadScene(stage);

@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minPosX: -4
-  maxPosX: 49.2
+  maxPosX: 70
 --- !u!114 &168283236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJumping: 0
+  debug: 0
 --- !u!70 &687152679
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2397,11 +2398,13 @@ MonoBehaviour:
   moveSpeed: 4
   floorSpeed: 0
   missileSpeed: 0
+  RmissileSpeed: 0
   flashInterval: 0.04
   knockbackForce: 200
   invincibleInterval: 2
   animator: {fileID: 2092172518}
   spriteRenderer: {fileID: 2092172519}
+  rb: {fileID: 0}
   isInvincible: 0
   isHit: 0
   jumpRightClip: {fileID: 7400000, guid: 3a0b80db353d99c4990ac0cf9c7430b3, type: 2}
