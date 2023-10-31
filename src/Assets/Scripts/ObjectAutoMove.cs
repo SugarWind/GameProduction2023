@@ -7,8 +7,8 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _objPosition;
     [SerializeField] private Vector2 _movingDistance;   //移動距離
     [SerializeField] private Vector2 _moveSpeed;        //速度
-    [SerializeField] private float _changeRate = 2;     //変化の倍率
-    [SerializeField] private float _changeTimes = 2;    //変化の回数
+    [SerializeField] private const float _changeRate = 2;     //変化の倍率
+    [SerializeField] private const uint _changeTimes = 2;    //変化の回数
     private Vector2 _movedPosition;     //移動後の位置
     private Vector2 _defaultPosition;   //デフォルトの位置
     private Vector2 _targetPosition;    //現在の目的地の位置
@@ -17,12 +17,12 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _maxSpeed;  //最高速度
     private Vector2 _minSpeed;  //最低速度
 
-    [SerializeField] private bool _needsDestroy = false;    //目的地についたときにgameObjectを破壊するか
+    [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
     
     private bool _canMoveX, _canMoveY;    //現在移動可能か
     private bool _isGoingBack;  //戻っているのか
-    private bool _spriteExists = false; //スプライトが存在するか
-    private bool _animationExists = false;   //アニメーションが存在するか
+    private bool _spriteExists; //スプライトが存在するか
+    private bool _animationExists;   //アニメーションが存在するか
 
     private SpriteRenderer _objSprite;
     [SerializeField] private Sprite _defaultSprite, _accSprite, _decSprite;  //ここにスプライトを入れる
@@ -160,8 +160,13 @@ public class ObjectAutoMove : MonoBehaviour
                 }
             }
         }
-        if (_spriteExists){
+        if (_spriteExists)
+        {
             ChangeSprite();
+        }
+        if (_animationExists)
+        {
+            ChangeAnimation();
         }
     }
 
@@ -178,6 +183,22 @@ public class ObjectAutoMove : MonoBehaviour
         else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objSprite.sprite = _decSprite;
+        }
+    }
+
+    private void ChangeAnimation()    //加減速状態に応じてスプライトを変更
+    {
+        if (_moveSpeed == _defaultMoveSpeed || _moveSpeed == -_defaultMoveSpeed)
+        {
+            _objAnimator.Play(_defaultAnimation.name);
+        }
+        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
+        {
+            _objAnimator.Play(_accAnimation.name);
+        }
+        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
+        {
+            _objAnimator.Play(_decAnimation.name);
         }
     }
 }
