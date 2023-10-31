@@ -9,10 +9,6 @@ public class TriggerStartMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!_moveObject)
-        {
-            Destroy(this.gameObject);
-        }
         _objectAutoMove = _moveObject.GetComponent<ObjectAutoMove>();
     }
 
@@ -26,7 +22,6 @@ public class TriggerStartMove : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             _objectAutoMove.SetCanMove(true, true);
-            Destroy(this.gameObject);
         }
     }
 }
