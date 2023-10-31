@@ -22,9 +22,9 @@ public class TriggerStartMove : MonoBehaviour
         _objectAutoMove.SetCanMove(false, false);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (col.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             _objectAutoMove.SetCanMove(true, true);
             Destroy(this.gameObject);
