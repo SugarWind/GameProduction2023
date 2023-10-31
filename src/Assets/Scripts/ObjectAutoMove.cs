@@ -7,8 +7,8 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _objPosition;
     [SerializeField] private Vector2 _movingDistance;   //移動距離
     [SerializeField] private Vector2 _moveSpeed;        //速度
-    [SerializeField] private const float _changeRate = 2;     //変化の倍率
-    [SerializeField] private const uint _changeTimes = 2;    //変化の回数
+    [SerializeField] private float _changeRate = 2;     //変化の倍率
+    [SerializeField] private uint _changeTimes = 2;    //変化の回数
     private Vector2 _movedPosition;     //移動後の位置
     private Vector2 _defaultPosition;   //デフォルトの位置
     private Vector2 _targetPosition;    //現在の目的地の位置
@@ -34,6 +34,14 @@ public class ObjectAutoMove : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        if((_movingDistance.x < 0 && _moveSpeed.x > 0) || (_movingDistance.x > 0 && _movingDistance.x < 0))
+        {
+            _moveSpeed.x *= -1;
+        }
+        if ((_movingDistance.y < 0 && _moveSpeed.y > 0) || (_movingDistance.y > 0 && _movingDistance.y < 0))
+        {
+            _moveSpeed.y *= -1;
+        }
         _objPosition = transform.position;
         _defaultPosition = _objPosition;
         _movedPosition = new Vector2(_defaultPosition.x + _movingDistance.x, _defaultPosition.y + _movingDistance.y);
@@ -181,11 +189,11 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _objSprite.sprite = _defaultSprite;
         }
-        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objSprite.sprite = _accSprite;
         }
-        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objSprite.sprite = _decSprite;
         }
@@ -197,11 +205,11 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _objAnimator.Play(_defaultAnimation.name);
         }
-        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objAnimator.Play(_accAnimation.name);
         }
-        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objAnimator.Play(_decAnimation.name);
         }
