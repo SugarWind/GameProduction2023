@@ -14,8 +14,8 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _targetPosition;    //現在の目的地の位置
     private Vector2 _previousPosition;      //前回の目的地の位置
     private Vector2 _defaultMoveSpeed;  //デフォルトの速度
-    private Vector2 _maxSpeed;  //最高速度
-    private Vector2 _minSpeed;  //最低速度
+    [SerializeField] private Vector2 _maxSpeed;  //最高速度
+    [SerializeField] private Vector2 _minSpeed;  //最低速度
 
     [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
     [SerializeField] private bool _hasTrigger;    //Triggerを使用するか
@@ -145,7 +145,7 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _moveSpeed *= _changeRate;
 
-            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
             {
                 if (_isGoingBack)
                 {
@@ -161,7 +161,7 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _moveSpeed /= _changeRate;
 
-            if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_minSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_minSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_minSpeed.y))
             {
                 if (_isGoingBack)
                 {
