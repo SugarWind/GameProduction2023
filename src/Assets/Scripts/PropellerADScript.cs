@@ -6,8 +6,8 @@ public class PropellerADScript : MonoBehaviour
 {
     public GameObject PropellerArea;
     public AreaEffector2D Paf;
-    [SerializeField] private float PropellerMax =20;
-    [SerializeField] private float PropellerMin =1;
+    [SerializeField] private float PropellerMax = 23;
+    [SerializeField] private float PropellerMin = 1;
 
     private float defaultPower;
 
@@ -29,10 +29,10 @@ public class PropellerADScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Paf.forceMagnitude == defaultPower)
+        if (Paf.forceMagnitude == defaultPower)
         {
             propellerAnimator_normal.Play(propeller_default.name);
-        }*/
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,8 +41,13 @@ public class PropellerADScript : MonoBehaviour
         {
             Debug.Log("検知プロペラ");
 
-            propellerAnimator_normal.Play(propeller_a.name);
+            //propellerAnimator_normal.Play(propeller_a.name);
             Paf.forceMagnitude += 2f;
+
+            if (Paf.forceMagnitude > defaultPower)
+            {
+                propellerAnimator_normal.Play(propeller_a.name);
+            }
 
             /*if(Paf.forceMagnitude > defaultPower)
             {
@@ -53,15 +58,21 @@ public class PropellerADScript : MonoBehaviour
             {
                 Paf.forceMagnitude = PropellerMax;
             }
-            
+
         }
 
-        if(collision.gameObject.tag == "Dcammo")
+        if (collision.gameObject.tag == "Dcammo")
         {
             Debug.Log("検知減速プロペラ");
 
-            propellerAnimator_normal.Play(propeller_d.name);
+            //propellerAnimator_normal.Play(propeller_d.name);
             Paf.forceMagnitude -= 2f;
+
+
+            if (Paf.forceMagnitude < defaultPower)
+            {
+                propellerAnimator_normal.Play(propeller_d.name);
+            }
 
             /*if(Paf.forceMagnitude < defaultPower)
             {

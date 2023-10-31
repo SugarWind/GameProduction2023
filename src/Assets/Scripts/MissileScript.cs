@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour
 {
     Rigidbody2D Mrb;
-    public float Mspeed = -5f;
+    [SerializeField] public float Mspeed = -5f;
     private float defaultSpeed;
 
     Animator missileAnimator_normal;
@@ -28,39 +28,53 @@ public class MissileScript : MonoBehaviour
     {
         Mrb.velocity = new Vector2(Mspeed, 0);
 
-        /*if(Mspeed == defaultSpeed)
+        if (Mspeed == defaultSpeed)
         {
             missileAnimator_normal.Play(missile_default.name);
-        }*/
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag =="Acammo")
+        if (collision.gameObject.tag == "Acammo")
         {
             Mspeed -= 2f;
-            missileAnimator_normal.Play(missileAnimator_a.name);
+
+            if (Mspeed < defaultSpeed)
+            {
+                missileAnimator_normal.Play(missileAnimator_a.name);
+
+            }
+
+            //missileAnimator_normal.Play(missileAnimator_a.name);
             /*if(Mspeed < defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_a.name);
             }*/
 
-            if (Mspeed < -15f)
+            if (Mspeed < -9f)
             {
-                Mspeed = -15f;
+                Mspeed = -9f;
             }
         }
 
-        if(collision.gameObject.tag =="Dcammo")
+        if (collision.gameObject.tag == "Dcammo")
         {
-            Mspeed += 1f;
-            missileAnimator_normal.Play(missileAnimator_d.name);
+            Mspeed += 2f;
+
+            if (Mspeed > defaultSpeed)
+            {
+                missileAnimator_normal.Play(missileAnimator_d.name);
+
+            }
+
+            //missileAnimator_normal.Play(missileAnimator_d.name);
             /*if(Mspeed > defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_d.name);
             }*/
 
-            if (Mspeed == 0)
+            if (Mspeed > -1f)
             {
                 Mspeed = -1f;
             }

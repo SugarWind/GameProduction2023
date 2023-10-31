@@ -145,7 +145,7 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _moveSpeed *= _changeRate;
 
-            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
             {
                 if (_isGoingBack)
                 {
@@ -161,7 +161,7 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _moveSpeed /= _changeRate;
 
-            if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_minSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_minSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_minSpeed.y))
             {
                 if (_isGoingBack)
                 {
