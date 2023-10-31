@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54de4df756b527341badba20c0b5c762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MissleOb: {fileID: 7653926821977531432, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
+  MissleOb: {fileID: 7475388118454077538, guid: fceb400ecdf2f534f83dd182e3c976e7, type: 3}
   MissleRate: 5
   StartMissle: 1
+  DetectionRange: 20
