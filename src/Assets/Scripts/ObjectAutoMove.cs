@@ -18,8 +18,10 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _minSpeed;  //最低速度
 
     [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
-    
+    [SerializeField] private bool _hasTrigger;    //Triggerを使用するか
+
     private bool _canMoveX, _canMoveY;    //現在移動可能か
+    private bool _isMoved;
     private bool _isGoingBack;  //戻っているのか
     private bool _spriteExists; //スプライトが存在するか
     private bool _animationExists;   //アニメーションが存在するか
@@ -40,10 +42,11 @@ public class ObjectAutoMove : MonoBehaviour
         _defaultMoveSpeed = new Vector2(_moveSpeed.x, _moveSpeed.y);
         _maxSpeed = new Vector2(_moveSpeed.x * Mathf.Pow(_changeRate, _changeTimes), _moveSpeed.y * Mathf.Pow(_changeRate, _changeTimes));
         _minSpeed = new Vector2(_moveSpeed.x / Mathf.Pow(_changeRate, _changeTimes), _moveSpeed.y / Mathf.Pow(_changeRate, _changeTimes));
-
-        _canMoveX = true;
-        _canMoveY = true;
-        _isGoingBack = false;
+        if (!_hasTrigger)
+        {
+            _canMoveX = true;
+            _canMoveY = true;
+        }
         if(_defaultAnimation && _accAnimation && _decAnimation)
         {
             _animationExists = true;
@@ -64,10 +67,12 @@ public class ObjectAutoMove : MonoBehaviour
         if(_canMoveX)     //X方向に進めない場合実行しない
         {
             _objPosition.x += _moveSpeed.x * Time.deltaTime;   //X軸で移動
+            _isMoved = true;
         }
         if(_canMoveY)     //Y方向に進めない場合実行しない
         {
             _objPosition.y += _moveSpeed.y * Time.deltaTime;   //Y軸で移動
+            _isMoved = true;
         }
 
         if ((_previousPosition.x < _targetPosition.x && _objPosition.x > _targetPosition.x) || (_previousPosition.x > _targetPosition.x && _objPosition.x < _targetPosition.x) || _previousPosition.x == _targetPosition.x)
@@ -85,7 +90,7 @@ public class ObjectAutoMove : MonoBehaviour
         this.transform.position = _objPosition;
         
         //目的地に着いたとき方向転換と目的地更新
-        if (_canMoveX == false && _canMoveY == false)
+        if (!_canMoveX && !_canMoveY && _isMoved)
         {
             if(_needsDestroy)
             {

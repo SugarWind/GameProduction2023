@@ -19,7 +19,6 @@ public class TriggerStartMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _objectAutoMove.SetCanMove(false, false);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
