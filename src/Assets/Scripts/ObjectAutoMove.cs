@@ -14,8 +14,8 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _targetPosition;    //現在の目的地の位置
     private Vector2 _previousPosition;      //前回の目的地の位置
     private Vector2 _defaultMoveSpeed;  //デフォルトの速度
-    [SerializeField] private Vector2 _maxSpeed;  //最高速度
-    [SerializeField] private Vector2 _minSpeed;  //最低速度
+    private Vector2 _maxSpeed;  //最高速度
+    private Vector2 _minSpeed;  //最低速度
 
     [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
     [SerializeField] private bool _hasTrigger;    //Triggerを使用するか
