@@ -28,7 +28,7 @@ public class FallFloorScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            isFall = true;
+            Invoke("FallFloor", 3);
         }
     }
 
@@ -53,5 +53,10 @@ public class FallFloorScript : MonoBehaviour
                 FallSpeed = 1f;
             }
         }
+    }
+
+    void FallFloor()
+    {
+        isFall = true;
     }
 }
