@@ -7,8 +7,8 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _objPosition;
     [SerializeField] private Vector2 _movingDistance;   //移動距離
     [SerializeField] private Vector2 _moveSpeed;        //速度
-    [SerializeField] private const float _changeRate = 2;     //変化の倍率
-    [SerializeField] private const uint _changeTimes = 2;    //変化の回数
+    [SerializeField] private float _changeRate = 2;     //変化の倍率
+    [SerializeField] private uint _changeTimes = 2;    //変化の回数
     private Vector2 _movedPosition;     //移動後の位置
     private Vector2 _defaultPosition;   //デフォルトの位置
     private Vector2 _targetPosition;    //現在の目的地の位置
@@ -21,7 +21,7 @@ public class ObjectAutoMove : MonoBehaviour
     [SerializeField] private bool _hasTrigger;    //Triggerを使用するか
 
     private bool _canMoveX, _canMoveY;    //現在移動可能か
-    private bool _isMoved;
+    private bool _isMoved;      //一度でも移動したか
     private bool _isGoingBack;  //戻っているのか
     private bool _spriteExists; //スプライトが存在するか
     private bool _animationExists;   //アニメーションが存在するか
@@ -34,6 +34,14 @@ public class ObjectAutoMove : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        if ((_movingDistance.x < 0 && _moveSpeed.x > 0) || (_movingDistance.x > 0 && _movingDistance.x < 0))
+        {
+            _moveSpeed.x *= -1;
+        }
+        if ((_movingDistance.y < 0 && _moveSpeed.y > 0) || (_movingDistance.y > 0 && _movingDistance.y < 0))
+        {
+            _moveSpeed.y *= -1;
+        }
         _objPosition = transform.position;
         _defaultPosition = _objPosition;
         _movedPosition = new Vector2(_defaultPosition.x + _movingDistance.x, _defaultPosition.y + _movingDistance.y);
@@ -47,7 +55,7 @@ public class ObjectAutoMove : MonoBehaviour
             _canMoveX = true;
             _canMoveY = true;
         }
-        if(_defaultAnimation && _accAnimation && _decAnimation)
+        if (_defaultAnimation && _accAnimation && _decAnimation)
         {
             _animationExists = true;
             _objAnimator = GetComponent<Animator>();
@@ -64,12 +72,12 @@ public class ObjectAutoMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(_canMoveX)     //X方向に進めない場合実行しない
+        if (_canMoveX)     //X方向に進めない場合実行しない
         {
             _objPosition.x += _moveSpeed.x * Time.deltaTime;   //X軸で移動
             _isMoved = true;
         }
-        if(_canMoveY)     //Y方向に進めない場合実行しない
+        if (_canMoveY)     //Y方向に進めない場合実行しない
         {
             _objPosition.y += _moveSpeed.y * Time.deltaTime;   //Y軸で移動
             _isMoved = true;
@@ -88,11 +96,11 @@ public class ObjectAutoMove : MonoBehaviour
 
         //移動を反映
         this.transform.position = _objPosition;
-        
+
         //目的地に着いたとき方向転換と目的地更新
         if (!_canMoveX && !_canMoveY && _isMoved)
         {
-            if(_needsDestroy)
+            if (_needsDestroy)
             {
                 DestroyObject();    //"_needsDestroy"がtrueの時に破壊
             }
@@ -137,13 +145,13 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _moveSpeed *= _changeRate;
 
-            if(Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
             {
-                if(_isGoingBack)
+                if (_isGoingBack)
                 {
                     _moveSpeed = -_maxSpeed;
                 }
-                else 
+                else
                 {
                     _moveSpeed = _maxSpeed;
                 }
@@ -155,11 +163,11 @@ public class ObjectAutoMove : MonoBehaviour
 
             if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_minSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_minSpeed.y))
             {
-                if(_isGoingBack)
+                if (_isGoingBack)
                 {
                     _moveSpeed = -_minSpeed;
                 }
-                else 
+                else
                 {
                     _moveSpeed = _minSpeed;
                 }
@@ -181,11 +189,11 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _objSprite.sprite = _defaultSprite;
         }
-        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objSprite.sprite = _accSprite;
         }
-        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objSprite.sprite = _decSprite;
         }
@@ -197,11 +205,11 @@ public class ObjectAutoMove : MonoBehaviour
         {
             _objAnimator.Play(_defaultAnimation.name);
         }
-        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objAnimator.Play(_accAnimation.name);
         }
-        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) && Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
+        else if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_defaultMoveSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_defaultMoveSpeed.y))
         {
             _objAnimator.Play(_decAnimation.name);
         }
