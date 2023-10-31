@@ -17,6 +17,9 @@ public class ObjectAutoMove : MonoBehaviour
     private Vector2 _maxSpeed;  //最高速度
     private Vector2 _minSpeed;  //最低速度
 
+    [SerializeField] private GameObject _destroyedPrefab;
+    [SerializeField] private Vector2 _destroyedPrefabPosition;
+    [SerializeField] private float _destroyedPrefabRotation;
     [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
     [SerializeField] private bool _hasTrigger;    //Triggerを使用するか
 
@@ -136,6 +139,12 @@ public class ObjectAutoMove : MonoBehaviour
 
     public void DestroyObject()
     {
+        if (_destroyedPrefab)
+        {
+            _destroyedPrefabPosition += _objPosition;
+            Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, _destroyedPrefabRotation));
+        }
+        
         Destroy(gameObject);
     }
 
