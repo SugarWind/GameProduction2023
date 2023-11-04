@@ -32,6 +32,7 @@ public class ObjectAutoMove : MonoBehaviour
     private SpriteRenderer _objSprite;
     [SerializeField] private Sprite _defaultSprite, _accSprite, _decSprite;  //ここにスプライトを入れる
     private Animator _objAnimator;
+    [SerializeField] private float _objAnimatorSpeed;
     [SerializeField] private AnimationClip _defaultAnimation, _accAnimation, _decAnimation;  //ここにアニメーションを入れる
 
     // Start is called before the first frame update
@@ -63,6 +64,7 @@ public class ObjectAutoMove : MonoBehaviour
             _animationExists = true;
             _objAnimator = GetComponent<Animator>();
             _objAnimator.Play(_defaultAnimation.name);
+            _objAnimatorSpeed = 1;
         }
         else if (_defaultSprite && _accSprite && _decSprite)
         {
@@ -152,34 +154,20 @@ public class ObjectAutoMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Acammo")
         {
-            _moveSpeed *= _changeRate;
-
-            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_maxSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_maxSpeed.y))
             {
-                if (_isGoingBack)
-                {
-                    _moveSpeed = -_maxSpeed;
-                }
-                else
-                {
-                    _moveSpeed = _maxSpeed;
-                }
+                _moveSpeed *= _changeRate;
+                _objAnimatorSpeed *= _changeRate;
+                _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
             }
         }
         if (collision.gameObject.tag == "Dcammo")
         {
-            _moveSpeed /= _changeRate;
-
-            if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_minSpeed.y))
+            if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_minSpeed.y))
             {
-                if (_isGoingBack)
-                {
-                    _moveSpeed = -_minSpeed;
-                }
-                else
-                {
-                    _moveSpeed = _minSpeed;
-                }
+                _moveSpeed /= _changeRate;
+                _objAnimatorSpeed /= _changeRate;
+                _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
             }
         }
         if (_spriteExists)

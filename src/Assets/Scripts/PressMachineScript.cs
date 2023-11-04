@@ -11,15 +11,17 @@ public class PressMachineScript : MonoBehaviour
     [SerializeField] private float ChangeSpeed = 2; //ïœâªÇÃî{ó¶
     [SerializeField] private float ChangeScale = 2; //ïœâªÇÃíiäK
 
-    int direction = -1;
+    private int direction = -1;
 
     private float _moveSpeed;
     private float _maxSpeed;    //ç≈çÇë¨ìx
     private float _minSpeed;    //ç≈í·ë¨ìx
     private SpriteRenderer pressSprite;
-    public Sprite PressDefault;
-    public Sprite PressAcc;
-    public Sprite PressDec;
+    [SerializeField] private Sprite PressDefault;
+    [SerializeField] private Sprite PressAcc;
+    [SerializeField] private Sprite PressDec;
+    [SerializeField] private AudioClip _pressMachineSound;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class PressMachineScript : MonoBehaviour
         _moveSpeed = MoveSpeed;
         _maxSpeed = MoveSpeed * Mathf.Pow(ChangeSpeed, ChangeScale); 
         _minSpeed = MoveSpeed / Mathf.Pow(ChangeSpeed, ChangeScale); 
+        _audioSource = GetComponent<AudioSource>();
     }
 
     
@@ -49,6 +52,7 @@ public class PressMachineScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "floor")
         {
+            _audioSource.PlayOneShot(_pressMachineSound);
             direction = -direction;
             Debug.Log("ÉvÉåÉXê⁄êG");
         }
