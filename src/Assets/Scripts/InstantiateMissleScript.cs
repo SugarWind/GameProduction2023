@@ -15,9 +15,6 @@ public class InstantiateMissleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MissleRate = 5f;
-        StartMissle = 0f;
-
         InvokeRepeating("CheckIsPlayerNear", StartMissle, MissleRate);
         player = GameObject.FindWithTag("Player");
     }
