@@ -149,7 +149,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Jump()
     {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        // rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.velocity = new Vector2(0,1.25f) * jumpForce;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
