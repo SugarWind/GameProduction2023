@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Rmissile
       objectReference: {fileID: 0}
+    - target: {fileID: 7653926821977531434, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7653926821977531435, guid: dbc018f46c8a3e443bfe19f073a2e02a, type: 3}
       propertyPath: m_RootOrder
       value: 0
