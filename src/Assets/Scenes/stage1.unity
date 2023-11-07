@@ -625,6 +625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: propellerArea (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8319951498192811885, guid: edacba5d3dc99844085c8f9d01f045e0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edacba5d3dc99844085c8f9d01f045e0, type: 3}
 --- !u!1 &326914230
@@ -726,6 +730,10 @@ PrefabInstance:
     - target: {fileID: 8319951496532898150, guid: edacba5d3dc99844085c8f9d01f045e0, type: 3}
       propertyPath: m_Name
       value: propellerArea (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319951498192811885, guid: edacba5d3dc99844085c8f9d01f045e0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edacba5d3dc99844085c8f9d01f045e0, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallFloorScript : MonoBehaviour
 {
     private Rigidbody2D FFrb;
-    [SerializeField] private float FallSpeed = -3f;
+    [SerializeField] public float FallSpeed = -3f;
     bool isFall;
     // Start is called before the first frame update
     void Start()
@@ -34,25 +34,25 @@ public class FallFloorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Acammo")
-        {
-            FallSpeed -= 1f;
+        //if(collision.gameObject.tag == "Acammo")
+        //{
+        //    FallSpeed -= 1f;
 
-            if(FallSpeed <-6f)
-            {
-                FallSpeed = -6f;
-            }
-        }
+        //    if(FallSpeed <-6f)
+        //    {
+        //        FallSpeed = -6f;
+        //    }
+        //}
 
-        if(collision.gameObject.tag == "Dcammo")
-        {
-            FallSpeed += 1f;
+        //if(collision.gameObject.tag == "Dcammo")
+        //{
+        //    FallSpeed += 1f;
 
-            if(FallSpeed >1f)
-            {
-                FallSpeed = 1f;
-            }
-        }
+        //    if(FallSpeed >1f)
+        //    {
+        //        FallSpeed = 1f;
+        //    }
+        //}
     }
 
     void FallFloor()
