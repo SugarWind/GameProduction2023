@@ -153,6 +153,17 @@ public class PlayerScript : MonoBehaviour
         rb.velocity = new Vector2(0,1.25f) * jumpForce;
     }
 
+    void SavePosition()
+    {
+        PlayerPrefs.SetFloat("PlayerPosX" ,transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPosY",transform.position.y);
+    }
+
+    void DeleteGoal()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
