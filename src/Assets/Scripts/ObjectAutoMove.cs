@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectAutoMove : MonoBehaviour
 {
     private Vector2 _objPosition;
+    [SerializeField] private Vector2 _startPosition;     //開始時の位置
     [SerializeField] private Vector2 _movingDistance;   //移動距離
     [SerializeField] private Vector2 _moveSpeed;        //速度
     [SerializeField] private float _changeRate = 2;     //変化の倍率
@@ -21,7 +22,9 @@ public class ObjectAutoMove : MonoBehaviour
     [SerializeField] private Vector2 _destroyedPrefabPosition;
     [SerializeField] private float _destroyedPrefabRotation;
     [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
-    [SerializeField] private bool _hasTrigger;    //Triggerを使用するか
+    [SerializeField] private bool _isTurnX;  //目的地についたときに反転するか
+    [SerializeField] private bool _isTurnY;  //目的地についたときに反転するか
+    [SerializeField] private bool _hasTrigger;      //Triggerを使用するか
 
     private bool _canMoveX, _canMoveY;    //現在移動可能か
     private bool _isMoved;      //一度でも移動したか
@@ -72,6 +75,9 @@ public class ObjectAutoMove : MonoBehaviour
             _objSprite = gameObject.GetComponent<SpriteRenderer>();
             _objSprite.sprite = _defaultSprite;
         }
+
+        _objPosition += _startPosition;
+        this.transform.position = _objPosition;
     }
 
     // Update is called once per frame
@@ -109,6 +115,27 @@ public class ObjectAutoMove : MonoBehaviour
             {
                 DestroyObject();    //"_needsDestroy"がtrueの時に破壊
             }
+            if (_isTurnX)
+            {
+                float x = transform.localEulerAngles.x;
+                x += 180;
+                if (x == 360)
+                {
+                    x = 0;
+                }
+                this.transform.rotation = Quaternion.Euler(x, 0.0f, 0.0f);
+            }
+            if (_isTurnY)
+            {
+                float y = transform.localEulerAngles.y;
+                y += 180;
+                if (y == 360)
+                {
+                    y = 0;
+                }
+                this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);
+            }
+
             _moveSpeed.x *= -1;
             _moveSpeed.y *= -1;
             SetCanMove(true, true);
@@ -146,7 +173,7 @@ public class ObjectAutoMove : MonoBehaviour
             _destroyedPrefabPosition += _objPosition;
             Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, _destroyedPrefabRotation));
         }
-        
+
         Destroy(gameObject);
     }
 
