@@ -528,7 +528,6 @@ GameObject:
   - component: {fileID: 553995655}
   - component: {fileID: 553995659}
   - component: {fileID: 553995658}
-  - component: {fileID: 553995657}
   - component: {fileID: 553995656}
   m_Layer: 5
   m_Name: STAGE9Button
@@ -602,18 +601,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &553995657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553995654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &553995658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +639,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553995654}
   m_CullTransparentMesh: 1
+--- !u!1 &567913428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567913430}
+  - component: {fileID: 567913429}
+  m_Layer: 0
+  m_Name: testselect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &567913429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567913428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b13f4519f1e6a44eaee35d280852d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save_num: 4
+  stageSelect:
+  - {fileID: 1867564640}
+  - {fileID: 802164318}
+  - {fileID: 1541620820}
+  - {fileID: 1978414701}
+  - {fileID: 1846640132}
+  - {fileID: 671132892}
+  - {fileID: 845566572}
+  - {fileID: 553995654}
+  - {fileID: 1989794761}
+--- !u!4 &567913430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567913428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 590.6955, y: 260.86832, z: -5.220722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602061915
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +868,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615881750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f9b0f9634187ad42af74007fb54cdde, type: 3}
   m_Name: 
@@ -853,7 +895,6 @@ GameObject:
   - component: {fileID: 671132893}
   - component: {fileID: 671132897}
   - component: {fileID: 671132896}
-  - component: {fileID: 671132895}
   - component: {fileID: 671132894}
   m_Layer: 5
   m_Name: STAGE7Button
@@ -927,18 +968,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &671132895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671132892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &671132896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,7 +1253,6 @@ GameObject:
   - component: {fileID: 802164319}
   - component: {fileID: 802164323}
   - component: {fileID: 802164322}
-  - component: {fileID: 802164321}
   - component: {fileID: 802164320}
   m_Layer: 5
   m_Name: 'STAGE3Button '
@@ -1297,31 +1325,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 802164322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615881753}
-        m_TargetAssemblyTypeName: Select, Assembly-CSharp
-        m_MethodName: StageSelect
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &802164321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802164318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!114 &802164322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,7 +1516,6 @@ GameObject:
   - component: {fileID: 845566573}
   - component: {fileID: 845566577}
   - component: {fileID: 845566576}
-  - component: {fileID: 845566575}
   - component: {fileID: 845566574}
   m_Layer: 5
   m_Name: STAGE8Button
@@ -1586,18 +1589,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &845566575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845566572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &845566576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2465,7 +2456,6 @@ GameObject:
   - component: {fileID: 1541620821}
   - component: {fileID: 1541620825}
   - component: {fileID: 1541620824}
-  - component: {fileID: 1541620823}
   - component: {fileID: 1541620822}
   m_Layer: 5
   m_Name: STAGE4Button
@@ -2538,31 +2528,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1541620824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615881753}
-        m_TargetAssemblyTypeName: Select, Assembly-CSharp
-        m_MethodName: StageSelect
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1541620823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541620820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!114 &1541620824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2612,7 +2578,6 @@ GameObject:
   - component: {fileID: 1846640133}
   - component: {fileID: 1846640137}
   - component: {fileID: 1846640136}
-  - component: {fileID: 1846640135}
   - component: {fileID: 1846640134}
   m_Layer: 5
   m_Name: STAGE6Button
@@ -2686,18 +2651,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1846640135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846640132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1846640136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,7 +2835,6 @@ GameObject:
   - component: {fileID: 1867564641}
   - component: {fileID: 1867564645}
   - component: {fileID: 1867564644}
-  - component: {fileID: 1867564643}
   - component: {fileID: 1867564642}
   m_Layer: 5
   m_Name: STAGE2Button
@@ -2968,18 +2920,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1867564643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867564640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1867564644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3029,7 +2969,6 @@ GameObject:
   - component: {fileID: 1978414702}
   - component: {fileID: 1978414706}
   - component: {fileID: 1978414705}
-  - component: {fileID: 1978414704}
   - component: {fileID: 1978414703}
   m_Layer: 5
   m_Name: STAGE5Button
@@ -3102,31 +3041,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1978414705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615881753}
-        m_TargetAssemblyTypeName: Select, Assembly-CSharp
-        m_MethodName: StageSelect
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1978414704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978414701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!114 &1978414705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,7 +3091,6 @@ GameObject:
   - component: {fileID: 1989794762}
   - component: {fileID: 1989794766}
   - component: {fileID: 1989794765}
-  - component: {fileID: 1989794764}
   - component: {fileID: 1989794763}
   m_Layer: 5
   m_Name: STAGE10Button
@@ -3250,18 +3164,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1989794764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989794761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af869c5174553545892d058d2137fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1989794765
 MonoBehaviour:
   m_ObjectHideFlags: 0
