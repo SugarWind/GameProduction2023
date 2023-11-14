@@ -16,6 +16,7 @@ TagManager:
   - Jump
   - Rmissile
   - SlipThrough
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
