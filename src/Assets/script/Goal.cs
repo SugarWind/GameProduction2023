@@ -13,15 +13,11 @@ public class Goal : MonoBehaviour
             SceneManager.LoadScene("StageSlect");
         }
     }
-    void OnTriggerEnter(Collider other)
+    public void StageClear()
     {
-        if (other.gameObject.name == "Player")
-        {
-            //PlayerPrefsのSCOREに3という値を入れる
-            PlayerPrefs.SetInt("SCORE", 3);
-            //PlayerPrefsをセーブする         
-            PlayerPrefs.Save();
-
-        }
+        //PlayerPrefsのSCOREに3という値を入れる
+        PlayerPrefs.SetInt("SCORE", 2);
+        //PlayerPrefsをセーブする         
+        PlayerPrefs.Save();
     }
 }
