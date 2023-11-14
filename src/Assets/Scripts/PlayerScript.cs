@@ -29,6 +29,9 @@ public class PlayerScript : MonoBehaviour
     public bool isInvincible;
     public bool isHit;
 
+    private bool isposX;
+    private bool isposY;
+
     public AnimationClip jumpRightClip;  // 右向きジャンプアニメーション
     public AnimationClip jumpLeftClip;   // 左向きジャンプアニメーション
     public AnimationClip runRightClip;  // 右向き移動アニメーション
@@ -55,6 +58,27 @@ public class PlayerScript : MonoBehaviour
         isJumping = false;
         isInvincible = false;
 
+        isposX = PlayerPrefs.HasKey("PlayerPosX");
+        isposY = PlayerPrefs.HasKey("PlayerPosY");
+
+        if(!isposX)
+        {
+            Debug.Log("x座標なし");
+        }
+        //Vector3 playerPosition = transform.position;
+
+        if (isposX && isposY) //チェックポイントの座標がセーブされてたら
+        {
+            //座標取得
+            float PPosX = PlayerPrefs.GetFloat("PlayerPosX");
+            float PPosY = PlayerPrefs.GetFloat("PlayerPosY");
+
+            
+            Vector2 SavePosition = new Vector2(PPosX, PPosY);
+
+            //座標をプレイヤーにアタッチ
+            transform.position = SavePosition;
+        }
     }
 
     private void Update()
