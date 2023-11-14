@@ -10,7 +10,18 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("ゴール");
-            SceneManager.LoadScene("Reselt");
+            SceneManager.LoadScene("StageSlect");
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            //PlayerPrefsのSCOREに3という値を入れる
+            PlayerPrefs.SetInt("SCORE", 3);
+            //PlayerPrefsをセーブする         
+            PlayerPrefs.Save();
+
         }
     }
 }
