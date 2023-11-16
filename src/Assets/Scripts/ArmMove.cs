@@ -8,7 +8,12 @@ public class ArmMove : MonoBehaviour
 
     private GameObject playerObj;
     private PlayerScript player;
+    private BulletScript bulletScript;
+    private SecondArmScript secondArmScript;
     private Transform playerTransform;
+
+    private Vector3 _localPos;
+    [SerializeField] private float _localPosX;
 
     private bool isHit = false;
     public bool Right = true;  // 腕の向きが更新したらPlayerScript.csで参照しキャラの向きを更新
@@ -20,6 +25,12 @@ public class ArmMove : MonoBehaviour
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<PlayerScript>();
         playerTransform = player.transform;
+
+        bulletScript = transform.Find("Arm").GetComponent<BulletScript>();
+        secondArmScript = transform.Find("SecondArm").GetComponent<SecondArmScript>();
+
+        _localPos = transform.localPosition;
+        _localPosX = _localPos.x;
     }
 
     // Update is called once per frame
@@ -38,12 +49,20 @@ public class ArmMove : MonoBehaviour
         {
             // マウスが自機の左側にある場合、自機を左向きにします
             transform.localScale = new Vector3(1, -1, 1);
-            Right = false;
+            _localPos.x = -(_localPosX);
+            transform.localPosition = _localPos;
+            bulletScript.ChangeSpriteLeft();
+            secondArmScript.ChangeSpriteLeft();
+            Right = false;  
         }
         else if (mousePosition.x >= playerTransform.position.x && !isHit)
         {
             // マウスが自機の右側にある場合、自機を右向きにします
             transform.localScale = new Vector3(1, 1, 1);
+            _localPos.x = _localPosX;
+            transform.localPosition = _localPos;
+            bulletScript.ChangeSpriteRight();
+            secondArmScript.ChangeSpriteRight();
             Right = true;
         }
     }

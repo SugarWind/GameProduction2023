@@ -20,10 +20,16 @@ public class BulletScript : MonoBehaviour
     private bool isHit = false;
     private bool canShot = true;
 
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite leftSprite;
+    [SerializeField] private Sprite rightSprite;
+
     private void Start()
     {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<PlayerScript>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -92,5 +98,14 @@ public class BulletScript : MonoBehaviour
         canShot = false;
         yield return new WaitForSeconds(shotInterval);
         canShot = true;
+    }
+
+    public void ChangeSpriteLeft()
+    {
+        spriteRenderer.sprite = leftSprite;
+    }
+    public void ChangeSpriteRight()
+    {
+        spriteRenderer.sprite = rightSprite;
     }
 }
