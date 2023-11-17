@@ -1433,6 +1433,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8202519961642470489, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8202519962620516066, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
       propertyPath: m_Name
       value: Chara

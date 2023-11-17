@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float bulletSpeed = 20f;
     [SerializeField] private float shotInterval = 0.15f;
     [SerializeField] private GameObject accelBulletPrefab;
     [SerializeField] private GameObject deccelBulletPrefab;
@@ -86,7 +86,7 @@ public class BulletScript : MonoBehaviour
         Vector3 shootDirection = (mousePos - transform.position).normalized;
 
         // マズルオブジェクトからセットしたバレットプレハブを発射
-        GameObject bullet = Instantiate(bulletPrefab, gunMuzzle.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, gunMuzzle.transform.position, gunShaft.transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // 重力影響なし
 

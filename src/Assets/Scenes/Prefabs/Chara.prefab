@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 8717360486836975848}
   - component: {fileID: 933978861208458295}
   - component: {fileID: 1756792927799245618}
+  - component: {fileID: 5559014673321887821}
   m_Layer: 0
   m_Name: SecondArm
   m_TagString: Untagged
@@ -142,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7768506221631703382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.395, y: 0.094, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,6 +216,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftSprite: {fileID: 21300000, guid: 75bb98b350ee1f34f9194330e82df53c, type: 3}
   _rightSprite: {fileID: 21300000, guid: 652a830963f74674fa07c23db0468b5d, type: 3}
+--- !u!50 &5559014673321887821
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768506221631703382}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8202519961642470502
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202519962514307220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 0.16, z: 0}
+  m_LocalPosition: {x: -0.38, y: 0.191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -743,7 +765,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09374237, y: 0.089481235}
+  m_Offset: {x: 0, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -754,7 +776,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8580494, y: 1.8210375}
+  m_Size: {x: 0.9, y: 1.9}
   m_EdgeRadius: 0
 --- !u!114 &8202519962620516060
 MonoBehaviour:
