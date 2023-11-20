@@ -14,6 +14,9 @@ public class MissileScript : MonoBehaviour
     public AnimationClip missileAnimator_a;
     public AnimationClip missileAnimator_d;
 
+    [SerializeField] private GameObject _destroyedPrefab;
+    private Vector2 _destroyedPrefabPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,5 +82,20 @@ public class MissileScript : MonoBehaviour
                 Mspeed = -1f;
             }
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            DestroyObject();
+        }
+    }
+
+    public void DestroyObject()
+    {
+        _destroyedPrefabPosition = transform.position;
+        _destroyedPrefabPosition.x -= 2.5f;
+        Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, -90));
+        Destroy(gameObject);
     }
 }

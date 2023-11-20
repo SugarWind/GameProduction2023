@@ -183,7 +183,7 @@ public class PlayerScript : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPosY",transform.position.y);
     }
 
-    void DeleteGoal()
+    public void DeleteGoal()
     {
         PlayerPrefs.DeleteAll();
     }
@@ -326,6 +326,13 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "CheckPoint")
+        {
+          SavePosition();
+        }
+    }
 
 }
 

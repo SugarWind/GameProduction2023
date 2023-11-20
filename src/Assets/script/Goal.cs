@@ -9,6 +9,9 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+          PlayerScript playerScript =  collision.gameObject.GetComponent<PlayerScript>();
+
+            playerScript.DeleteGoal();
             Debug.Log("ÉSÅ[Éã");
             SceneManager.LoadScene("StageSlect");
         }
