@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float bulletSpeed = 20f;
     [SerializeField] private float shotInterval = 0.15f;
     [SerializeField] private GameObject accelBulletPrefab;
     [SerializeField] private GameObject deccelBulletPrefab;
@@ -20,10 +20,16 @@ public class BulletScript : MonoBehaviour
     private bool isHit = false;
     private bool canShot = true;
 
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite leftSprite;
+    [SerializeField] private Sprite rightSprite;
+
     private void Start()
     {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<PlayerScript>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -80,7 +86,7 @@ public class BulletScript : MonoBehaviour
         Vector3 shootDirection = (mousePos - transform.position).normalized;
 
         // マズルオブジェクトからセットしたバレットプレハブを発射
-        GameObject bullet = Instantiate(bulletPrefab, gunMuzzle.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, gunMuzzle.transform.position, gunShaft.transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // 重力影響なし
 
@@ -92,5 +98,14 @@ public class BulletScript : MonoBehaviour
         canShot = false;
         yield return new WaitForSeconds(shotInterval);
         canShot = true;
+    }
+
+    public void ChangeSpriteLeft()
+    {
+        spriteRenderer.sprite = leftSprite;
+    }
+    public void ChangeSpriteRight()
+    {
+        spriteRenderer.sprite = rightSprite;
     }
 }

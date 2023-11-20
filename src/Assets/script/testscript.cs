@@ -94,15 +94,5 @@ public class testscript : MonoBehaviour
             }
         }
     }
-    public void StageClear()
-
-    {
-        { 
-            //PlayerPrefsのSCOREに3という値を入れる
-            PlayerPrefs.SetInt("SCORE", 2);
-            //PlayerPrefsをセーブする         
-            PlayerPrefs.Save();
-        }
-    }
 }
 
