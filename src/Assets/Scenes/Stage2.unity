@@ -1437,6 +1437,14 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8202519962620516058, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202519962620516059, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8202519962620516066, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
       propertyPath: m_Name
       value: Chara

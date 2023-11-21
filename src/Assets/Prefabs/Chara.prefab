@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35f5e01d982ced4bae764ba03d6166e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 20
   shotInterval: 0.15
   accelBulletPrefab: {fileID: 1623921507652914157, guid: ae44b081fdb0a7b44ba9a2ac46b709a4, type: 3}
   deccelBulletPrefab: {fileID: 7527415538968966617, guid: d5e07756d2cabce4b9f3eb442ee30c9f, type: 3}
