@@ -669,17 +669,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b13f4519f1e6a44eaee35d280852d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Save_num: 0
-  stageSelect:
-  - {fileID: 1867564640}
-  - {fileID: 802164318}
-  - {fileID: 1541620820}
-  - {fileID: 1978414701}
-  - {fileID: 1846640132}
-  - {fileID: 671132892}
-  - {fileID: 845566572}
-  - {fileID: 553995654}
-  - {fileID: 1989794761}
+  _stageButton:
+  - {fileID: 1419752230}
+  - {fileID: 1867564642}
+  - {fileID: 802164320}
+  - {fileID: 1541620822}
+  - {fileID: 1978414703}
+  - {fileID: 1846640134}
+  - {fileID: 671132894}
+  - {fileID: 845566574}
+  - {fileID: 553995656}
+  - {fileID: 1989794763}
 --- !u!4 &567913430
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,7 +1315,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 802164322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567913431}
+        m_TargetAssemblyTypeName: Select, Assembly-CSharp
+        m_MethodName: StageSelect
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &802164322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2257,7 +2269,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
