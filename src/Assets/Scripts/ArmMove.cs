@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArmMove : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer armSpriteRenderer;
+    [SerializeField] private SpriteRenderer secondArmSpriteRenderer;
 
     private GameObject playerObj;
     private PlayerScript player;
@@ -43,6 +44,7 @@ public class ArmMove : MonoBehaviour
 
         // 胴体の点滅と同時に腕を点滅
         armSpriteRenderer.enabled = player.spriteRenderer.enabled;
+        secondArmSpriteRenderer.enabled = player.spriteRenderer.enabled;
 
         // マウスのx座標に応じてオブジェクトの左右を反転
         if (mousePosition.x < playerTransform.position.x && !isHit && Right)

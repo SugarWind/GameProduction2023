@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armSpriteRenderer: {fileID: 8202519961642470488}
+  secondArmSpriteRenderer: {fileID: 933978861208458295}
   _localPosX: 0
   Right: 1
 --- !u!1 &8202519962620516066
