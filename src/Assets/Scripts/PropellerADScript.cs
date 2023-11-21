@@ -25,6 +25,7 @@ public class PropellerADScript : MonoBehaviour
         propellerAnimator_normal = GetComponent<Animator>();
         Paf = PropellerArea.GetComponent<AreaEffector2D>();
         defaultPower = Paf.forceMagnitude;
+        propellerAnimator_normal.SetFloat("Speed", 1);
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class PropellerADScript : MonoBehaviour
             {
                 Paf.forceMagnitude = PropellerMax;
             }
-
+            propellerAnimator_normal.SetFloat("Speed", Paf.forceMagnitude / defaultPower);
         }
 
         if (collision.gameObject.tag == "Dcammo")
@@ -84,6 +85,7 @@ public class PropellerADScript : MonoBehaviour
             {
                 Paf.forceMagnitude = PropellerMin;
             }
+            propellerAnimator_normal.SetFloat("Speed", Paf.forceMagnitude / defaultPower);
         }
     }
 }
