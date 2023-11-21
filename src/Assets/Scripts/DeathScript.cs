@@ -18,7 +18,7 @@ public class DeathScript : MonoBehaviour
     {
         if(transform.position.y < deathHeight)
         {
-            SceneManager.LoadScene("GameOver");
+           // SceneManager.LoadScene("GameOver");
         }
     }
 }
