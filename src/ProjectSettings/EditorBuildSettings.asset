@@ -15,39 +15,30 @@ EditorBuildSettings:
     path: Assets/Scenes/StageSlect.unity
     guid: 91dbe2c91a7865a4baffd87da006eb3c
   - enabled: 1
-    path: Assets/Scenes/ClearReselt.unity
-    guid: 29e22bf31675e284eb9561cc3d7a7182
+    path: Assets/Scenes/Option.unity
+    guid: bb0d52c0f4e58344d81bdf187fbc1327
   - enabled: 0
     path: Assets/Scenes/stage1.unity
     guid: d8a9bb6f112e7d84089b71b94b81870c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Stage3.unity
-    guid: 15df2b736c56b004f93679910e8e953c
-  - enabled: 1
-    path: Assets/Scenes/Stage2.unity
-    guid: 15c927ea2d4933946ad363cf47d46e8c
+    guid: e302bf64ec40fdf45b91fd29462b12d4
   - enabled: 1
     path: Assets/Scenes/stage4.unity
     guid: d4ed3a3d933ae1c4eb970597ddd00d55
   - enabled: 1
-    path: Assets/Scenes/stage5.unity
-    guid: e302bf64ec40fdf45b91fd29462b12d4
-  - enabled: 1
     path: Assets/Scenes/stage6.unity
     guid: 1f5e08dd93e21504389b8706cc61248e
   - enabled: 1
-    path: Assets/Scenes/StageScene.unity
-    guid: 66dacb7681d551b4d87a8addc1b6180f
+    path: Assets/Scenes/ClearReselt.unity
+    guid: 29e22bf31675e284eb9561cc3d7a7182
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 8d84a4d1d46969b4a9ab31a5598b5127
   - enabled: 1
-    path: Assets/Scenes/announcement.unity
-    guid: 1f65c1c01b55b0344aa35b0f65e38dfc
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/Option.unity
-    guid: bb0d52c0f4e58344d81bdf187fbc1327
+    path: Assets/Scenes/Stage2.unity
+    guid: 15c927ea2d4933946ad363cf47d46e8c
   m_configObjects: {}

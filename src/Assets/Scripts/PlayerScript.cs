@@ -190,7 +190,7 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
+        /*if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
         {
             // ノックバックさせる方向の計算
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
@@ -198,6 +198,11 @@ public class PlayerScript : MonoBehaviour
             Knockback(knockbackDirection);  // ノックバックさせる
             StartCoroutine(Flash());  // 点滅させる
             StartCoroutine(Invincible());  // 無敵状態にする
+        }*/
+
+        if (collision.gameObject.CompareTag("Death") && !isInvincible)
+        {
+            
         }
     }
 
@@ -274,6 +279,16 @@ public class PlayerScript : MonoBehaviour
                 RmissileSpeed = Rmissile.Mspeed;
                 isRidingRmissile = true;
             }
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
+        {
+            // ノックバックさせる方向の計算
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+
+            Knockback(knockbackDirection);  // ノックバックさせる
+            StartCoroutine(Flash());  // 点滅させる
+            StartCoroutine(Invincible());  // 無敵状態にする
         }
     }
 

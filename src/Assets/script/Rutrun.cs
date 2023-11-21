@@ -8,5 +8,6 @@ public class Rutrun : MonoBehaviour
     public void LodingNewSence()
     {
         SceneManager.LoadScene("Title");
+        PlayerPrefs.DeleteAll();
     }
 }
