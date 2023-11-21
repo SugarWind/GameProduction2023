@@ -199,6 +199,11 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Flash());  // ì_ñ≈Ç≥ÇπÇÈ
             StartCoroutine(Invincible());  // ñ≥ìGèÛë‘Ç…Ç∑ÇÈ
         }
+
+        if (collision.gameObject.CompareTag("Death") && !isInvincible)
+        {
+            
+        }
     }
 
     private void Knockback(Vector2 direction)
