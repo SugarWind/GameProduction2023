@@ -73,7 +73,7 @@ public class BulletScript : MonoBehaviour
             DcBullet = 0;
         }
 
-        Debug.Log(AcBullet);
+    //    Debug.Log(AcBullet);
     }
 
     private void ShotBullet(GameObject bulletPrefab)
