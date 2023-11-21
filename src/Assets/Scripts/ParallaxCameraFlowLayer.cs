@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ParallaxCameraFlowLayer : MonoBehaviour
 {
-    [SerializeField] Transform _cameraTransfrom;    // 追従対象のカメラ
-    [SerializeField] float _followFactor;   // カメラに追従する程度(1: カメラと同じ移動量 0: 移動しない)
+    [SerializeField] private Transform _cameraTransfrom;    // 追従対象のカメラ
+    [SerializeField] private float _followFactor;   // カメラに追従する程度(1: カメラと同じ移動量 0: 移動しない)
 
-    Vector2 _previousCameraPos;
+    private Vector2 _previousCameraPos;
 
     private void Update()
     {
@@ -26,8 +26,8 @@ public static class ParallaxCameraFlowLayerExtensions
     {
         Vector2 vec = self.localPosition;
         vec.x += pos.x;
-        //vec.y += pos.y;
-        //vec.x = Mathf.Round(vec.x * 10) / 10;
+        vec.y += pos.y;
+        //vec.x = Mathf.Round(vec.x) / 10;
         self.localPosition = vec;
     }
 }

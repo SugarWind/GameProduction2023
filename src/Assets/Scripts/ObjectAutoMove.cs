@@ -20,7 +20,7 @@ public class ObjectAutoMove : MonoBehaviour
 
     [SerializeField] private GameObject _destroyedPrefab;
     [SerializeField] private Vector2 _destroyedPrefabPosition;
-    [SerializeField] private float _destroyedPrefabRotation;
+    [SerializeField] private float _destroyedPrefabAddRotation;
     [SerializeField] private bool _needsDestroy;    //–Ú“I’n‚É‚Â‚¢‚½‚Æ‚«‚ÉgameObject‚ð”j‰ó‚·‚é‚©
     [SerializeField] private bool _isTurnX;  //–Ú“I’n‚É‚Â‚¢‚½‚Æ‚«‚É”½“]‚·‚é‚©
     [SerializeField] private bool _isTurnY;  //–Ú“I’n‚É‚Â‚¢‚½‚Æ‚«‚É”½“]‚·‚é‚©
@@ -171,7 +171,7 @@ public class ObjectAutoMove : MonoBehaviour
         if (_destroyedPrefab)
         {
             _destroyedPrefabPosition += _objPosition;
-            Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, _destroyedPrefabRotation));
+            Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, transform.localEulerAngles.z + _destroyedPrefabAddRotation));
         }
 
         Destroy(gameObject);
@@ -179,7 +179,7 @@ public class ObjectAutoMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Acammo")
+        if (collision.gameObject.tag == "Acammo" && _isMoved)
         {
             if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_maxSpeed.y))
             {
@@ -188,7 +188,7 @@ public class ObjectAutoMove : MonoBehaviour
                 _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
             }
         }
-        if (collision.gameObject.tag == "Dcammo")
+        if (collision.gameObject.tag == "Dcammo" && _isMoved)
         {
             if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_minSpeed.y))
             {

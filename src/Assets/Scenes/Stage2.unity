@@ -13805,7 +13805,7 @@ MonoBehaviour:
   _changeTimes: 1
   _destroyedPrefab: {fileID: 965133644803235665, guid: 1b3404291141d7b4e8b57abdc9973b10, type: 3}
   _destroyedPrefabPosition: {x: 0, y: -2.5}
-  _destroyedPrefabRotation: 0
+  _destroyedPrefabAddRotation: -90
   _needsDestroy: 1
   _isTurnX: 0
   _isTurnY: 0
@@ -13991,7 +13991,7 @@ MonoBehaviour:
   _changeTimes: 1
   _destroyedPrefab: {fileID: 965133644803235665, guid: 1b3404291141d7b4e8b57abdc9973b10, type: 3}
   _destroyedPrefabPosition: {x: 0, y: -2.5}
-  _destroyedPrefabRotation: 0
+  _destroyedPrefabAddRotation: -90
   _needsDestroy: 1
   _isTurnX: 0
   _isTurnY: 0
@@ -14177,7 +14177,7 @@ MonoBehaviour:
   _changeTimes: 1
   _destroyedPrefab: {fileID: 965133644803235665, guid: 1b3404291141d7b4e8b57abdc9973b10, type: 3}
   _destroyedPrefabPosition: {x: 0, y: -2.5}
-  _destroyedPrefabRotation: 0
+  _destroyedPrefabAddRotation: -90
   _needsDestroy: 1
   _isTurnX: 0
   _isTurnY: 0
@@ -15709,6 +15709,7 @@ GameObject:
   - component: {fileID: 1811634537}
   - component: {fileID: 1811634536}
   - component: {fileID: 1811634535}
+  - component: {fileID: 1811634542}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15761,8 +15762,8 @@ MonoBehaviour:
   m_AssetsPPU: 16
   m_RefResolutionX: 512
   m_RefResolutionY: 288
-  m_CropFrame: 0
-  m_GridSnapping: 0
+  m_CropFrame: 4
+  m_GridSnapping: 1
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -15868,6 +15869,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1811634542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811634534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03cc502b0d328d419dd735ef52f5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820694435
 GameObject:
   m_ObjectHideFlags: 0
