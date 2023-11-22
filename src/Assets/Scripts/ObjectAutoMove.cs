@@ -9,7 +9,7 @@ public class ObjectAutoMove : MonoBehaviour
     [SerializeField] private Vector2 _movingDistance;   //移動距離
     [SerializeField] private Vector2 _moveSpeed;        //速度
     [SerializeField] private float _changeRate = 2;     //変化の倍率
-    [SerializeField] private uint _changeTimes = 2;    //変化の回数
+    [SerializeField] private uint _changeCounts = 2;    //変化の回数
     private Vector2 _movedPosition;     //移動後の位置
     private Vector2 _defaultPosition;   //デフォルトの位置
     private Vector2 _targetPosition;    //現在の目的地の位置
@@ -55,8 +55,8 @@ public class ObjectAutoMove : MonoBehaviour
         _targetPosition = _movedPosition;
         _previousPosition = new Vector2(_defaultPosition.x, _defaultPosition.y);
         _defaultMoveSpeed = new Vector2(_moveSpeed.x, _moveSpeed.y);
-        _maxSpeed = new Vector2(_moveSpeed.x * Mathf.Pow(_changeRate, _changeTimes), _moveSpeed.y * Mathf.Pow(_changeRate, _changeTimes));
-        _minSpeed = new Vector2(_moveSpeed.x / Mathf.Pow(_changeRate, _changeTimes), _moveSpeed.y / Mathf.Pow(_changeRate, _changeTimes));
+        _maxSpeed = new Vector2(_moveSpeed.x * Mathf.Pow(_changeRate, _changeCounts), _moveSpeed.y * Mathf.Pow(_changeRate, _changeCounts));
+        _minSpeed = new Vector2(_moveSpeed.x / Mathf.Pow(_changeRate, _changeCounts), _moveSpeed.y / Mathf.Pow(_changeRate, _changeCounts));
         if (!_hasTrigger)
         {
             _canMoveX = true;
