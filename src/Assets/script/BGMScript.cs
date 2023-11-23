@@ -17,14 +17,14 @@ public class BGMScript : MonoBehaviour
 
 		if (DontDestroyEnabled)
 		{
-			// Sceneを遷移してもオブジェクトが消えない
+			// Sceneを遷移してもBGMが消えない
 			DontDestroyOnLoad(this);
 		}
 
 	}
 
 
-	/// スライドバー値の変更イベント
+	// スライドバー値の変更イベント
 
 	public void SoundSliderOnValueChange(float newSliderValue)
 	{

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Select : MonoBehaviour
 {
-    //問題あり
+    //問題ありだったためtestscpirtを採用
     //ステージ制限.
     //[SerializeField] private Button[] _stageButton;
     //void Start()
