@@ -28,7 +28,7 @@ public class FallFloorScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Invoke("FallFloor", 3);
+            Invoke("FallFloor", 3); //3ïbå„
         }
     }
 
