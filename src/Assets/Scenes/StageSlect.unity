@@ -707,7 +707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9b0f9634187ad42af74007fb54cdde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageButton: []
 --- !u!1 &602061915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,8 +2261,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 567913431}
-        m_TargetAssemblyTypeName: Select, Assembly-CSharp
+      - m_Target: {fileID: 567913429}
+        m_TargetAssemblyTypeName: testscript, Assembly-CSharp
         m_MethodName: StageSelect
         m_Mode: 3
         m_Arguments:

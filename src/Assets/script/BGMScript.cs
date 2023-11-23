@@ -6,23 +6,29 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class BGMScript : MonoBehaviour
 {
+	private AudioSource audioSource;
+	public bool DontDestroyEnabled = true;
 
 
-		private AudioSource audioSource;
+	private void Start()
+	{
+		// "AudioSource"コンポーネントを取得
+		audioSource = gameObject.GetComponent<AudioSource>();
 
-		private void Start()
+		if (DontDestroyEnabled)
 		{
-			// "AudioSource"コンポーネントを取得
-			audioSource = gameObject.GetComponent<AudioSource>();
-
+			// Sceneを遷移してもオブジェクトが消えない
+			DontDestroyOnLoad(this);
 		}
 
-		
-		/// スライドバー値の変更イベント
-		
-		public void SoundSliderOnValueChange(float newSliderValue)
-		{
-			// 音楽の音量をスライドバーの値に変更
-			audioSource.volume = newSliderValue;
-		}	
+	}
+
+
+	/// スライドバー値の変更イベント
+
+	public void SoundSliderOnValueChange(float newSliderValue)
+	{
+		// 音楽の音量をスライドバーの値に変更
+		audioSource.volume = newSliderValue;
+	}
 }
