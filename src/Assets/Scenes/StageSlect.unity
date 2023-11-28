@@ -649,7 +649,6 @@ GameObject:
   m_Component:
   - component: {fileID: 567913430}
   - component: {fileID: 567913429}
-  - component: {fileID: 567913431}
   m_Layer: 0
   m_Name: testselect
   m_TagString: Untagged
@@ -669,7 +668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b13f4519f1e6a44eaee35d280852d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageButton:
+  stageUnlock: 0
+  stageButton:
   - {fileID: 1419752230}
   - {fileID: 1867564642}
   - {fileID: 802164320}
@@ -695,18 +695,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &567913431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567913428}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9b0f9634187ad42af74007fb54cdde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &602061915
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 615881752}
+  - component: {fileID: 615881753}
   m_Layer: 0
   m_Name: Stageselect
   m_TagString: Untagged
@@ -873,6 +862,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &615881753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615881750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9b0f9634187ad42af74007fb54cdde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save_num: 0
+  stageSelect:
+  - {fileID: 1867564640}
+  - {fileID: 802164318}
+  - {fileID: 1541620820}
+  - {fileID: 1978414701}
+  - {fileID: 1846640132}
+  - {fileID: 671132892}
+  - {fileID: 845566572}
+  - {fileID: 553995654}
+  - {fileID: 1989794761}
 --- !u!1 &671132892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1327,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 567913431}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Select, Assembly-CSharp
         m_MethodName: StageSelect
         m_Mode: 3
@@ -2909,8 +2921,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 567913431}
-        m_TargetAssemblyTypeName: Select, Assembly-CSharp
+      - m_Target: {fileID: 567913429}
+        m_TargetAssemblyTypeName: testscript, Assembly-CSharp
         m_MethodName: StageSelect
         m_Mode: 3
         m_Arguments:

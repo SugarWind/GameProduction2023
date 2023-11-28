@@ -6,7 +6,7 @@ public class FallFloorScript : MonoBehaviour
 {
     private Rigidbody2D FFrb;
     [SerializeField] public float FallSpeed = -3f;
-    bool isFall;
+  public  bool isFall;
     // Start is called before the first frame update
     void Start()
     {
