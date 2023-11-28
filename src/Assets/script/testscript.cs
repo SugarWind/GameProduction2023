@@ -21,9 +21,8 @@ public class testscript : MonoBehaviour
                 stageButton[i].interactable = false;
         }
     }
-
-    //ステージセレクト
-    public void StageSelect(int stage)
+        //ステージセレクト
+        public void StageSelect(int stage)
     {
         SceneManager.LoadScene(stage);
     }
