@@ -23,24 +23,28 @@ public class FFloorTriggerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Acammo")
+        if (fallScript.isFall == true)
         {
-            Debug.Log("â¡ë¨óéâ∫è∞");
-            fallScript.FallSpeed -= 1f;
 
-            if (fallScript.FallSpeed < -6f)
+            if (collision.gameObject.tag == "Acammo")
             {
-                fallScript.FallSpeed = -6f;
+                Debug.Log("â¡ë¨óéâ∫è∞");
+                fallScript.FallSpeed -= 1f;
+
+                if (fallScript.FallSpeed < -6f)
+                {
+                    fallScript.FallSpeed = -6f;
+                }
             }
-        }
 
-        if (collision.gameObject.tag == "Dcammo")
-        {
-            fallScript.FallSpeed += 1f;
-
-            if (fallScript.FallSpeed > 1f)
+            if (collision.gameObject.tag == "Dcammo")
             {
-                fallScript.FallSpeed = 1f;
+                fallScript.FallSpeed += 1f;
+
+                if (fallScript.FallSpeed > 1f)
+                {
+                    fallScript.FallSpeed = 1f;
+                }
             }
         }
     }
