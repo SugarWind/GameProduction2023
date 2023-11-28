@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6475904234658127093}
   - component: {fileID: 3744616188388603444}
   - component: {fileID: -388385831722578073}
+  - component: {fileID: -5433802865385499047}
   m_Layer: 12
   m_Name: Accel Ammo
   m_TagString: Acammo
@@ -137,7 +138,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6e89f68493d4e498e455f2e7ec4c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyedPrefab: {fileID: 2449329751916055042, guid: 79303408fbfa3934c9987c0b62898f54, type: 3}
+  _accAnimation: {fileID: 7400000, guid: 972bbe3c6cf032f40ae44b908271ffa6, type: 2}
+  _explosionAnimation: {fileID: 7400000, guid: 26b2fbb210f1b8547a0f165088631232, type: 2}
+--- !u!95 &-5433802865385499047
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623921507652914157}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fbd08a68edf15e4eb2d654801ecf86c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5151559015118108767
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1178411824899540928}
   - component: {fileID: 2897056410469788889}
   - component: {fileID: -7228452304685850134}
+  - component: {fileID: 7608138109647918704}
   m_Layer: 12
   m_Name: Decel Ammo
   m_TagString: Dcammo
@@ -221,4 +222,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21956812285e9404090b73fa2d0bdd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyedPrefab: {fileID: 6426497758428027066, guid: f53e7c6cfd76d1941a47104c41835fed, type: 3}
+  _decAnimation: {fileID: 7400000, guid: e9faf29c22a78f444b2f3e94a3eda683, type: 2}
+  _explosionAnimation: {fileID: 7400000, guid: 664b5b8106aceeb4da492dc06301ad46, type: 2}
+--- !u!95 &7608138109647918704
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527415538968966617}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d0119aea17ed8e418c43dd68c7c1968, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
