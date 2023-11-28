@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class BTriggerSctipt : MonoBehaviour
 {
-    [SerializeField] private GameObject _destroyedPrefab;
+    [SerializeField] private AnimationClip _accAnimation;
+    [SerializeField] private AnimationClip _explosionAnimation;
+    private GameObject _effectObject;
+    private Animator _accAnimator;
+    private Rigidbody _rb;
+
+    void Start()
+    {
+        _effectObject = transform.Find("bullet_acc_effect").gameObject;
+        _accAnimator = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "wall")
         {
             Debug.Log("Ç†ÇΩÇË");
-            Instantiate(_destroyedPrefab, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            Destroy(_effectObject);
+            _accAnimator.SetTrigger("collisionTrigger");
         }
 
         if (collision.gameObject.tag != "Acammo" && collision.gameObject.tag != "Dcammo" && collision.gameObject.tag != "Arm" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Jump" && collision.gameObject.tag != "Trigger")
         {
-            Instantiate(_destroyedPrefab, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            Destroy(_effectObject);
+            _accAnimator.SetTrigger("collisionTrigger");
         }
     }
 
     void OnBecameInvisible() //âÊñ äOÇÃíeä€èàóù
+    {
+        Destroy(this.gameObject);
+    }
+
+    void OnAnimationFinish()
     {
         Destroy(this.gameObject);
     }

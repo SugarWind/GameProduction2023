@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy001 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3250773083820092024, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
+      propertyPath: _moveObject
+      value: 
+      objectReference: {fileID: 1145030368}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
 --- !u!1 &131646619
@@ -2173,6 +2177,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532121989}
   m_CullTransparentMesh: 1
+--- !u!1 &560640003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7412920204634737252, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
+  m_PrefabInstance: {fileID: 1624073022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &562024767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13728,6 +13737,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1145030368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7412920204634737252, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
+  m_PrefabInstance: {fileID: 116402924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173728372
 GameObject:
   m_ObjectHideFlags: 0
@@ -18187,6 +18201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy001 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3250773083820092024, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
+      propertyPath: _moveObject
+      value: 
+      objectReference: {fileID: 1740914975}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
 --- !u!1001 &1624073022
@@ -18252,6 +18270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy001 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3250773083820092024, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
+      propertyPath: _moveObject
+      value: 
+      objectReference: {fileID: 560640003}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
 --- !u!1 &1624439786
@@ -18401,6 +18423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2829491ae98c64c4c87ee9bc8534355a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1740914975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7412920204634737252, guid: 2a9faf2e5641c1040a6040df7add9aa3, type: 3}
+  m_PrefabInstance: {fileID: 1533645800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1811634541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2558834434115145479, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
@@ -18610,6 +18637,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2558834434115145475, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_CropFrame
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145475, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_GridSnapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145475, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_RefResolutionX
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145475, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_RefResolutionY
+      value: 356
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145478, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: orthographic size
+      value: 11.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145478, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145478, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.005555555
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145478, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558834434115145478, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.98888886
+      objectReference: {fileID: 0}
     - target: {fileID: 2558834434115145479, guid: 9d9dff53424adc540aaeac8622c1a75b, type: 3}
       propertyPath: m_RootOrder
       value: 0
