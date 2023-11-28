@@ -331,8 +331,8 @@ MonoBehaviour:
   _startPosition: {x: 0, y: 0}
   _movingDistance: {x: -100, y: 0}
   _moveSpeed: {x: -2, y: 0}
-  _changeRate: 3
-  _changeTimes: 1
+  _changeRate: 4
+  _changeCounts: 1
   _destroyedPrefab: {fileID: 0}
   _destroyedPrefabPosition: {x: 0, y: 0}
   _destroyedPrefabAddRotation: 0
