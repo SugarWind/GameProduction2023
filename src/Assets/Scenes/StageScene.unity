@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ce211ae1d97ed4597b3f9e9cd54c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPosX: -4
+  minPosX: -28
   maxPosX: 49.2
   minPosY: 0
   maxPosY: 0
@@ -1029,6 +1029,10 @@ PrefabInstance:
     - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
       propertyPath: m_Name
       value: TopPosition(PressMachine) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
@@ -3549,7 +3553,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00084233284, y: 0.33693638}
+  m_Offset: {x: -0.002734661, y: 0.23817039}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3560,7 +3564,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.984838, y: 0.32612723}
+  m_Size: {x: 0.79028225, y: 0.5279366}
   m_EdgeRadius: 0
 --- !u!114 &1520174462
 MonoBehaviour:
@@ -3822,10 +3826,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0008943081, y: 0.008930117}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3836,7 +3840,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.996037, y: 0.98213977}
   m_EdgeRadius: 0
 --- !u!1 &1686795340
 GameObject:
@@ -5445,7 +5449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1770400453
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5616,6 +5620,8 @@ MonoBehaviour:
   gunMuzzle: {fileID: 0}
   AcBullet: 50
   DcBullet: 50
+  leftSprite: {fileID: 0}
+  rightSprite: {fileID: 0}
 --- !u!212 &1818699434
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6663,6 +6669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine)
       objectReference: {fileID: 0}
+    - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1919187153534572975, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
       propertyPath: m_TagString
       value: Enemy
@@ -6928,6 +6938,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4733481244510518086, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5797429
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733481244510518086, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.71012855
+      objectReference: {fileID: 0}
     - target: {fileID: 8202519962620516066, guid: 677bf266f75cd7648bec4561799d0445, type: 3}
       propertyPath: m_Name
       value: Chara
@@ -7045,6 +7063,10 @@ PrefabInstance:
     - target: {fileID: 8537286947452423824, guid: 64f4595d3218e184d831731035cde402, type: 3}
       propertyPath: m_Name
       value: PressMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537286947452423824, guid: 64f4595d3218e184d831731035cde402, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8537286947452423835, guid: 64f4595d3218e184d831731035cde402, type: 3}
       propertyPath: m_RootOrder

@@ -6,7 +6,7 @@ public class FallFloorScript : MonoBehaviour
 {
     private Rigidbody2D FFrb;
     [SerializeField] public float FallSpeed = -3f;
-    bool isFall;
+  public  bool isFall;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +26,18 @@ public class FallFloorScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Invoke("FallFloor", 3); //3ïbå„
-        }
+        //if (collision.gameObject.tag == "Jump")
+        //{
+        //    Invoke("FallFloor", 3); //3ïbå„
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Jump")
+        {
+            Invoke("FallFloor", 3); //3ïbå„
+        }
         //if(collision.gameObject.tag == "Acammo")
         //{
         //    FallSpeed -= 1f;
