@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class Retry : MonoBehaviour
 {
     //string;
@@ -15,6 +16,7 @@ public class Retry : MonoBehaviour
     // Update is called once per frame
     public void RetryButton()
     {
-        SceneManager.LoadScene("Stage2");
+        //SceneManager.LoadScene("Stage2");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
