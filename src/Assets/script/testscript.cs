@@ -6,24 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class testscript : MonoBehaviour
 {
-    [SerializeField] private Button[] _stageButton;
+    public int stageUnlock; // スコア変数
+    [SerializeField] private Button[] stageButton;
     void Start()
     {
+        //stageUnlock = PlayerPrefs.GetInt("stageUnlook", 1);
         //ステージ制限
         int stageUnlock = PlayerPrefs.GetInt("StageUnlock", 1);
-        for (int i = 0; i < _stageButton.Length; i++)
+        for (int i = 0; i < stageButton.Length; i++)
         {
             if (i < stageUnlock)
-                _stageButton[i].interactable = true;
+                stageButton[i].interactable = true;
             else
-                _stageButton[i].interactable = false;
+                stageButton[i].interactable = false;
         }
     }
-    //ステージセレクト
-    public void StageSelect(int stage)
+        //ステージセレクト
+        public void StageSelect(int stage)
     {
         SceneManager.LoadScene(stage);
     }
-    
 }
-
