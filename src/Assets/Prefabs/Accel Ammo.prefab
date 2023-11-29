@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _accAnimation: {fileID: 7400000, guid: 972bbe3c6cf032f40ae44b908271ffa6, type: 2}
   _explosionAnimation: {fileID: 7400000, guid: 26b2fbb210f1b8547a0f165088631232, type: 2}
+  _explosionSize: 0.3
 --- !u!95 &-5433802865385499047
 Animator:
   serializedVersion: 4

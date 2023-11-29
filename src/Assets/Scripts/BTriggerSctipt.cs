@@ -6,6 +6,7 @@ public class BTriggerSctipt : MonoBehaviour
 {
     [SerializeField] private AnimationClip _accAnimation;
     [SerializeField] private AnimationClip _explosionAnimation;
+    [SerializeField] private float _explosionSize = 0.3f;
     private GameObject _effectObject;
     private Animator _accAnimator;
     private Rigidbody _rb;
@@ -20,6 +21,10 @@ public class BTriggerSctipt : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
         {
+            Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
+            CircleCollider2D circleCollider = this.GetComponent<CircleCollider2D>();
+            rb.velocity = Vector2.zero;
+            circleCollider.radius = _explosionSize;
             Debug.Log("‚ ‚½‚è");
             Destroy(_effectObject);
             _accAnimator.SetTrigger("collisionTrigger");
@@ -27,6 +32,10 @@ public class BTriggerSctipt : MonoBehaviour
 
         if (collision.gameObject.tag != "Acammo" && collision.gameObject.tag != "Dcammo" && collision.gameObject.tag != "Arm" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Jump" && collision.gameObject.tag != "Trigger")
         {
+            Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
+            CircleCollider2D circleCollider = this.GetComponent<CircleCollider2D>();
+            rb.velocity = Vector2.zero;
+            circleCollider.radius = _explosionSize;
             Destroy(_effectObject);
             _accAnimator.SetTrigger("collisionTrigger");
         }
