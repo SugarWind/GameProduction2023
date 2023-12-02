@@ -55,7 +55,7 @@ public class ArmMove : MonoBehaviour
             transform.localPosition = _localPos;
             bulletScript.ChangeSpriteLeft();
             secondArmScript.ChangeSpriteLeft();
-            Right = false;  
+            Right = false;
         }
         else if (mousePosition.x >= playerTransform.position.x && !isHit && !Right)
         {
