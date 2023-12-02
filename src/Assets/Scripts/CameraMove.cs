@@ -35,6 +35,9 @@ public class CameraMove : MonoBehaviour
     void LateUpdate()
     {
         MoveCamera();
+
+        //float ppu = 160f;
+        //transform.position = new Vector3(Mathf.Round(transform.position.x * ppu) / ppu, Mathf.Round(transform.position.y * ppu) / ppu, transform.position.z);
     }
 
     void MoveCamera()

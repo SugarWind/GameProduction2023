@@ -8,26 +8,30 @@ public class ParallaxCameraFlowLayer : MonoBehaviour
     [SerializeField] private float _followFactor;   // カメラに追従する程度(1: カメラと同じ移動量 0: 移動しない)
 
     private Vector2 _previousCameraPos;
+    private Rigidbody2D _rb;
 
-    private void Update()
+    private void Awake()
+    {
+        _rb = gameObject.AddComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        _rb = this.GetComponent<Rigidbody2D>();
+        _rb.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    private void FixedUpdate()
     {
         Vector2 currentPos = _cameraTransfrom.position;
-        var deltaPos = currentPos - _previousCameraPos;
+        Vector2 deltaPos = currentPos - _previousCameraPos;
         _previousCameraPos = currentPos;
-        var calcedPos = deltaPos * _followFactor;
-        transform.AddLocalPos((Vector2)calcedPos);
+        Vector2 calcedPos = deltaPos * _followFactor;
+        _rb.MovePosition(_rb.position + calcedPos);
     }
-}
-
-// ユーティリティ
-public static class ParallaxCameraFlowLayerExtensions
-{
-    public static void AddLocalPos(this Transform self, in Vector2 pos)
+    void LateUpdate()
     {
-        Vector2 vec = self.localPosition;
-        vec.x += pos.x;
-        vec.y += pos.y;
-        //vec.x = Mathf.Round(vec.x) / 10;
-        self.localPosition = vec;
+        float ppu = 160f;
+        transform.position = new Vector3(Mathf.Round(transform.position.x * ppu) / ppu, Mathf.Round(transform.position.y * ppu) / ppu, transform.position.z);
     }
 }

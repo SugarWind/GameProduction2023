@@ -25,11 +25,10 @@ public class FFloorTriggerScript : MonoBehaviour
     {
         if (fallScript.isFall == true)
         {
-
             if (collision.gameObject.tag == "Acammo")
             {
                 Debug.Log("â¡ë¨óéâ∫è∞");
-                fallScript.FallSpeed -= 1f;
+                fallScript.FallSpeed -= 1f; 
 
                 if (fallScript.FallSpeed < -6f)
                 {
@@ -39,11 +38,11 @@ public class FFloorTriggerScript : MonoBehaviour
 
             if (collision.gameObject.tag == "Dcammo")
             {
-                fallScript.FallSpeed += 1f;
+                fallScript.FallSpeed += 1f; 
 
-                if (fallScript.FallSpeed > 1f)
+                if (fallScript.FallSpeed == 0f)
                 {
-                    fallScript.FallSpeed = 1f;
+                    fallScript.FallSpeed = -1f;
                 }
             }
         }

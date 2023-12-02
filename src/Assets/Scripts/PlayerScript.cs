@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour
     public AnimationClip backRightClip;  // 右向き後ろ歩きアニメーション
     public AnimationClip backLeftClip;  // 左向き後ろ歩きアニメーション
 
+    private float defaultMoveSpeed;
     public float moveDirection;
 
     private void Start()
@@ -61,7 +62,9 @@ public class PlayerScript : MonoBehaviour
         isposX = PlayerPrefs.HasKey("PlayerPosX");
         isposY = PlayerPrefs.HasKey("PlayerPosY");
 
-        if(!isposX)
+        defaultMoveSpeed = moveSpeed;
+
+        if (!isposX)
         {
             Debug.Log("x座標なし");
         }
@@ -116,12 +119,12 @@ public class PlayerScript : MonoBehaviour
             if (moveDirection > 0)
             {
                 animator.Play(isFacingRight ? runRightClip.name : backLeftClip.name);
-                moveSpeed = (isFacingRight ? 4f : 3f);  // 前進は速く後進は遅く
+                moveSpeed = (isFacingRight ? defaultMoveSpeed : defaultMoveSpeed - 1f);  // 前進は速く後進は遅く
             }
             else if (moveDirection < 0)
             {
                 animator.Play(isFacingRight ? backRightClip.name : runLeftClip.name);
-                moveSpeed = (isFacingRight ? 3f : 4f);
+                moveSpeed = (isFacingRight ? defaultMoveSpeed - 1f : defaultMoveSpeed);
             }
             // 停止アニメーションを設定
             else
@@ -338,7 +341,7 @@ public class PlayerScript : MonoBehaviour
           SavePosition();
         }
     }
-
+    
 }
 
 
