@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class FloorScript : MonoBehaviour
 {
-    [SerializeField] private float animationSpeed;  // ベルコンのアニメーションの速度
-    [SerializeField] public float normal_floorSpeed = 3f;  // ベルコンに乗った時の移動速度
-    [SerializeField] public float reverse_floorSpeed = -3f;  // ベルコンに乗った時の移動速度
+    /*[SerializeField]*/
+    private float animationSpeed;  // ベルコンのアニメーションの速度
+    [SerializeField] public float rRotate_floorSpeed = 3f;  // ベルコンに乗った時の移動速度
+    [SerializeField] public float lRotate_floorSpeed = -3f;  // ベルコンに乗った時の移動速度
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float minSpeed = 1f;
+    [SerializeField] private float change_floorSpeed = 1f;
+    [SerializeField] private float animationDefaultSpeed = -0.6f;  // ベルコンのアニメーションの初期速度
+    [SerializeField] private float maxAnimation = -1.2f;
+    [SerializeField] private float minAnimation = -0.1f;
+    [SerializeField] private float change_animationSpeed = 0.3f;
     private float normal_defaultSpeed;  // ベルコンの初期スピード
     private float reverse_defaultSpeed;  // ベルコンの初期スピード
 
@@ -21,17 +27,14 @@ public class FloorScript : MonoBehaviour
     void Start()
     {
         animator_normal = GetComponent<Animator>();
-        normal_defaultSpeed = normal_floorSpeed;
-        reverse_defaultSpeed = reverse_floorSpeed;
+        normal_defaultSpeed = rRotate_floorSpeed;
+        reverse_defaultSpeed = lRotate_floorSpeed;
 
-        if (transform.rotation.y == 0)
+        if (transform.rotation.y == 0 || transform.rotation.y != 0)
         {
-            animationSpeed = -0.6f;
+            animationSpeed = animationDefaultSpeed;
         }
-        else if (transform.rotation.y != 0)
-        {
-            animationSpeed = 0.6f;
-        }
+
         animator_normal.SetFloat("AnimationSpeed", animationSpeed);
         //animationSpeed = animator.GetFloat("AnimationSpeed");
     }
@@ -39,8 +42,8 @@ public class FloorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (normal_floorSpeed == normal_defaultSpeed && transform.rotation.y == 0 ||
-            reverse_floorSpeed == reverse_defaultSpeed && transform.rotation.y != 0)
+        if (rRotate_floorSpeed == normal_defaultSpeed && transform.rotation.y == 0 ||
+            lRotate_floorSpeed == reverse_defaultSpeed && transform.rotation.y != 0)
         {
             animator_normal.Play(animator_default.name);
         }
@@ -55,23 +58,19 @@ public class FloorScript : MonoBehaviour
             if (transform.rotation.y == 0)  // 正転
             {
                 Debug.Log("床判定");
-                normal_floorSpeed += 1f;
-                animationSpeed -= 0.3f;
+                rRotate_floorSpeed += change_floorSpeed;
+                animationSpeed -= change_animationSpeed;
 
-                if (normal_floorSpeed > normal_defaultSpeed)
+                if (rRotate_floorSpeed > normal_defaultSpeed)
                 {
                     animator_normal.Play(animator_a.name);
                 }
 
-                /*if(floorSpeed > defaultSpeed)
-                {
-                    animator_normal.Play(animator_a.name);
-                }*/
 
-                if (normal_floorSpeed > maxSpeed)
+                if (rRotate_floorSpeed > maxSpeed)
                 {
-                    normal_floorSpeed = maxSpeed;
-                    animationSpeed = -1.2f;
+                    rRotate_floorSpeed = maxSpeed;
+                    animationSpeed = maxAnimation;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
@@ -79,27 +78,24 @@ public class FloorScript : MonoBehaviour
             else if (transform.rotation.y != 0)  // 逆転
             {
                 Debug.Log("床判定");
-                reverse_floorSpeed -= 1f;
-                animationSpeed -= 0.3f;
+                lRotate_floorSpeed -= change_floorSpeed;
+                animationSpeed -= change_animationSpeed;
 
-                if (reverse_floorSpeed < reverse_defaultSpeed)
+                if (lRotate_floorSpeed < reverse_defaultSpeed)
                 {
                     animator_normal.Play(animator_a.name);
                 }
 
-                /*if (floorSpeed < defaultSpeed)
-                {
-                    animator_normal.Play(animator_a.name);
-                }*/
 
-                if (reverse_floorSpeed < -maxSpeed)
+                if (lRotate_floorSpeed < -maxSpeed)
                 {
-                    reverse_floorSpeed = -maxSpeed;
-                    animationSpeed = -1.2f;
+                    lRotate_floorSpeed = -maxSpeed;
+                    animationSpeed = maxAnimation;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
             }
+
             /*Debug.Log("床判定");
             floorSpeed += 1f;
             animationSpeed -= 0.3f;
@@ -120,10 +116,10 @@ public class FloorScript : MonoBehaviour
             if (transform.rotation.y == 0)  // 正転
             {
                 Debug.Log("床減速");
-                normal_floorSpeed -= 1f; //落下速度減衰
-                animationSpeed += 0.3f;
+                rRotate_floorSpeed -= change_floorSpeed; //落下速度減衰
+                animationSpeed += change_animationSpeed;
 
-                if (normal_floorSpeed < normal_defaultSpeed)
+                if (rRotate_floorSpeed < normal_defaultSpeed)
                 {
                     animator_normal.Play(animator_d.name);
                 }
@@ -133,10 +129,10 @@ public class FloorScript : MonoBehaviour
                     animator_normal.Play(animator_d.name);
                 }*/
 
-                if (normal_floorSpeed < minSpeed)
+                if (rRotate_floorSpeed < minSpeed)
                 {
-                    normal_floorSpeed = minSpeed;
-                    animationSpeed = -0.1f;
+                    rRotate_floorSpeed = minSpeed;
+                    animationSpeed = minAnimation;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);
@@ -144,23 +140,19 @@ public class FloorScript : MonoBehaviour
             else if (transform.rotation.y != 0)  // 逆転
             {
                 Debug.Log("床減速");
-                reverse_floorSpeed += 1f; //落下速度減衰
-                animationSpeed -= 0.3f;     /////
+                lRotate_floorSpeed += change_floorSpeed; //落下速度減衰
+                animationSpeed += change_animationSpeed;     /////
 
-                if (reverse_floorSpeed > reverse_defaultSpeed)
+                if (lRotate_floorSpeed > reverse_defaultSpeed)
                 {
                     animator_normal.Play(animator_d.name);
                 }
 
-                /*if (floorSpeed > defaultSpeed)
-                {
-                    animator_normal.Play(animator_d.name);
-                }*/
 
-                if (reverse_floorSpeed > -minSpeed)
+                if (lRotate_floorSpeed > -minSpeed)
                 {
-                    reverse_floorSpeed = -minSpeed;
-                    animationSpeed = 0.1f;
+                    lRotate_floorSpeed = -minSpeed;
+                    animationSpeed = minAnimation;
                 }
 
                 animator_normal.SetFloat("AnimationSpeed", animationSpeed);

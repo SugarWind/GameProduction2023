@@ -251,11 +251,11 @@ public class PlayerScript : MonoBehaviour
             
             if(collision.gameObject.transform.rotation.y == 0)
             {
-                floorSpeed = flscript.normal_floorSpeed;
+                floorSpeed = flscript.rRotate_floorSpeed;
             }
             else if (collision.gameObject.transform.rotation.y != 0)
             {
-                floorSpeed = flscript.reverse_floorSpeed;
+                floorSpeed = flscript.lRotate_floorSpeed;
             }
 
             //floorSpeed = flscript.floorSpeed;
