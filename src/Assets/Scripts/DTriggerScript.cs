@@ -10,11 +10,13 @@ public class DTriggerScript : MonoBehaviour
     private GameObject _effectObject;
     private Animator _decAnimator;
     private Rigidbody _rb;
+    private CircleCollider2D _col2D;
 
     void Start()
     {
         _effectObject = transform.Find("bullet_dec_effect").gameObject;
         _decAnimator = GetComponent<Animator>();
+        _col2D = this.gameObject.GetComponent<CircleCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +47,12 @@ public class DTriggerScript : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnAnimationFinish()
+    public void OnAnimationColFinish()
+    {
+        _col2D.enabled = false;
+    }
+
+    public void OnAnimationFinish()
     {
         Destroy(this.gameObject);
     }
