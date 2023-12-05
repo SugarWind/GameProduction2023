@@ -19,4 +19,14 @@ public class Goal : MonoBehaviour
             SceneManager.LoadScene("StageSlect");
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            //PlayerPrefsのSCOREに3という値を入れる
+            PlayerPrefs.SetInt("StageUnlock", 3);
+            //PlayerPrefsをセーブする         
+            PlayerPrefs.Save();
+        }
+    }
 }

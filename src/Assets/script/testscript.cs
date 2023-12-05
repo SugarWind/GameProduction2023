@@ -10,7 +10,7 @@ public class testscript : MonoBehaviour
     [SerializeField] private Button[] stageButton;
     void Start()
     {
-        //stageUnlock = PlayerPrefs.GetInt("stageUnlook", 1);
+        //stageUnlock = PlayerPrefs.GetInt("stageUnlock", 1);
         //ステージ制限
         int stageUnlock = PlayerPrefs.GetInt("StageUnlock", 1);
         for (int i = 0; i < stageButton.Length; i++)
@@ -21,8 +21,9 @@ public class testscript : MonoBehaviour
                 stageButton[i].interactable = false;
         }
     }
+
         //ステージセレクト
-        public void StageSelect(int stage)
+    public void StageSelect(int stage)
     {
         SceneManager.LoadScene(stage);
     }
