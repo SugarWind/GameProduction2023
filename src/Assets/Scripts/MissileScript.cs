@@ -91,13 +91,6 @@ public class MissileScript : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            DestroyObject();
-        }
-    }
 
     private void AccAmmoHitWaitTime()
     {
