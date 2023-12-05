@@ -5,13 +5,18 @@ using UnityEngine;
 public class FallFloorScript : MonoBehaviour
 {
     private Rigidbody2D FFrb;
-    [SerializeField] public float FallSpeed = -3f;
-  public  bool isFall;
+    [SerializeField] public float FallSpeed = -10f;
+    public  bool isFall;
+    private bool isSet;
+    private Vector2 defaultFPos;
+    public float respawnPos = -14f;
     // Start is called before the first frame update
     void Start()
     {
         FFrb = this.gameObject.GetComponent<Rigidbody2D>();
         isFall = false;
+        isSet = false;
+        defaultFPos = this.transform.position;
     }
 
     // Update is called once per frame
@@ -22,41 +27,25 @@ public class FallFloorScript : MonoBehaviour
             Vector2 fallVelocity = new Vector2 (FFrb.velocity.x, FallSpeed);
             FFrb.velocity = fallVelocity;
         }
-    }
+        else
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y);
+        }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //if (collision.gameObject.tag == "Jump")
-        //{
-        //    Invoke("FallFloor", 3); //3ïbå„
-        //}
+        if(transform.position.y <respawnPos)
+        {
+            transform.position = defaultFPos;
+            FFrb.velocity =Vector2.zero;
+            isFall = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Jump")
-        {
-            Invoke("FallFloor", 3); //3ïbå„
+        if (collision.gameObject.tag == "Jump" && !isFall)
+        { 
+                Invoke("FallFloor", 3); //3ïbå„
         }
-        //if(collision.gameObject.tag == "Acammo")
-        //{
-        //    FallSpeed -= 1f;
-
-        //    if(FallSpeed <-6f)
-        //    {
-        //        FallSpeed = -6f;
-        //    }
-        //}
-
-        //if(collision.gameObject.tag == "Dcammo")
-        //{
-        //    FallSpeed += 1f;
-
-        //    if(FallSpeed >1f)
-        //    {
-        //        FallSpeed = 1f;
-        //    }
-        //}
     }
 
     void FallFloor()

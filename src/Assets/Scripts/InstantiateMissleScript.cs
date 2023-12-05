@@ -11,12 +11,14 @@ public class InstantiateMissleScript : MonoBehaviour
 
     private GameObject player;
     private bool isPlayerNear;
+    private Animator _animator;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("CheckIsPlayerNear", StartMissle, MissleRate);
         player = GameObject.FindWithTag("Player");
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,8 +49,15 @@ public class InstantiateMissleScript : MonoBehaviour
         }
     }
 
-    void CreateMissle()
+    public void CreateMissle()
     {
-      GameObject mP =  Instantiate(MissleOb, transform.position, Quaternion.identity);
+        _animator.SetTrigger("startShot");
+    }
+
+    public void FinishAnimation()
+    {
+        Vector2 missilePos = this.transform.position;
+        missilePos.x += 3.5f;
+        GameObject mP = Instantiate(MissleOb, missilePos, Quaternion.identity);
     }
 }
