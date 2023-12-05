@@ -40,40 +40,12 @@ public class FallFloorScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //if (collision.gameObject.tag == "Jump")
-        //{
-        //    Invoke("FallFloor", 3); //3ïbå„
-        //}
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Jump" && !isFall)
         { 
                 Invoke("FallFloor", 3); //3ïbå„
         }
-     
-        //if(collision.gameObject.tag == "Acammo")
-        //{
-        //    FallSpeed -= 1f;
-
-        //    if(FallSpeed <-6f)
-        //    {
-        //        FallSpeed = -6f;
-        //    }
-        //}
-
-        //if(collision.gameObject.tag == "Dcammo")
-        //{
-        //    FallSpeed += 1f;
-
-        //    if(FallSpeed >1f)
-        //    {
-        //        FallSpeed = 1f;
-        //    }
-        //}
     }
 
     void FallFloor()
