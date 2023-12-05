@@ -12,14 +12,14 @@ public class testscript : MonoBehaviour
     {
         //stageUnlock = PlayerPrefs.GetInt("stageUnlock", 1);
         //ステージ制限
-        int stageUnlock = PlayerPrefs.GetInt("StageUnlock", 1);
-        for (int i = 0; i < stageButton.Length; i++)
-        {
-            if (i < stageUnlock)
-                stageButton[i].interactable = true;
-            else
-                stageButton[i].interactable = false;
-        }
+        //int stageUnlock = PlayerPrefs.GetInt("StageUnlock", 1);
+        //for (int i = 0; i < stageButton.Length; i++)
+        //{
+        //    if (i < stageUnlock)
+        //        stageButton[i].interactable = true;
+        //    else
+        //        stageButton[i].interactable = false;
+        //}
     }
 
         //ステージセレクト
