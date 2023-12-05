@@ -56,6 +56,8 @@ public class InstantiateMissleScript : MonoBehaviour
 
     public void FinishAnimation()
     {
-        GameObject mP = Instantiate(MissleOb, transform.position, Quaternion.identity);
+        Vector2 missilePos = this.transform.position;
+        missilePos.x += 3.5f;
+        GameObject mP = Instantiate(MissleOb, missilePos, Quaternion.identity);
     }
 }
