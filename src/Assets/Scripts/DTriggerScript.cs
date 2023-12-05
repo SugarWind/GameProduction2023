@@ -10,6 +10,7 @@ public class DTriggerScript : MonoBehaviour
     private GameObject _effectObject;
     private Animator _decAnimator;
     private Rigidbody _rb;
+
     void Start()
     {
         _effectObject = transform.Find("bullet_dec_effect").gameObject;
@@ -20,7 +21,6 @@ public class DTriggerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
         {
-            Debug.Log("‚ ‚½‚è");
             Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
             CircleCollider2D circleCollider = this.GetComponent<CircleCollider2D>();
             rb.velocity = Vector2.zero;
