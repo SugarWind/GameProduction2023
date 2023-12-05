@@ -19,6 +19,8 @@ public class PressMachineScript : MonoBehaviour
     private float _minSpeed;    //最低速度
     private SpriteRenderer pressSprite;
     private bool _isStop;
+    private bool _isHitAcc;
+    private bool _isHitDec;
     [SerializeField] private Sprite PressDefault;
     [SerializeField] private Sprite PressAcc;
     [SerializeField] private Sprite PressDec;
@@ -61,14 +63,18 @@ public class PressMachineScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Acammo" && MoveSpeed < _maxSpeed)
+        if (collision.gameObject.tag == "Acammo" && MoveSpeed < _maxSpeed && !_isHitAcc)
         {
+            _isHitAcc = true;
+            Invoke("AccAmmoHitWaitTime", 0.1f);
             MoveSpeed *= ChangeSpeed;
             WaitTime /= ChangeSpeed;
             Debug.Log("プレス加速");
         }
-        if (collision.gameObject.tag == "Dcammo" && MoveSpeed > _minSpeed)
+        if (collision.gameObject.tag == "Dcammo" && MoveSpeed > _minSpeed && !_isHitDec)
         {
+            _isHitDec = true;
+            Invoke("DecAmmoHitWaitTime", 0.1f);
             MoveSpeed /= ChangeSpeed;
             WaitTime *= ChangeSpeed;
             Debug.Log("プレス減速");
@@ -81,6 +87,16 @@ public class PressMachineScript : MonoBehaviour
         _audioSource.PlayOneShot(_pressMachineSound);
         direction = -direction;
         _isStop = false;
+    }
+
+    private void AccAmmoHitWaitTime()
+    {
+        _isHitAcc = false;
+    }
+
+    private void DecAmmoHitWaitTime()
+    {
+        _isHitDec = false;
     }
 
     private void ChangeSprite()    //加減速状態に応じてプレス機のスプライトを変更
