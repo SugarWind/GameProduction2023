@@ -3452,6 +3452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FallSpeed: -3
   isFall: 0
+  respawnPos: -14
 --- !u!50 &1488059051
 Rigidbody2D:
   serializedVersion: 4
@@ -6873,6 +6874,10 @@ PrefabInstance:
     - target: {fileID: 7082198970412740983, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_Name
       value: FallFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740983, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: m_TagString
+      value: floor
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740988, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_RootOrder
