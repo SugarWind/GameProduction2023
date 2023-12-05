@@ -340,6 +340,20 @@ public class PlayerScript : MonoBehaviour
         {
           SavePosition();
         }
+
+        if(collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Untagged")
+        {
+            if(missileSpeed != 0 && !isRidingMissile || RmissileSpeed != 0 && !isRidingRmissile)
+            {
+                missileSpeed = 0;
+                RmissileSpeed = 0;
+            }
+
+            if(floorSpeed != 0 && !isRidingFloor)
+            {
+                floorSpeed = 0;
+            }
+        }
     }
     
 }
