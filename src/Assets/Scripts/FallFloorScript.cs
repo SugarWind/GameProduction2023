@@ -5,13 +5,16 @@ using UnityEngine;
 public class FallFloorScript : MonoBehaviour
 {
     private Rigidbody2D FFrb;
-    [SerializeField] public float FallSpeed = -3f;
-  public  bool isFall;
+    [SerializeField] public float FallSpeed = -10f;
+    public  bool isFall;
+    private Vector2 defaultFPos;
+    public float respawnPos = -14f;
     // Start is called before the first frame update
     void Start()
     {
         FFrb = this.gameObject.GetComponent<Rigidbody2D>();
         isFall = false;
+        defaultFPos = this.transform.position;
     }
 
     // Update is called once per frame
@@ -21,6 +24,12 @@ public class FallFloorScript : MonoBehaviour
         {
             Vector2 fallVelocity = new Vector2 (FFrb.velocity.x, FallSpeed);
             FFrb.velocity = fallVelocity;
+        }
+
+        if(transform.position.y <respawnPos)
+        {
+            transform.position = defaultFPos;
+            isFall = false;
         }
     }
 
