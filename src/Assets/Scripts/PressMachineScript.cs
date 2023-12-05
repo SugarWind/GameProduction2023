@@ -7,7 +7,7 @@ public class PressMachineScript : MonoBehaviour
     [SerializeField] private Transform TopPos;
     Rigidbody2D rb;
 
-    [SerializeField] private float MoveSpeed = 3.0f;
+    [SerializeField] private float MoveSpeed = 10.0f;
     [SerializeField] private float ChangeSpeed = 2.0f; //•Ï‰»‚Ì”{—¦
     [SerializeField] private float ChangeScale = 2.0f; //•Ï‰»‚Ì’iŠK
     [SerializeField] private float WaitTime = 1.0f;

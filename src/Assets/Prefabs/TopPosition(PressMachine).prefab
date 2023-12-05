@@ -275,6 +275,7 @@ MonoBehaviour:
   MoveSpeed: 3
   ChangeSpeed: 2
   ChangeScale: 2
+  WaitTime: 1
   PressDefault: {fileID: 21300000, guid: a4dc491b04263584e833cba12a85e914, type: 3}
   PressAcc: {fileID: 21300000, guid: 2a115273e9bd3ce418aa5ba28a65d028, type: 3}
   PressDec: {fileID: 21300000, guid: 6a224d4423b612a40853a436a9b7d555, type: 3}
@@ -287,7 +288,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919187153534572975}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
