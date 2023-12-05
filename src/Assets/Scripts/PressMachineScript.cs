@@ -36,8 +36,6 @@ public class PressMachineScript : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-
-
     private void FixedUpdate()
     {
         if (!_isStop)
@@ -69,7 +67,7 @@ public class PressMachineScript : MonoBehaviour
             WaitTime /= ChangeSpeed;
             Debug.Log("ƒvƒŒƒX‰Á‘¬");
         }
-        if (collision.gameObject.tag == "Dcammo" && MoveSpeed > _maxSpeed)
+        if (collision.gameObject.tag == "Dcammo" && MoveSpeed > _minSpeed)
         {
             MoveSpeed /= ChangeSpeed;
             WaitTime *= ChangeSpeed;

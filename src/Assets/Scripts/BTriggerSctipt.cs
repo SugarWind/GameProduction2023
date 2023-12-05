@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTriggerSctipt : MonoBehaviour
+public class BTriggerScript : MonoBehaviour
 {
     [SerializeField] private AnimationClip _accAnimation;
     [SerializeField] private AnimationClip _explosionAnimation;
@@ -25,7 +25,6 @@ public class BTriggerSctipt : MonoBehaviour
             CircleCollider2D circleCollider = this.GetComponent<CircleCollider2D>();
             rb.velocity = Vector2.zero;
             circleCollider.radius = _explosionSize;
-            Debug.Log("‚ ‚½‚è");
             Destroy(_effectObject);
             _accAnimator.SetTrigger("collisionTrigger");
         }
