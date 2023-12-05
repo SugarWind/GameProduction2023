@@ -50,7 +50,7 @@ public class FallFloorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Jump")
+        if (collision.gameObject.tag == "Jump" && !isFall)
         { 
                 Invoke("FallFloor", 3); //3ïbå„
         }
