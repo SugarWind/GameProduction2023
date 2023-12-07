@@ -12,7 +12,7 @@ public class Select : MonoBehaviour
     void Start()
     {
         //現在のstage_numを呼び出す
-        Save_num = PlayerPrefs.GetInt("SCORE", 9);
+        Save_num = PlayerPrefs.GetInt("SCORE", 0);
 
         for (int loop = 0; loop < stageSelect.Length; loop++)
         {
@@ -26,25 +26,4 @@ public class Select : MonoBehaviour
             }
         }
     }
-
-    //問題ありだったためtestscpirtを採用
-    //ステージ制限.
-    //[SerializeField] private Button[] _stageButton;
-    //void Start()
-    //{
-    //    int stageUnlock = PlayerPrefs.GetInt("StageUnlock", 1);
-    //    for (int i = 0; i < _stageButton.Length; i++)
-    //    {
-    //        if (i < stageUnlock)
-    //            _stageButton[i].interactable = true;
-    //        else
-    //            _stageButton[i].interactable = false;
-    //    }
-    //}
-
-    ////ステージセレクト
-    //public void StageSelect(int stage)
-    //{
-    //    SceneManager.LoadScene(stage);
-    //}
 }
