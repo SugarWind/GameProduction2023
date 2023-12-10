@@ -14,6 +14,11 @@ public class ReverseMissileScript : MonoBehaviour
     public AnimationClip missileAnimator_a;
     public AnimationClip missileAnimator_d;
 
+    [SerializeField] private GameObject _destroyedPrefab;
+    private Vector2 _destroyedPrefabPosition;
+    private bool _isHitAcc;
+    private bool _isHitDec;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,44 +32,81 @@ public class ReverseMissileScript : MonoBehaviour
     void Update()
     {
         Mrb.velocity = new Vector2(Mspeed, 0);
-
-        if (Mspeed == defaultSpeed)
-        {
-            missileAnimator_normal.Play(missile_default.name);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Acammo")
+        if (collision.gameObject.tag == "Acammo" && !_isHitAcc)
         {
+            _isHitAcc = true;
+            Invoke("AccAmmoHitWaitTime", 0.1f);
             Mspeed += 2f;
-            //missileAnimator_normal.Play(missileAnimator_a.name);
-            if (Mspeed > defaultSpeed)
+
+            if (Mspeed < defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_a.name);
+
             }
 
-            if (Mspeed > 9f)
+            //missileAnimator_normal.Play(missileAnimator_a.name);
+            /*if(Mspeed < defaultSpeed)
             {
-                Mspeed = 9f;
+                missileAnimator_normal.Play(missileAnimator_a.name);
+            }*/
+
+            if (Mspeed < -9f)
+            {
+                Mspeed = -9f;
             }
         }
 
-        if (collision.gameObject.tag == "Dcammo")
+        if (collision.gameObject.tag == "Dcammo" && !_isHitDec)
         {
+            _isHitDec = true;
+            Invoke("DecAmmoHitWaitTime", 0.1f);
             Mspeed -= 2f;
-            //missileAnimator_normal.Play(missileAnimator_d.name);
-            if (Mspeed < defaultSpeed)
+
+            if (Mspeed > defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_d.name);
+
             }
 
-            if (Mspeed < 1f)
+            //missileAnimator_normal.Play(missileAnimator_d.name);
+            /*if(Mspeed > defaultSpeed)
             {
-                Mspeed = 1f;
+                missileAnimator_normal.Play(missileAnimator_d.name);
+            }*/
+
+            if (Mspeed > -1f)
+            {
+                Mspeed = -1f;
+            }
+        }
+        if (collision.gameObject.tag == "Acammo" || collision.gameObject.tag == "Dcammo")
+        {
+            if (Mspeed == defaultSpeed)
+            {
+                missileAnimator_normal.Play(missile_default.name);
             }
         }
     }
 
+    private void AccAmmoHitWaitTime()
+    {
+        _isHitAcc = false;
+    }
+
+    private void DecAmmoHitWaitTime()
+    {
+        _isHitDec = false;
+    }
+
+    public void DestroyObject()
+    {
+        _destroyedPrefabPosition = transform.position;
+        _destroyedPrefabPosition.x += 2.5f;
+        Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, 90));
+        Destroy(gameObject);
+    }
 }

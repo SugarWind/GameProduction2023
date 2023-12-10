@@ -8,6 +8,7 @@ public class InstantiateMissleScript : MonoBehaviour
     [SerializeField] private float MissleRate;
     [SerializeField] private float StartMissle;
     [SerializeField] private float DetectionRange = 20f;
+    [SerializeField] bool isReverse;
 
     private GameObject player;
     private bool isPlayerNear;
@@ -57,7 +58,11 @@ public class InstantiateMissleScript : MonoBehaviour
     public void FinishAnimation()
     {
         Vector2 missilePos = this.transform.position;
-        missilePos.x += 3.5f;
+        if (isReverse)
+        {
+            missilePos.x -= 3.5f;
+        }
+        else missilePos.x += 3.5f;
         GameObject mP = Instantiate(MissleOb, missilePos, Quaternion.identity);
     }
 }

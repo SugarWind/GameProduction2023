@@ -91,3 +91,4 @@ MonoBehaviour:
   missile_default: {fileID: 7400000, guid: b747935a4c5dfc64fa282127b1f303b3, type: 2}
   missileAnimator_a: {fileID: 7400000, guid: 78bdb3f1997270644a035895b247571c, type: 2}
   missileAnimator_d: {fileID: 7400000, guid: 1cc05e0f5ede7e04989e5407757ef7ca, type: 2}
+  _destroyedPrefab: {fileID: 965133644803235665, guid: 1b3404291141d7b4e8b57abdc9973b10, type: 3}
