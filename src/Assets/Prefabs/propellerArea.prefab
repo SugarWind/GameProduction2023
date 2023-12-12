@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 4184000893284580477}
   m_Layer: 0
   m_Name: Fan
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,6 +417,7 @@ MonoBehaviour:
   Paf: {fileID: 0}
   PropellerMax: 20
   PropellerMin: 1
+  PropellerRate: 2
   propeller_default: {fileID: 7400000, guid: 1ba38c1fa8cb98040874b857a70842b6, type: 2}
   propeller_a: {fileID: 7400000, guid: 3d05949143591f24cbf35ec026d2930a, type: 2}
   propeller_d: {fileID: 7400000, guid: fa5ede4c1a7828c4b92d4ba76917eaf3, type: 2}
