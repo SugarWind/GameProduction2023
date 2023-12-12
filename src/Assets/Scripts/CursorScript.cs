@@ -14,6 +14,6 @@ public class CursorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Cursor.SetCursor(AimCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(AimCursor, new Vector2(55, 55), CursorMode.Auto);
     }
 }
