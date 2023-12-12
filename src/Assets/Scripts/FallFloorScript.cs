@@ -9,7 +9,8 @@ public class FallFloorScript : MonoBehaviour
     public  bool isFall;
     private bool isSet;
     private Vector2 defaultFPos;
-    public float respawnPos = -14f;
+    [SerializeField] public float respawnPos = -14f;
+    [SerializeField] public float  FallTime =3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class FallFloorScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Jump" && !isFall)
         { 
-                Invoke("FallFloor", 3); //3ïbå„
+                Invoke("FallFloor", FallTime); //3ïbå„
         }
     }
 
