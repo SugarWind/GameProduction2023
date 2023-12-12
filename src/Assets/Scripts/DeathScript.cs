@@ -19,8 +19,8 @@ public class DeathScript : MonoBehaviour
     {
         if(transform.position.y < deathHeight)
         {
-            //Debug.Log("owari");
-            //resultUI.SetActive(true);
+            Debug.Log("owari");
+            resultUI.SetActive(true);
             // SceneManager.LoadScene("GameOver");
             Result();
         }
