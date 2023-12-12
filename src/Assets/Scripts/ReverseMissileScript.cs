@@ -42,7 +42,7 @@ public class ReverseMissileScript : MonoBehaviour
             Invoke("AccAmmoHitWaitTime", 0.1f);
             Mspeed += 2f;
 
-            if (Mspeed < defaultSpeed)
+            if (Mspeed > defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_a.name);
 
@@ -54,9 +54,9 @@ public class ReverseMissileScript : MonoBehaviour
                 missileAnimator_normal.Play(missileAnimator_a.name);
             }*/
 
-            if (Mspeed < -9f)
+            if (Mspeed > 9f)
             {
-                Mspeed = -9f;
+                Mspeed = 9f;
             }
         }
 
@@ -66,7 +66,7 @@ public class ReverseMissileScript : MonoBehaviour
             Invoke("DecAmmoHitWaitTime", 0.1f);
             Mspeed -= 2f;
 
-            if (Mspeed > defaultSpeed)
+            if (Mspeed < defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_d.name);
 
@@ -78,9 +78,9 @@ public class ReverseMissileScript : MonoBehaviour
                 missileAnimator_normal.Play(missileAnimator_d.name);
             }*/
 
-            if (Mspeed > -1f)
+            if (Mspeed < 1f)
             {
-                Mspeed = -1f;
+                Mspeed = 1f;
             }
         }
         if (collision.gameObject.tag == "Acammo" || collision.gameObject.tag == "Dcammo")
