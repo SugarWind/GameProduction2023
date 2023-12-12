@@ -12,7 +12,8 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private float minPosY;
     [SerializeField] private float maxPosY;
 
-    [SerializeField] private bool isVer = false;
+    [SerializeField] private bool ySetting = false;
+    [SerializeField] private bool xSetting = true;
     GameObject playerObj;
     PlayerScript player;
     Transform playerTransform;
@@ -43,10 +44,13 @@ public class CameraMove : MonoBehaviour
     void MoveCamera()
     {
         //â°ï˚å¸ÇæÇØí«è]
-        float playerPosX = Mathf.Clamp(playerTransform.position.x, minPosX, maxPosX);
-        transform.position = new Vector3(playerPosX + 4, transform.position.y, transform.position.z);
+        if(xSetting)
+        {
+            float playerPosX = Mathf.Clamp(playerTransform.position.x, minPosX, maxPosX);
+            transform.position = new Vector3(playerPosX + 4, transform.position.y, transform.position.z);
+        }
 
-        if (isVer)
+        if (ySetting)
         {
             float playerPosY = Mathf.Clamp(playerTransform.position.y, minPosY, maxPosY);
             transform.position = new Vector3(transform.position.x, playerPosY, transform.position.z);
