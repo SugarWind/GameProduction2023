@@ -11,7 +11,7 @@ public class DeathScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -19,9 +19,17 @@ public class DeathScript : MonoBehaviour
     {
         if(transform.position.y < deathHeight)
         {
-            Debug.Log("owari");
-            resultUI.SetActive(true);
-           // SceneManager.LoadScene("GameOver");
+            //Debug.Log("owari");
+            //resultUI.SetActive(true);
+            // SceneManager.LoadScene("GameOver");
+            Result();
         }
+    }
+
+    public void Result()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("owari");
+        resultUI.SetActive(true);
     }
 }
