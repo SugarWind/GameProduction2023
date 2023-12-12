@@ -20,7 +20,14 @@ public class MissileTop : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Ground" 
+            || collision.gameObject.tag == "Player" 
+            || collision.gameObject.tag == "Missile" 
+            || collision.gameObject.tag == "Rmissile"
+            || collision.gameObject.tag == "Enemy"
+            || collision.gameObject.tag == "Enemy1"
+            || collision.gameObject.tag == "floor"
+            || collision.gameObject.tag == "Object")
         {
             if (_missileScript) _missileScript.DestroyObject();
             if (_reverseMissileScript) _reverseMissileScript.DestroyObject();
