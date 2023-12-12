@@ -12,10 +12,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float flashInterval = 0.04f;
     [SerializeField] private float knockbackForce = 200.0f;
     [SerializeField] private float invincibleInterval = 2.0f;
+    [SerializeField] private float defaultMoveSpeed;
+    [SerializeField] private float moveDirection;
     [SerializeField] private Animator animator;
     [SerializeField] public SpriteRenderer spriteRenderer;
+    [SerializeField] private float playerLife = 3f;
 
-    public Rigidbody2D rb;
+
+    private GameObject death;
+    private DeathScript deathScriptInstance;
     private GameObject armObj;
     private ArmMove arm;
     private GameObject jumpObj;
@@ -26,12 +31,13 @@ public class PlayerScript : MonoBehaviour
     private bool isRidingMissile = false;
     private bool isRidingRmissile = false;
     private bool isRidingFloor = false;
-    public bool isInvincible;
-    public bool isHit;
-
+    private bool isInvincible;
     private bool isposX;
     private bool isposY;
+    public Rigidbody2D rb;
+    public bool isHit;
 
+    
     public AnimationClip jumpRightClip;  // 右向きジャンプアニメーション
     public AnimationClip jumpLeftClip;   // 左向きジャンプアニメーション
     public AnimationClip runRightClip;  // 右向き移動アニメーション
@@ -43,8 +49,6 @@ public class PlayerScript : MonoBehaviour
     public AnimationClip backRightClip;  // 右向き後ろ歩きアニメーション
     public AnimationClip backLeftClip;  // 左向き後ろ歩きアニメーション
 
-    private float defaultMoveSpeed;
-    public float moveDirection;
 
     private void Start()
     {
@@ -82,6 +86,9 @@ public class PlayerScript : MonoBehaviour
             //座標をプレイヤーにアタッチ
             transform.position = SavePosition;
         }
+
+        death = GameObject.FindGameObjectWithTag("Player");
+        deathScriptInstance = death.GetComponent<DeathScript>();
     }
 
     private void Update()
@@ -92,6 +99,11 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && !isJumping && !isHit)
         {
             Jump();
+        }
+
+        if(playerLife == 0)
+        {
+            deathScriptInstance.Result();
         }
 
         // アニメーション設定
@@ -193,10 +205,11 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !isInvincible)
+        if (collision.gameObject.CompareTag("Enemy") && !isInvincible && playerLife != 0)
         {
             // ノックバックさせる方向の計算
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            
 
             Knockback(knockbackDirection);  // ノックバックさせる
             StartCoroutine(Flash());  // 点滅させる
@@ -230,6 +243,8 @@ public class PlayerScript : MonoBehaviour
             if (i == 10)
             {
                 isHit = false;
+                playerLife -= 1;
+                Debug.Log(playerLife);
             }
         }
         spriteRenderer.enabled = true;
