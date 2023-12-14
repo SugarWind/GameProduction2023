@@ -46,9 +46,8 @@ public class PressMachineScript : MonoBehaviour
         {
             rb.MovePosition(new Vector2(transform.position.x, transform.position.y + MoveSpeed * Time.fixedDeltaTime * direction));  
         }
-        if (this.transform.position.y > TopPos.position.y && !_hasPressed)
+        if (this.transform.position.y > TopPos.position.y)
         {
-            _hasPressed = true;
             StartCoroutine(ChangeBoolCoroutine(_hasPressed, 0.1f));
             this.transform.position = new Vector2(this.transform.position.x, TopPos.position.y);
             direction = -direction;
