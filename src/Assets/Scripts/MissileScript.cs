@@ -1,28 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MissileScript : MonoBehaviour
 {
     Rigidbody2D Mrb;
-    [SerializeField] public float Mspeed = -5f;
-    private float defaultSpeed;
+    [SerializeField] private float Mspeed = -5f;
+    [SerializeField] private float _changeSpeed = 2.0f;      //•Ï‰»‚Ì”{—¦
+    [SerializeField] private float _changeCount = 1.0f;      //•Ï‰»‚Ì‰ñ”
+
+    private float _defaultSpeed;        //‰Šú‘¬“x
+    private float _maxSpeed;            //Å‚‘¬“x
+    private float _minSpeed;            //Å’á‘¬“x
 
     Animator missileAnimator_normal;
-
-    public AnimationClip missile_default;
-    public AnimationClip missileAnimator_a;
-    public AnimationClip missileAnimator_d;
+    [SerializeField] private AnimationClip missile_default;
+    [SerializeField] private AnimationClip missileAnimator_a;
+    [SerializeField] private AnimationClip missileAnimator_d;
 
     [SerializeField] private GameObject _destroyedPrefab;
-    private Vector2 _destroyedPrefabPosition;
-    private bool _isHitAcc;
-    private bool _isHitDec;
+    private Vector2 _destroyedPrefabPosition;           //”š”­ˆÊ’u
+    private bool _isHitAcc;                             //1‚Â‚Ì’e‚É‘Î‚·‚é“ñd‰Á‘¬‚Ì–h~
+    private bool _isHitDec;                             //1‚Â‚Ì’e‚É‘Î‚·‚é“ñdŒ¸‘¬‚Ì–h~
+    private static float _cooldownTime = 0.1f;          //“ñdÚG–h~‚ÌƒN[ƒ‹ƒ_ƒEƒ“ŠÔ
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultSpeed = Mspeed;
+        _defaultSpeed = Mspeed;
+        _maxSpeed = Mspeed * Mathf.Pow(_changeSpeed, _changeCount);
+        _minSpeed = Mspeed / Mathf.Pow(_changeSpeed, _changeCount);
         missileAnimator_normal = GetComponent<Animator>();
         Mrb = GetComponent<Rigidbody2D>();
         //Animator missileAnimator_normal = GetComponent<Animator>();
@@ -39,67 +47,50 @@ public class MissileScript : MonoBehaviour
         if (collision.gameObject.tag == "Acammo" && !_isHitAcc)
         {
             _isHitAcc = true;
-            Invoke("AccAmmoHitWaitTime", 0.1f);
-            Mspeed -= 2f;
-
-            if (Mspeed < defaultSpeed)
+            StartCoroutine(CooldownMethod(_cooldownTime, () => _isHitAcc = false));
+            Mspeed *= _changeSpeed;
+            if (Mspeed < _maxSpeed)
             {
-                missileAnimator_normal.Play(missileAnimator_a.name);
-
+                Mspeed = _maxSpeed;
             }
-
-            //missileAnimator_normal.Play(missileAnimator_a.name);
-            /*if(Mspeed < defaultSpeed)
+            if (Mspeed < _defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_a.name);
-            }*/
-
-            if (Mspeed < -9f)
-            {
-                Mspeed = -9f;
             }
         }
 
         if (collision.gameObject.tag == "Dcammo" && !_isHitDec)
         {
             _isHitDec = true;
-            Invoke("DecAmmoHitWaitTime", 0.1f);
-            Mspeed += 2f;
-
-            if (Mspeed > defaultSpeed)
+            StartCoroutine(CooldownMethod(_cooldownTime, () => _isHitDec = false));
+            Mspeed /= _changeSpeed;
+            if (Mspeed > _minSpeed)
             {
-                missileAnimator_normal.Play(missileAnimator_d.name);
-
+                Mspeed = _minSpeed;
             }
-
-            //missileAnimator_normal.Play(missileAnimator_d.name);
-            /*if(Mspeed > defaultSpeed)
+            if (Mspeed > _defaultSpeed)
             {
                 missileAnimator_normal.Play(missileAnimator_d.name);
-            }*/
-
-            if (Mspeed > -1f)
-            {
-                Mspeed = -1f;
             }
         }
         if (collision.gameObject.tag == "Acammo" || collision.gameObject.tag == "Dcammo")
         {
-            if (Mspeed == defaultSpeed)
+            if (Mspeed == _defaultSpeed)
             {
                 missileAnimator_normal.Play(missile_default.name);
             }
         }
     }
 
-    private void AccAmmoHitWaitTime()
+    private IEnumerator CooldownMethod(float seconds, Action action)
     {
-        _isHitAcc = false;
+        yield return new WaitForSeconds(seconds);
+        action();
     }
 
-    private void DecAmmoHitWaitTime()
+    public float getMissileSpeed()
     {
-        _isHitDec = false;
+        return Mspeed;
     }
 
     public void DestroyObject()

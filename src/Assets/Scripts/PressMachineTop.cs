@@ -22,7 +22,6 @@ public class PressMachineTop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "floor")
         {
-            Debug.Log("top");
             _pressMachineScript.OnCollisionReturn();
         }
     }

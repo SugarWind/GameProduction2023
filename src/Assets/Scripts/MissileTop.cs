@@ -20,6 +20,7 @@ public class MissileTop : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //îöî≠ëŒè€ï®
         if (collision.gameObject.tag == "Ground" 
             || collision.gameObject.tag == "Player" 
             || collision.gameObject.tag == "Missile" 

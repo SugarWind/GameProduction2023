@@ -283,7 +283,7 @@ public class PlayerScript : MonoBehaviour
 
             if(transform.position.y > missile.transform.position.y)  // ‰º‚©‚ç‚ÌÚG”»’è‚ð–hŽ~
             {
-                missileSpeed = missile.Mspeed;
+                missileSpeed = missile.getMissileSpeed();
                 isRidingMissile = true;
             }
         }
@@ -294,7 +294,7 @@ public class PlayerScript : MonoBehaviour
 
             if (transform.position.y > Rmissile.transform.position.y)  
             {
-                RmissileSpeed = Rmissile.Mspeed;
+                RmissileSpeed = Rmissile.getMissileSpeed();
                 isRidingRmissile = true;
             }
         }
