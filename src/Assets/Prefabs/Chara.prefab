@@ -691,10 +691,12 @@ MonoBehaviour:
   flashInterval: 0.04
   knockbackForce: 200
   invincibleInterval: 2
+  defaultMoveSpeed: 0
+  moveDirection: 0
   animator: {fileID: 8202519962620516069}
   spriteRenderer: {fileID: 8202519962620516070}
+  playerLife: 3
   rb: {fileID: 0}
-  isInvincible: 0
   isHit: 0
   jumpRightClip: {fileID: 7400000, guid: 3a0b80db353d99c4990ac0cf9c7430b3, type: 2}
   jumpLeftClip: {fileID: 7400000, guid: 57f1eaf8e482b154f98b7c08d5d2461e, type: 2}
@@ -706,7 +708,6 @@ MonoBehaviour:
   damageLeftClip: {fileID: 7400000, guid: 8a4fa0c1efeb07f488046cf3e7e29c0c, type: 2}
   backRightClip: {fileID: 7400000, guid: b36380bb3dcedde4a899b92359d85cf6, type: 2}
   backLeftClip: {fileID: 7400000, guid: dffcfc1a29a46bc4b848597d7e0fa27b, type: 2}
-  moveDirection: 0
 --- !u!114 &8202519962620516057
 MonoBehaviour:
   m_ObjectHideFlags: 0

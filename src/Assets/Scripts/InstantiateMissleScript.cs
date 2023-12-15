@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{
+    Left,
+    Right,
+}
+
 public class InstantiateMissleScript : MonoBehaviour
 {
     [SerializeField] private GameObject MissleOb;
     [SerializeField] private float MissleRate;
     [SerializeField] private float StartMissle;
     [SerializeField] private float DetectionRange = 20f;
-    [SerializeField] bool isReverse;
+    [SerializeField] private Direction _direction;
 
     private GameObject player;
     private bool isPlayerNear;
@@ -58,11 +64,7 @@ public class InstantiateMissleScript : MonoBehaviour
     public void FinishAnimation()
     {
         Vector2 missilePos = this.transform.position;
-        if (isReverse)
-        {
-            missilePos.x -= 3.5f;
-        }
-        else missilePos.x += 3.5f;
+        missilePos.x += (_direction == Direction.Left) ? 3.5f : -3.5f;
         GameObject mP = Instantiate(MissleOb, missilePos, Quaternion.identity);
     }
 }
