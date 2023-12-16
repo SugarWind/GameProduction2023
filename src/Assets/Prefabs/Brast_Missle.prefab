@@ -102,6 +102,7 @@ MonoBehaviour:
   MissleRate: 5
   StartMissle: 1
   DetectionRange: 20
+  _direction: 0
 --- !u!95 &518238696718920875
 Animator:
   serializedVersion: 4

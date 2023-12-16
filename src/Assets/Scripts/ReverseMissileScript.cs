@@ -8,7 +8,7 @@ public class ReverseMissileScript : MonoBehaviour
     Rigidbody2D Mrb;
     [SerializeField] private float Mspeed = 5f;
     [SerializeField] private float _changeSpeed = 2.0f;      //•Ï‰»‚Ì”{—¦
-    [SerializeField] private float _changeCount = 1.0f;      //•Ï‰»‚Ì‰ñ”
+    [SerializeField] private uint _changeCount = 1;      //•Ï‰»‚Ì‰ñ”
 
     private float _defaultSpeed;        //‰Šú‘¬“x
     private float _maxSpeed;            //Å‚‘¬“x
@@ -23,7 +23,7 @@ public class ReverseMissileScript : MonoBehaviour
     private Vector2 _destroyedPrefabPosition;           //”š”­ˆÊ’u
     private bool _isHitAcc;                             //1‚Â‚Ì’e‚É‘Î‚·‚é“ñd‰Á‘¬‚Ì–hŽ~
     private bool _isHitDec;                             //1‚Â‚Ì’e‚É‘Î‚·‚é“ñdŒ¸‘¬‚Ì–hŽ~
-    private static float _cooldownTime = 0.1f;          //“ñdÚG–hŽ~‚ÌƒN[ƒ‹ƒ_ƒEƒ“ŽžŠÔ
+    private static float s_cooldownTime = 0.1f;          //“ñdÚG–hŽ~‚ÌƒN[ƒ‹ƒ_ƒEƒ“ŽžŠÔ
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class ReverseMissileScript : MonoBehaviour
         if (collision.gameObject.tag == "Acammo" && !_isHitAcc)
         {
             _isHitAcc = true;
-            StartCoroutine(CooldownMethod(_cooldownTime, () => _isHitAcc = false));
+            StartCoroutine(CooldownMethod(s_cooldownTime, () => _isHitAcc = false));
             Mspeed *= _changeSpeed;
             if (Mspeed > _maxSpeed)
             {
@@ -62,7 +62,7 @@ public class ReverseMissileScript : MonoBehaviour
         if (collision.gameObject.tag == "Dcammo" && !_isHitDec)
         {
             _isHitDec = true;
-            StartCoroutine(CooldownMethod(_cooldownTime, () => _isHitDec = false));
+            StartCoroutine(CooldownMethod(s_cooldownTime, () => _isHitDec = false));
             Mspeed /= _changeSpeed;
             if (Mspeed < _minSpeed)
             {
