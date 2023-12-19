@@ -18,6 +18,9 @@ TagManager:
   - SlipThrough
   - CheckPoint
   - Trigger
+  - Object
+  - Death
+  - Life
   layers:
   - Default
   - TransparentFX
