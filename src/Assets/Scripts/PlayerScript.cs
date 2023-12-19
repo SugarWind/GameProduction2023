@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float moveDirection;
     [SerializeField] private Animator animator;
     [SerializeField] public SpriteRenderer spriteRenderer;
-    [SerializeField] private float playerLife = 3f;
+    [SerializeField] public float playerLife = 3f;
 
 
     private GameObject death;
@@ -25,6 +25,8 @@ public class PlayerScript : MonoBehaviour
     private ArmMove arm;
     private GameObject jumpObj;
     private JumpTrigger jump;
+    private GameObject life;
+    private LifeScript player_life;
     private bool isJumping;
     private bool isFacingRight = true;  // ƒLƒƒƒ‰‚ÌŒü‚«‚ğŠÇ—
     private bool hitDirection = true;  // UŒ‚‚ª‚«‚½•ûŒü‚ğŠÇ—
@@ -89,6 +91,11 @@ public class PlayerScript : MonoBehaviour
 
         death = GameObject.FindGameObjectWithTag("Player");
         deathScriptInstance = death.GetComponent<DeathScript>();
+
+        life = GameObject.FindGameObjectWithTag("Life");
+        player_life = life.GetComponent<LifeScript>();
+
+        playerLife = 3f;
     }
 
     private void Update()
@@ -101,7 +108,7 @@ public class PlayerScript : MonoBehaviour
             Jump();
         }
 
-        if(playerLife == 0)
+        if(player_life.death)
         {
             deathScriptInstance.Result();
         }
@@ -216,9 +223,9 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Invincible());  // –³“Gó‘Ô‚É‚·‚é
         }
 
-        if (collision.gameObject.CompareTag("Death") && !isInvincible)
+        if (collision.gameObject.CompareTag("Press") && !isInvincible && playerLife != 0 && !jump.isJumping)
         {
-            
+            playerLife = 0;
         }
     }
 
