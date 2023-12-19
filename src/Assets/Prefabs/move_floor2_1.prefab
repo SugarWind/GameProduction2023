@@ -126,7 +126,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58704cd0583634428f169a0f902ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorSpeed: 0
+  rRotate_floorSpeed: 3
+  lRotate_floorSpeed: -3
+  maxSpeed: 5
+  minSpeed: 1
+  change_floorSpeed: 1
+  animationDefaultSpeed: -0.6
+  maxAnimation: -1.2
+  minAnimation: -0.1
+  change_animationSpeed: 0.3
   animator_default: {fileID: 7400000, guid: 39297d79f02ec57489685ce8f72dc697, type: 2}
   animator_a: {fileID: 7400000, guid: d390e96d0e86f7f4b8cddef1aabe1769, type: 2}
   animator_d: {fileID: 7400000, guid: 175b48e7bf9c91d40bf47d569c8a8713, type: 2}
