@@ -6,12 +6,12 @@ public class Enemy001Script : MonoBehaviour
 {
     [SerializeField] private GameObject _moveObject;
     private Rigidbody2D _rb;
-    private ObjectAutoMove _objectAutoMove;
+    private AutoMoveObject _autoMoveObject;
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _objectAutoMove = _moveObject.GetComponent<ObjectAutoMove>();
+        _autoMoveObject = _moveObject.GetComponent<AutoMoveObject>();
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Enemy001Script : MonoBehaviour
         {
             Vector2 force = new Vector2(0.0f, 8.0f);
             _rb.AddForce(force, ForceMode2D.Impulse);
-            _objectAutoMove.SetCanMove(true, true);
+            _autoMoveObject.SetCanMove(true, true);
         }
     }
 }

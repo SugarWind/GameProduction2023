@@ -2,41 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectAutoMove : MonoBehaviour
+public class AutoMoveObject : MonoBehaviour
 {
     private Vector2 _objPosition;
-    [SerializeField] private Vector2 _startPosition;     //開始時の位置
-    [SerializeField] private Vector2 _movingDistance;   //移動距離
-    [SerializeField] private Vector2 _moveSpeed;        //速度
-    [SerializeField] private float _changeRate = 2;     //変化の倍率
-    [SerializeField] private uint _changeCounts = 2;    //変化の回数
-    private Vector2 _movedPosition;     //移動後の位置
-    private Vector2 _defaultPosition;   //デフォルトの位置
-    private Vector2 _targetPosition;    //現在の目的地の位置
-    private Vector2 _previousPosition;      //前回の目的地の位置
-    private Vector2 _defaultMoveSpeed;  //デフォルトの速度
-    private Vector2 _maxSpeed;  //最高速度
-    private Vector2 _minSpeed;  //最低速度
+    [SerializeField] private Vector2 _startPosition;    // 開始時の位置
+    [SerializeField] private Vector2 _movingDistance;   // 現在位置からの移動距離
+    [SerializeField] private Vector2 _moveSpeed;        // 速度
+    [SerializeField] private float _changeRate = 2;     // 変化の倍率
+    [SerializeField] private uint _changeCounts = 2;    // 変化の回数
+    private Vector2 _movedPosition;     // 移動後の位置
+    private Vector2 _defaultPosition;   // デフォルトの位置
+    private Vector2 _targetPosition;    // 現在の目的地の位置
+    private Vector2 _previousPosition;      // 前回の目的地の位置
+    private Vector2 _defaultMoveSpeed;  // デフォルトの速度
+    private Vector2 _maxSpeed;  // 最高速度
+    private Vector2 _minSpeed;  // 最低速度
 
     [SerializeField] private GameObject _destroyedPrefab;
+    private GameObject _playerObj;
     [SerializeField] private Vector2 _destroyedPrefabPosition;
     [SerializeField] private float _destroyedPrefabAddRotation;
-    [SerializeField] private bool _needsDestroy;    //目的地についたときにgameObjectを破壊するか
-    [SerializeField] private bool _isTurnX;  //目的地についたときに反転するか
-    [SerializeField] private bool _isTurnY;  //目的地についたときに反転するか
-    [SerializeField] private bool _hasTrigger;      //Triggerを使用するか
-
-    private bool _canMoveX, _canMoveY;    //現在移動可能か
-    private bool _isMoved;      //一度でも移動したか
-    private bool _isGoingBack;  //戻っているのか
-    private bool _spriteExists; //スプライトが存在するか
-    private bool _animationExists;   //アニメーションが存在するか
+    [SerializeField] private bool _needsDestroy;    // 目的地についたときにgameObjectを破壊するか
+    [SerializeField] private bool _isTurnX;         // 目的地についたときに反転するか
+    [SerializeField] private bool _isTurnY;         // 目的地についたときに反転するか
+    [SerializeField] private bool _hasTrigger;      // Triggerを使用するか
+    [SerializeField] private bool _canRide;         // Playerが上に乗れるか
+    private bool _onPlayer;             // Playerが上に乗っているか
+    private bool _canMoveX, _canMoveY;  // 現在移動可能か
+    private bool _isMoved;              // 一度でも移動したか
+    private bool _isGoingBack;          // 戻っているのか
+    private bool _spriteExists;         // スプライトが存在するか
+    private bool _animationExists;      // アニメーションが存在するか
 
     private SpriteRenderer _objSprite;
-    [SerializeField] private Sprite _defaultSprite, _accSprite, _decSprite;  //ここにスプライトを入れる
+    [SerializeField] private Sprite _defaultSprite, _accSprite, _decSprite;  // ここにスプライトを入れる
     private Animator _objAnimator;
     [SerializeField] private float _objAnimatorSpeed;
-    [SerializeField] private AnimationClip _defaultAnimation, _accAnimation, _decAnimation;  //ここにアニメーションを入れる
+    [SerializeField] private AnimationClip _defaultAnimation, _accAnimation, _decAnimation;  // ここにアニメーションを入れる
 
     // Start is called before the first frame update
     private void Start()
@@ -75,45 +77,53 @@ public class ObjectAutoMove : MonoBehaviour
             _objSprite = gameObject.GetComponent<SpriteRenderer>();
             _objSprite.sprite = _defaultSprite;
         }
-
+        _playerObj = GameObject.Find("Chara");
         _objPosition += _startPosition;
         this.transform.position = _objPosition;
+
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
-        if (_canMoveX)     //X方向に進めない場合実行しない
+        Vector2 movedPos = _objPosition;
+        if (_canMoveX)     // X方向に進めない場合実行しない
         {
-            _objPosition.x += _moveSpeed.x * Time.deltaTime;   //X軸で移動
+            _objPosition.x += _moveSpeed.x * Time.deltaTime;   // X軸で移動
             _isMoved = true;
         }
-        if (_canMoveY)     //Y方向に進めない場合実行しない
+        if (_canMoveY)     // Y方向に進めない場合実行しない
         {
-            _objPosition.y += _moveSpeed.y * Time.deltaTime;   //Y軸で移動
+            _objPosition.y += _moveSpeed.y * Time.deltaTime;   // Y軸で移動
             _isMoved = true;
         }
 
         if ((_previousPosition.x < _targetPosition.x && _objPosition.x > _targetPosition.x) || (_previousPosition.x > _targetPosition.x && _objPosition.x < _targetPosition.x) || _previousPosition.x == _targetPosition.x)
         {
-            _objPosition.x = _targetPosition.x; //X方向に行き過ぎたときに戻す
-            SetCanMove(false, _canMoveY);   //これ以上X方向に進めないようにする
+            _objPosition.x = _targetPosition.x; // X方向に行き過ぎたときに戻す
+            SetCanMove(false, _canMoveY);       // これ以上X方向に進めないようにする
         }
         if ((_previousPosition.y < _targetPosition.y && _objPosition.y > _targetPosition.y) || (_previousPosition.y > _targetPosition.y && _objPosition.y < _targetPosition.y) || _previousPosition.y == _targetPosition.y)
         {
-            _objPosition.y = _targetPosition.y; //Y方向に行き過ぎたときに戻す
-            SetCanMove(_canMoveX, false);   //これ以上Y方向に進めないようにする
+            _objPosition.y = _targetPosition.y; // Y方向に行き過ぎたときに戻す
+            SetCanMove(_canMoveX, false);       // これ以上Y方向に進めないようにする
         }
 
-        //移動を反映
+        movedPos -= _objPosition;
+        // 移動を反映
         this.transform.position = _objPosition;
 
-        //目的地に着いたとき方向転換と目的地更新
+        if (_canRide && _onPlayer)
+        {
+            _playerObj.transform.position -= (Vector3)movedPos;
+        }
+
+        // 目的地に着いたとき方向転換と目的地更新
         if (!_canMoveX && !_canMoveY && _isMoved)
         {
             if (_needsDestroy)
             {
-                DestroyObject();    //"_needsDestroy"がtrueの時に破壊
+                DestroyObject();    // "_needsDestroy"がtrueの時に破壊
             }
             if (_isTurnX)
             {
@@ -177,9 +187,9 @@ public class ObjectAutoMove : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Acammo" && _isMoved)
+        if (other.gameObject.tag == "Acammo" && _isMoved)
         {
             if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_maxSpeed.y))
             {
@@ -188,7 +198,7 @@ public class ObjectAutoMove : MonoBehaviour
                 _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
             }
         }
-        if (collision.gameObject.tag == "Dcammo" && _isMoved)
+        if (other.gameObject.tag == "Dcammo" && _isMoved)
         {
             if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_minSpeed.y))
             {
@@ -205,9 +215,20 @@ public class ObjectAutoMove : MonoBehaviour
         {
             ChangeAnimation();
         }
+    
+        if (other.gameObject.tag == "Jump")
+        {
+            _onPlayer = true;
+        }
     }
-
-    private void ChangeSprite()    //加減速状態に応じてスプライトを変更
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Jump" && _onPlayer)
+        {
+            _onPlayer = false;
+        }
+    }
+    private void ChangeSprite()     // 加減速状態に応じてスプライトを変更
     {
         if (_moveSpeed == _defaultMoveSpeed || _moveSpeed == -_defaultMoveSpeed)
         {
@@ -223,7 +244,7 @@ public class ObjectAutoMove : MonoBehaviour
         }
     }
 
-    private void ChangeAnimation()    //加減速状態に応じてスプライトを変更
+    private void ChangeAnimation()      // 加減速状態に応じてスプライトを変更
     {
         if (_moveSpeed == _defaultMoveSpeed || _moveSpeed == -_defaultMoveSpeed)
         {
