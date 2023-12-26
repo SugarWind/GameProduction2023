@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class BGMScript : MonoBehaviour
 {
 	private AudioSource audioSource;
 	public bool DontDestroyEnabled = true;
-
 
 	private void Start()
 	{
@@ -23,15 +22,19 @@ public class BGMScript : MonoBehaviour
 			// Sceneを遷移してもBGMが消えない
 			DontDestroyOnLoad(this);
 		}
-
 	}
-
 
 	// スライドバー値の変更イベント
-
-	public void SoundSliderOnValueChange(float newSliderValue)
+	public void ChangeVolume(float volumeValue)
 	{
 		// 音楽の音量をスライドバーの値に変更
-		audioSource.volume = newSliderValue;
+		audioSource.volume = volumeValue;
 	}
+
+    public void OptionStart()
+    {
+        Slider volumeSlider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
+		// スライドバーの値を音楽の音量に変更
+		volumeSlider.value = audioSource.volume;
+    }
 }
