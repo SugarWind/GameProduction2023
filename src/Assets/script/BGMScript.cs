@@ -12,9 +12,10 @@ public class BGMScript : MonoBehaviour
 
 	private void Start()
 	{
-        // "AudioSource"コンポーネントを取得
+        // ほかに"BGM"がある場合このオブジェクトを削除
         GameObject otherBGM = GameObject.Find("BGM");
         if (otherBGM && otherBGM != this.gameObject) Destroy(this.gameObject);
+        // "AudioSource"コンポーネントを取得
         audioSource = gameObject.GetComponent<AudioSource>();
 
 		if (DontDestroyEnabled)
