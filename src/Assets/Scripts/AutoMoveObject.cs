@@ -86,7 +86,7 @@ public class AutoMoveObject : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        Vector2 movedPos = _objPosition;
+        Vector2 movedDistance = _objPosition;
         if (_canMoveX)     // X方向に進めない場合実行しない
         {
             _objPosition.x += _moveSpeed.x * Time.deltaTime;   // X軸で移動
@@ -109,13 +109,13 @@ public class AutoMoveObject : MonoBehaviour
             SetCanMove(_canMoveX, false);       // これ以上Y方向に進めないようにする
         }
 
-        movedPos -= _objPosition;
+        movedDistance -= _objPosition;
         // 移動を反映
         this.transform.position = _objPosition;
 
         if (_canRide && _onPlayer)
         {
-            _playerObj.transform.position -= (Vector3)movedPos;
+            _playerObj.transform.position -= (Vector3)movedDistance;
         }
 
         // 目的地に着いたとき方向転換と目的地更新
