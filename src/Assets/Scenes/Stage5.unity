@@ -15781,6 +15781,14 @@ PrefabInstance:
       propertyPath: ChangeSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _topPositionY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1 &1751031670
