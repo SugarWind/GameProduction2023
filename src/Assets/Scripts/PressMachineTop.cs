@@ -23,6 +23,7 @@ public class PressMachineTop : MonoBehaviour
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "floor")
         {
             _pressMachineScript.OnCollisionReturn();
+            Debug.Log("ƒvƒŒƒXŒ¸‘¬");
         }
     }
 }

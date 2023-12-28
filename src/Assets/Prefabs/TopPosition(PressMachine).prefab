@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8628498035859935867}
   m_Layer: 0
   m_Name: Death
-  m_TagString: Death
+  m_TagString: Press
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,6 +200,11 @@ MonoBehaviour:
   _changeSpeed: 2
   _changeCount: 1
   _waitTime: 1
+  _direction: 0
+  _topPositionY: 0
+  _underPositionY: 0
+  _hasPressed: 0
+  _isStop: 0
   PressDefault: {fileID: 21300000, guid: a4dc491b04263584e833cba12a85e914, type: 3}
   PressAcc: {fileID: 21300000, guid: 2a115273e9bd3ce418aa5ba28a65d028, type: 3}
   PressDec: {fileID: 21300000, guid: 6a224d4423b612a40853a436a9b7d555, type: 3}
