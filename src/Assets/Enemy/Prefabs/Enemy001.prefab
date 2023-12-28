@@ -363,7 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a4d6c7958d9a44ebfcaf068d310dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objPosition: {x: 0, y: 0}
   _startPosition: {x: 0, y: 0}
   _movingDistance: {x: -100, y: 0}
   _moveSpeed: {x: -2, y: 0}
@@ -376,6 +375,7 @@ MonoBehaviour:
   _isTurnX: 0
   _isTurnY: 1
   _hasTrigger: 1
+  _canRide: 0
   _defaultSprite: {fileID: 0}
   _accSprite: {fileID: 0}
   _decSprite: {fileID: 0}
@@ -448,7 +448,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -459,7 +459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.97, y: 0.97}
+  m_Size: {x: 1.86, y: 0.97}
   m_EdgeRadius: 0
 --- !u!50 &4771662237202313563
 Rigidbody2D:
@@ -612,7 +612,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85, y: 1.05}
+  m_Size: {x: 0.7, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &487357326750059972
 Rigidbody2D:
