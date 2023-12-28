@@ -17,7 +17,7 @@ public class PressMachineScript : MonoBehaviour
     private float _defaultSpeed;        // 初期速度
     private float _maxSpeed;            // 最高速度
     private float _minSpeed;            // 最低速度
-    private float _topPositionY;        // 最高位置
+    [SerializeField] private float _topPositionY;        // 最高位置
     private float _underPositionY;      // 最低位置
     private SpriteRenderer pressSprite;
     private bool _hasPressed;       // 一度でもの地面に接触したかの判定
@@ -59,7 +59,7 @@ public class PressMachineScript : MonoBehaviour
         }
         else if (!_isStop)
         {
-            rb.MovePosition(new Vector2(transform.position.x, transform.position.y + MoveSpeed * Time.fixedDeltaTime * _direction));
+            transform.position = new Vector2(transform.position.x, transform.position.y + MoveSpeed * Time.fixedDeltaTime * _direction);
 
             if (transform.position.y > _topPositionY && _hasPressed)
             {
@@ -78,14 +78,12 @@ public class PressMachineScript : MonoBehaviour
             _isHitAcc = true;
             _ = WaitForAsync(s_cooldownTime, () => _isHitAcc = false);
             MoveSpeed *= _changeSpeed;
-            _waitTime /= _changeSpeed;
         }
         if (collision.gameObject.tag == "Dcammo" && MoveSpeed > _minSpeed && !_isHitDec)
         {
             _isHitDec = true;
             _ = WaitForAsync(s_cooldownTime, () => _isHitDec = false);
             MoveSpeed /= _changeSpeed;
-            _waitTime *= _changeSpeed;
         }
         ChangeSprite();
     }

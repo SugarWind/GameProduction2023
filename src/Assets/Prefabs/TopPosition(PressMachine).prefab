@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629445983809408002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.5, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9, y: 1}
+  m_Size: {x: 3.9, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &6976722800250512040
 Rigidbody2D:
@@ -200,11 +200,7 @@ MonoBehaviour:
   _changeSpeed: 2
   _changeCount: 1
   _waitTime: 1
-  _direction: 0
   _topPositionY: 0
-  _underPositionY: 0
-  _hasPressed: 0
-  _isStop: 0
   PressDefault: {fileID: 21300000, guid: a4dc491b04263584e833cba12a85e914, type: 3}
   PressAcc: {fileID: 21300000, guid: 2a115273e9bd3ce418aa5ba28a65d028, type: 3}
   PressDec: {fileID: 21300000, guid: 6a224d4423b612a40853a436a9b7d555, type: 3}
