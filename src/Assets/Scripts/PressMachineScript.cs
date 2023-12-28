@@ -13,15 +13,15 @@ public class PressMachineScript : MonoBehaviour
     [SerializeField] private uint _changeCount = 1;         // 変化の回数
     [SerializeField] private float _waitTime = 1.0f;        // 通常状態のプレス機の停止時間
 
-    [SerializeField] private sbyte _direction;
+    private sbyte _direction;
     private float _defaultSpeed;        // 初期速度
     private float _maxSpeed;            // 最高速度
     private float _minSpeed;            // 最低速度
-    [SerializeField]  private float _topPositionY;        // 最高位置
-    [SerializeField] private float _underPositionY;      // 最低位置
+    private float _topPositionY;        // 最高位置
+    private float _underPositionY;      // 最低位置
     private SpriteRenderer pressSprite;
-    [SerializeField] private bool _hasPressed;       // 一度でもの地面に接触したかの判定
-    [SerializeField] private bool _isStop;           // プレス機の停止を判定
+    private bool _hasPressed;       // 一度でもの地面に接触したかの判定
+    private bool _isStop;           // プレス機の停止を判定
     private float _stoppingTime;
     private bool _isHitAcc;                             // 一つの弾に対する二重加速の防止用
     private bool _isHitDec;                             // 一つの弾に対する二重減速の防止用
