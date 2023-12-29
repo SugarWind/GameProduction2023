@@ -13,15 +13,15 @@ public class PressMachineScript : MonoBehaviour
     [SerializeField] private uint _changeCount = 1;         // •Ï‰»‚Ì‰ñ”
     [SerializeField] private float _waitTime = 1.0f;        // ’Êíó‘Ô‚ÌƒvƒŒƒX‹@‚Ì’âŽ~ŽžŠÔ
 
-    [SerializeField] private sbyte _direction;
+    private sbyte _direction;
     private float _defaultSpeed;        // ‰Šú‘¬“x
     private float _maxSpeed;            // Å‚‘¬“x
     private float _minSpeed;            // Å’á‘¬“x
-    [SerializeField]  private float _topPositionY;        // Å‚ˆÊ’u
-    [SerializeField] private float _underPositionY;      // Å’áˆÊ’u
+    [SerializeField] private float _topPositionY;        // Å‚ˆÊ’u
+    private float _underPositionY;      // Å’áˆÊ’u
     private SpriteRenderer pressSprite;
-    [SerializeField] private bool _hasPressed;       // ˆê“x‚Å‚à‚Ì’n–Ê‚ÉÚG‚µ‚½‚©‚Ì”»’è
-    [SerializeField] private bool _isStop;           // ƒvƒŒƒX‹@‚Ì’âŽ~‚ð”»’è
+    private bool _hasPressed;       // ˆê“x‚Å‚à‚Ì’n–Ê‚ÉÚG‚µ‚½‚©‚Ì”»’è
+    private bool _isStop;           // ƒvƒŒƒX‹@‚Ì’âŽ~‚ð”»’è
     private float _stoppingTime;
     private bool _isHitAcc;                             // ˆê‚Â‚Ì’e‚É‘Î‚·‚é“ñd‰Á‘¬‚Ì–hŽ~—p
     private bool _isHitDec;                             // ˆê‚Â‚Ì’e‚É‘Î‚·‚é“ñdŒ¸‘¬‚Ì–hŽ~—p
@@ -59,7 +59,7 @@ public class PressMachineScript : MonoBehaviour
         }
         else if (!_isStop)
         {
-            rb.MovePosition(new Vector2(transform.position.x, transform.position.y + MoveSpeed * Time.fixedDeltaTime * _direction));
+            transform.position = new Vector2(transform.position.x, transform.position.y + MoveSpeed * Time.fixedDeltaTime * _direction);
 
             if (transform.position.y > _topPositionY && _hasPressed)
             {
@@ -78,14 +78,12 @@ public class PressMachineScript : MonoBehaviour
             _isHitAcc = true;
             _ = WaitForAsync(s_cooldownTime, () => _isHitAcc = false);
             MoveSpeed *= _changeSpeed;
-            _waitTime /= _changeSpeed;
         }
         if (collision.gameObject.tag == "Dcammo" && MoveSpeed > _minSpeed && !_isHitDec)
         {
             _isHitDec = true;
             _ = WaitForAsync(s_cooldownTime, () => _isHitDec = false);
             MoveSpeed /= _changeSpeed;
-            _waitTime *= _changeSpeed;
         }
         ChangeSprite();
     }

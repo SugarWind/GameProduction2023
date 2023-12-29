@@ -21,6 +21,7 @@ TagManager:
   - Object
   - Death
   - Life
+  - Press
   layers:
   - Default
   - TransparentFX
