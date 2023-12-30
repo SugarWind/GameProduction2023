@@ -42,7 +42,7 @@ public class PressMachineScript : MonoBehaviour
         _defaultSpeed = MoveSpeed;
         _maxSpeed = MoveSpeed * Mathf.Pow(_changeSpeed, _changeCount);
         _minSpeed = MoveSpeed / Mathf.Pow(_changeSpeed, _changeCount);
-        _waitTime = _waitTime * 60 * MoveSpeed;
+        _waitTime = _waitTime * 50 * MoveSpeed;
         _audioSource = GetComponent<AudioSource>();
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
