@@ -48,7 +48,7 @@ public class BulletScript : MonoBehaviour
         // シャフトをマウスカーソルの位置に合わせて自転させる
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle = Mathf.Round(angle);
-        gunShaft.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if(Time.timeScale != 0) gunShaft.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         if (Input.GetMouseButtonDown(0) && canShot && !isHit) // 左クリックで弾（減速）を発射
         {
