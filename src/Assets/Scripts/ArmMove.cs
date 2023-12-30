@@ -45,27 +45,29 @@ public class ArmMove : MonoBehaviour
         // 胴体の点滅と同時に腕を点滅
         armSpriteRenderer.enabled = player.spriteRenderer.enabled;
         secondArmSpriteRenderer.enabled = player.spriteRenderer.enabled;
-
-        // マウスのx座標に応じてオブジェクトの左右を反転
-        if (mousePosition.x < playerTransform.position.x && !isHit && Right)
+        if (Time.timeScale != 0)
         {
-            // マウスが自機の左側にある場合、自機を左向きにします
-            transform.localScale = new Vector3(1, -1, 1);
-            _localPos.x = -(_localPosX);
-            transform.localPosition = _localPos;
-            bulletScript.ChangeSpriteLeft();
-            secondArmScript.ChangeSpriteLeft();
-            Right = false;
-        }
-        else if (mousePosition.x >= playerTransform.position.x && !isHit && !Right)
-        {
-            // マウスが自機の右側にある場合、自機を右向きにします
-            transform.localScale = new Vector3(1, 1, 1);
-            _localPos.x = _localPosX;
-            transform.localPosition = _localPos;
-            bulletScript.ChangeSpriteRight();
-            secondArmScript.ChangeSpriteRight();
-            Right = true;
+            // マウスのx座標に応じてオブジェクトの左右を反転
+            if (mousePosition.x < playerTransform.position.x && !isHit && Right)
+            {
+                // マウスが自機の左側にある場合、自機を左向きにします
+                transform.localScale = new Vector3(1, -1, 1);
+                _localPos.x = -(_localPosX);
+                transform.localPosition = _localPos;
+                bulletScript.ChangeSpriteLeft();
+                secondArmScript.ChangeSpriteLeft();
+                Right = false;
+            }
+            else if (mousePosition.x >= playerTransform.position.x && !isHit && !Right)
+            {
+                // マウスが自機の右側にある場合、自機を右向きにします
+                transform.localScale = new Vector3(1, 1, 1);
+                _localPos.x = _localPosX;
+                transform.localPosition = _localPos;
+                bulletScript.ChangeSpriteRight();
+                secondArmScript.ChangeSpriteRight();
+                Right = true;
+            }
         }
     }
 }
