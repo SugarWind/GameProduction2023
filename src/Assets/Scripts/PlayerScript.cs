@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     private JumpTrigger jump;
     private GameObject life;
     private LifeScript player_life;
+    private GameObject _shield;
     private bool isJumping;
     private bool isFacingRight = true;  // キャラの向きを管理
     private bool hitDirection = true;  // 攻撃がきた方向を管理
@@ -61,6 +62,7 @@ public class PlayerScript : MonoBehaviour
         arm = armObj.GetComponent<ArmMove>();
         jumpObj = GameObject.FindGameObjectWithTag("Jump");
         jump = jumpObj.GetComponent<JumpTrigger>();
+        _shield = transform.Find("Shield").gameObject;
         isHit = false;
         isJumping = false;
         isInvincible = false;
@@ -107,8 +109,12 @@ public class PlayerScript : MonoBehaviour
         {
             Jump();
         }
-
-        if(player_life.death)
+        if (!player_life.HasShield())
+        {
+            _shield.SetActive(false);
+        }
+        else _shield.SetActive(true);
+        if (player_life.IsDead())
         {
             deathScriptInstance.Result();
         }
@@ -214,16 +220,16 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !isInvincible && playerLife != 0)
         {
+            playerLife -= 1;
+            Debug.Log(playerLife);
             // ノックバックさせる方向の計算
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            
-
             Knockback(knockbackDirection);  // ノックバックさせる
             StartCoroutine(Flash());  // 点滅させる
             StartCoroutine(Invincible());  // 無敵状態にする
         }
 
-        if (collision.gameObject.CompareTag("Press") && !isInvincible && playerLife != 0 && !jump.isJumping)
+        if (collision.gameObject.CompareTag("Press") && playerLife != 0)
         {
             playerLife = 0;
         }
@@ -250,8 +256,6 @@ public class PlayerScript : MonoBehaviour
             if (i == 10)
             {
                 isHit = false;
-                playerLife -= 1;
-                Debug.Log(playerLife);
             }
         }
         spriteRenderer.enabled = true;
