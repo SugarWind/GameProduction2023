@@ -8,8 +8,8 @@ public class LifeScript : MonoBehaviour
     public GameObject uiLife1;
     public GameObject uiLife2;
     public GameObject uiLife3;
-
-    public bool death;
+    private bool _hasShield;
+    private bool death;
 
     private GameObject Player;
     private PlayerScript PlayerLife;
@@ -20,7 +20,7 @@ public class LifeScript : MonoBehaviour
         uiLife1.SetActive(true);
         uiLife2.SetActive(true);
         uiLife3.SetActive(true);
-
+        _hasShield = true;
         death = false;
 
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -30,31 +30,42 @@ public class LifeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerLife.playerLife >= 3)
+        if(PlayerLife.playerLife >= 4)
         {
             uiLife1.SetActive(true);
             uiLife2.SetActive(true);
             uiLife3.SetActive(true);
         }
-        else if (PlayerLife.playerLife == 2)
+        else if (PlayerLife.playerLife == 3)
         {
             uiLife1.SetActive(true);
             uiLife2.SetActive(true);
             uiLife3.SetActive(false);
         }
-        else if (PlayerLife.playerLife == 1)
+        else if (PlayerLife.playerLife == 2)
         {
             uiLife1.SetActive(true);
             uiLife2.SetActive(false);
             uiLife3.SetActive(false);
         }
-        else if (PlayerLife.playerLife == 0)
+        else if (PlayerLife.playerLife == 1)
         {
             uiLife1.SetActive(false);
             uiLife2.SetActive(false);
             uiLife3.SetActive(false);
-
+            _hasShield = false;
+        }
+        else if (PlayerLife.playerLife == 0)
+        {
             death = true;
         }
+    }
+    public bool IsDead()
+    {
+        return death;
+    }
+    public bool HasShield()
+    {
+        return _hasShield;
     }
 }
