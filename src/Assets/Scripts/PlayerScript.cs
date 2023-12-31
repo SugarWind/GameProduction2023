@@ -223,7 +223,7 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Invincible());  // ñ≥ìGèÛë‘Ç…Ç∑ÇÈ
         }
 
-        if (collision.gameObject.CompareTag("Press") && !isInvincible && playerLife != 0 && !jump.isJumping)
+        if (collision.gameObject.CompareTag("Press") && playerLife != 0)
         {
             playerLife = 0;
         }
