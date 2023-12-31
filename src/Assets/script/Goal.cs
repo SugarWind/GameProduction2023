@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
     //ゴールした後にステージセレクトへ移動
+    public GameObject resultUI;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,17 +16,26 @@ public class Goal : MonoBehaviour
 
             playerScript.DeleteGoal();
             Debug.Log("ゴール");
-            SceneManager.LoadScene("StageSlect");
+            resultUI.SetActive(true);
+            Result();
+            //SceneManager.LoadScene("StageSlect");
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
+
+    public void Result()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            //PlayerPrefsのSCOREに3という値を入れる
-            PlayerPrefs.SetInt("StageUnlock", 3);
-            //PlayerPrefsをセーブする         
-            PlayerPrefs.Save();
-        }
+        Time.timeScale = 0f;
+        //Debug.Log("owari");
+        resultUI.SetActive(true);
     }
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        //PlayerPrefsのSCOREに3という値を入れる
+    //        PlayerPrefs.SetInt("StageUnlock", 3);
+    //        //PlayerPrefsをセーブする         
+    //        PlayerPrefs.Save();
+    //    }
+    //}
 }
