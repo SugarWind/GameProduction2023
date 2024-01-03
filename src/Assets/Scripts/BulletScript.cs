@@ -48,22 +48,24 @@ public class BulletScript : MonoBehaviour
         // シャフトをマウスカーソルの位置に合わせて自転させる
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle = Mathf.Round(angle);
-        if(Time.timeScale != 0) gunShaft.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        if (Input.GetMouseButtonDown(0) && canShot && !isHit && Time.timeScale != 0) // 左クリックで弾（減速）を発射
+        if (Time.timeScale != 0 && !player.IsCleared())
         {
-            ShootCoolTime();
-            ShotBullet(accelBulletPrefab);
-            AcBullet -= 1;
-        }
+            gunShaft.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        if (Input.GetMouseButtonDown(1) && canShot && !isHit && Time.timeScale != 0) // 左クリックで弾（加速）を発射
-        {
-            ShootCoolTime();
-            ShotBullet(deccelBulletPrefab);
-            DcBullet -= 1;
-        }
+            if (Input.GetMouseButtonDown(0) && canShot && !isHit) // 左クリックで弾（減速）を発射
+            {
+                ShootCoolTime();
+                ShotBullet(accelBulletPrefab);
+                AcBullet -= 1;
+            }
 
+            if (Input.GetMouseButtonDown(1) && canShot && !isHit) // 左クリックで弾（加速）を発射
+            {
+                ShootCoolTime();
+                ShotBullet(deccelBulletPrefab);
+                DcBullet -= 1;
+            }
+        }
         if(AcBullet < 0)
         {
             AcBullet = 0;

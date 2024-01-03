@@ -7,21 +7,33 @@ public class Goal : MonoBehaviour
 {
     //ゴールした後にステージセレクトへ移動
     public GameObject resultUI;
+    private bool isUsed;
+    [SerializeField] private GameObject _warpObject;
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "Player" && !isUsed)
         {
-            PlayerScript playerScript = collision.gameObject.GetComponent<PlayerScript>();
-
+            isUsed = true;
+            GameObject player = collider.gameObject;
+            player.transform.position = new Vector2(transform.position.x, transform.position.y);
+            PlayerScript playerScript = player.GetComponent<PlayerScript>();
             playerScript.DeleteGoal();
+            Invoke("BootWarp", 2.0f);
             Debug.Log("ゴール");
-            resultUI.SetActive(true);
-            Result();
-            //SceneManager.LoadScene("StageSlect");
         }
     }
-
+    private void BootWarp()
+    {
+        Instantiate(_warpObject, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+        Invoke("Stagefinished", 2.0f);
+    }
+    private void Stagefinished()
+    {
+        resultUI.SetActive(true);
+        Result();
+        //SceneManager.LoadScene("StageSlect");
+    }
     public void Result()
     {
         Time.timeScale = 0f;

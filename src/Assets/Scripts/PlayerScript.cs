@@ -37,6 +37,8 @@ public class PlayerScript : MonoBehaviour
     private bool isInvincible;
     private bool isposX;
     private bool isposY;
+    private bool isCleared;
+    private bool hasShield;
     public Rigidbody2D rb;
     public bool isHit;
 
@@ -66,6 +68,7 @@ public class PlayerScript : MonoBehaviour
         isHit = false;
         isJumping = false;
         isInvincible = false;
+        hasShield = true;
 
         isposX = PlayerPrefs.HasKey("PlayerPosX");
         isposY = PlayerPrefs.HasKey("PlayerPosY");
@@ -109,7 +112,7 @@ public class PlayerScript : MonoBehaviour
         {
             Jump();
         }
-        if (!player_life.HasShield())
+        if (!player_life.HasShield() || !hasShield)
         {
             _shield.SetActive(false);
         }
@@ -132,8 +135,12 @@ public class PlayerScript : MonoBehaviour
         // ArmRotation_yの左右反転に応じてキャラの向きを更新
         isFacingRight = arm.Right;
 
+        if (isCleared)
+        {
+            animator.Play(isFacingRight ? standRightClip.name : standLeftClip.name);
+        }
         // ジャンプアニメーションを設定
-        if (isJumping && !isHit)
+        else if (isJumping && !isHit)
         {
             // isFacingRightがtrueならjumpRightClip.nameで指定したアニメーションを再生、falseならjumpLeftClip.name
             animator.Play(isFacingRight ? jumpRightClip.name : jumpLeftClip.name);
@@ -211,11 +218,23 @@ public class PlayerScript : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPosY",transform.position.y);
     }
 
-    public void DeleteGoal()
+    private void DeleteChara()
     {
-        PlayerPrefs.DeleteAll();
+        spriteRenderer.enabled = false;
+        hasShield = false;
     }
 
+    public void DeleteGoal()
+    {
+        isCleared = true;
+        rb.bodyType = RigidbodyType2D.Static;
+        Invoke("DeleteChara", 2.3f);
+        PlayerPrefs.DeleteAll();
+    }
+    public bool IsCleared()
+    {
+        return isCleared;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && !isInvincible && playerLife != 0)

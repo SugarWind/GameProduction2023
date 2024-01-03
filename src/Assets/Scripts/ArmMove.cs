@@ -45,7 +45,7 @@ public class ArmMove : MonoBehaviour
         // 胴体の点滅と同時に腕を点滅
         armSpriteRenderer.enabled = player.spriteRenderer.enabled;
         secondArmSpriteRenderer.enabled = player.spriteRenderer.enabled;
-        if (Time.timeScale != 0)
+        if (Time.timeScale != 0 && !player.IsCleared())
         {
             // マウスのx座標に応じてオブジェクトの左右を反転
             if (mousePosition.x < playerTransform.position.x && !isHit && Right)
