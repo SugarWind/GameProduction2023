@@ -248,10 +248,6 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Invincible());  // ñ≥ìGèÛë‘Ç…Ç∑ÇÈ
         }
 
-        if (collision.gameObject.CompareTag("Press") && playerLife != 0)
-        {
-            playerLife = 0;
-        }
     }
 
     private void Knockback(Vector2 direction)
@@ -327,6 +323,12 @@ public class PlayerScript : MonoBehaviour
                 RmissileSpeed = Rmissile.getMissileSpeed();
                 isRidingRmissile = true;
             }
+        }
+
+
+        if (collision.gameObject.CompareTag("Press") && !isJumping && playerLife != 0)
+        {
+            playerLife = 0;
         }
     }
 

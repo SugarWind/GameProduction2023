@@ -933,11 +933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088920970943442052, guid: b97f7389f647e4642b29bfd43ed3704e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7088920970943442052, guid: b97f7389f647e4642b29bfd43ed3704e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7088920970943442052, guid: b97f7389f647e4642b29bfd43ed3704e, type: 3}
       propertyPath: m_LocalScale.z
@@ -973,11 +973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088920970943442052, guid: b97f7389f647e4642b29bfd43ed3704e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -867
+      value: -847.6
       objectReference: {fileID: 0}
     - target: {fileID: 7088920970943442052, guid: b97f7389f647e4642b29bfd43ed3704e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 457
+      value: 418.7
       objectReference: {fileID: 0}
     - target: {fileID: 7088920970943442052, guid: b97f7389f647e4642b29bfd43ed3704e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1010,6 +1010,7 @@ GameObject:
   - component: {fileID: 284908034}
   - component: {fileID: 284908033}
   - component: {fileID: 284908032}
+  - component: {fileID: 284908036}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1101,6 +1102,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &284908036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284908031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2003d1c88bdf6554abd317e6ab6cf844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuUI: {fileID: 1509759932}
 --- !u!1001 &365694107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2039,6 +2053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultUI: {fileID: 1509759932}
+  _warpObject: {fileID: 0}
 --- !u!212 &666143242
 SpriteRenderer:
   m_ObjectHideFlags: 0
