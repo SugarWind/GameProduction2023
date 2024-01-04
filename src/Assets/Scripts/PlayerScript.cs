@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float moveDirection;
     [SerializeField] private Animator animator;
     [SerializeField] public SpriteRenderer spriteRenderer;
-    [SerializeField] public float playerLife = 3f;
+    [SerializeField] public int playerLife = 4;
 
 
     private GameObject death;
@@ -100,7 +100,7 @@ public class PlayerScript : MonoBehaviour
         life = GameObject.FindGameObjectWithTag("Life");
         player_life = life.GetComponent<LifeScript>();
 
-        playerLife = 3f;
+        playerLife = 4;
     }
 
     private void Update()

@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class LifeScript : MonoBehaviour
 {
-    public GameObject uiLife1;
-    public GameObject uiLife2;
-    public GameObject uiLife3;
+    [SerializeField] private GameObject uiLife0;
+    [SerializeField] private GameObject uiLife1;
+    [SerializeField] private GameObject uiLife2;
+    [SerializeField] private GameObject uiLife3;
     private bool _hasShield;
     private bool death;
 
@@ -17,6 +18,7 @@ public class LifeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uiLife0.SetActive(true);
         uiLife1.SetActive(true);
         uiLife2.SetActive(true);
         uiLife3.SetActive(true);
@@ -30,36 +32,43 @@ public class LifeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerLife.playerLife >= 3)
+        if(PlayerLife.playerLife >= 4)
         {
+            uiLife0.SetActive(true);
             uiLife1.SetActive(true);
             uiLife2.SetActive(true);
             uiLife3.SetActive(true);
         }
-        else if (PlayerLife.playerLife == 2)
+        else if (PlayerLife.playerLife == 3)
         {
+            uiLife0.SetActive(true);
             uiLife1.SetActive(true);
             uiLife2.SetActive(true);
             uiLife3.SetActive(false);
         }
-        else if (PlayerLife.playerLife == 1)
+        else if (PlayerLife.playerLife == 2)
         {
+            uiLife0.SetActive(true);
             uiLife1.SetActive(true);
             uiLife2.SetActive(false);
             uiLife3.SetActive(false);
         }
-        else if (PlayerLife.playerLife == 0)
+        else if (PlayerLife.playerLife == 1)
         {
+            uiLife0.SetActive(true);
             uiLife1.SetActive(false);
             uiLife2.SetActive(false);
             uiLife3.SetActive(false);
             _hasShield = false;
+        }
+        else if (PlayerLife.playerLife == 0)
+        {
+            uiLife0.SetActive(false);
+            uiLife1.SetActive(false);
+            uiLife2.SetActive(false);
+            uiLife3.SetActive(false);
             death = true;
         }
-        /*else if (PlayerLife.playerLife == 0)
-        {
-            death = true;
-        }*/
     }
     public bool IsDead()
     {
