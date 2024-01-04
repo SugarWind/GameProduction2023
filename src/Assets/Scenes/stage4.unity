@@ -439,6 +439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine) (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1001 &213524862
@@ -495,6 +499,10 @@ PrefabInstance:
     - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
       propertyPath: m_Name
       value: TopPosition(PressMachine) (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
@@ -553,6 +561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine) (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1001 &305451759
@@ -610,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1001 &315113014
@@ -666,6 +682,10 @@ PrefabInstance:
     - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
       propertyPath: m_Name
       value: TopPosition(PressMachine) (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
@@ -1175,6 +1195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine)
       objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1 &543440941
@@ -1550,6 +1574,10 @@ PrefabInstance:
     - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
       propertyPath: m_Name
       value: TopPosition(PressMachine) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
@@ -2347,6 +2375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPosition(PressMachine)
       objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
 --- !u!1 &1262180099
@@ -2959,6 +2991,10 @@ PrefabInstance:
     - target: {fileID: 1919187153370227809, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
       propertyPath: m_Name
       value: TopPosition(PressMachine) (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820298925125821370, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
+      propertyPath: _addTopPos
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efe167ea6860234c94aed8eaf43504a, type: 3}
