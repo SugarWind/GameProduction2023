@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1501339779
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fad47a4084552ca42b6236c6fc065f99, type: 3}
-  m_Color: {r: 0.745283, g: 0.3684229, b: 0.3684229, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ffe6420e14561b242820ce704b8ab989, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,9 +159,9 @@ MonoBehaviour:
   _isTurnY: 0
   _hasTrigger: 0
   _canRide: 1
-  _defaultSprite: {fileID: 0}
-  _accSprite: {fileID: 0}
-  _decSprite: {fileID: 0}
+  _defaultSprite: {fileID: 21300000, guid: ffe6420e14561b242820ce704b8ab989, type: 3}
+  _accSprite: {fileID: 21300000, guid: 81d2316e1ea0f694f8f438723a57d277, type: 3}
+  _decSprite: {fileID: 21300000, guid: 2e84932188b075f4aa059a171989c637, type: 3}
   _objAnimatorSpeed: 0
   _defaultAnimation: {fileID: 0}
   _accAnimation: {fileID: 0}

@@ -194,8 +194,16 @@ public class AutoMoveObject : MonoBehaviour
             if (Mathf.Abs(_moveSpeed.x) < Mathf.Abs(_maxSpeed.x) || Mathf.Abs(_moveSpeed.y) < Mathf.Abs(_maxSpeed.y))
             {
                 _moveSpeed *= _changeRate;
-                _objAnimatorSpeed *= _changeRate;
-                _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
+                if (_animationExists)
+                {
+                    _objAnimatorSpeed *= _changeRate;
+                    _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
+                    ChangeAnimation();
+                }
+                else if (_spriteExists)
+                {
+                    ChangeSprite();
+                }
             }
         }
         if (other.gameObject.tag == "Dcammo" && _isMoved)
@@ -203,19 +211,18 @@ public class AutoMoveObject : MonoBehaviour
             if (Mathf.Abs(_moveSpeed.x) > Mathf.Abs(_minSpeed.x) || Mathf.Abs(_moveSpeed.y) > Mathf.Abs(_minSpeed.y))
             {
                 _moveSpeed /= _changeRate;
-                _objAnimatorSpeed /= _changeRate;
-                _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
+                if (_animationExists)
+                {
+                    _objAnimatorSpeed *= _changeRate;
+                    _objAnimator.SetFloat("Speed", _objAnimatorSpeed);
+                    ChangeAnimation();
+                }
+                else if (_spriteExists)
+                {
+                    ChangeSprite();
+                }
             }
         }
-        if (_spriteExists)
-        {
-            ChangeSprite();
-        }
-        if (_animationExists)
-        {
-            ChangeAnimation();
-        }
-    
         if (other.gameObject.tag == "Jump")
         {
             _onPlayer = true;
