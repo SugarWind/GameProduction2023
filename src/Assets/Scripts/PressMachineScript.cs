@@ -6,7 +6,7 @@ using System;
 
 public class PressMachineScript : MonoBehaviour
 {
-    [SerializeField] private Transform TopPos = null;
+    [SerializeField] private float _addTopPos;
     private Rigidbody2D rb;
     [SerializeField] private float MoveSpeed = 10.0f;
     [SerializeField] private float _changeSpeed = 2.0f;     // •Ï‰»‚Ì”{—¦
@@ -35,7 +35,7 @@ public class PressMachineScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _topPositionY = (TopPos) ? TopPos.position.y : transform.position.y + 9;
+        _topPositionY = transform.position.y + _addTopPos;
         rb = GetComponent<Rigidbody2D>();
         pressSprite = gameObject.GetComponent<SpriteRenderer>();
         _direction = -1;
