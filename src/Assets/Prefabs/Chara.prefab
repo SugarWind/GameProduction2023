@@ -351,7 +351,7 @@ MonoBehaviour:
   DcBullet: 50
   leftSprite: {fileID: 21300000, guid: c8f3f183b2f54bd418353b1f328d1525, type: 3}
   rightSprite: {fileID: 21300000, guid: 8d02127d00a152d43a3b86dfc954ceac, type: 3}
-  _bulletSound: {fileID: 8300000, guid: 68278e2c227abd74a9343909df3924cf, type: 3}
+  _bulletSound: {fileID: 8300000, guid: 169370ff228b9ea4c8323adb0d84aece, type: 3}
 --- !u!82 &8964157296565469185
 AudioSource:
   m_ObjectHideFlags: 0
