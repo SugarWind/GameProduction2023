@@ -6,35 +6,56 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class BGMScript : MonoBehaviour
 {
-	private AudioSource audioSource;
-	public bool DontDestroyEnabled = true;
+	private AudioSource _audioSource;
+	private static bool DontDestroyEnabled = true;
+    private float _volume;
+    public float VolumeProperty
+    {
+        get { return _volume; }
+        set { _volume = value; }
+    }
 
-	private void Start()
+    private void Start()
 	{
-        // ほかに"BGM"がある場合このオブジェクトを削除
         GameObject otherBGM = GameObject.Find("BGM");
-        if (otherBGM && otherBGM != this.gameObject) Destroy(this.gameObject);
-        // "AudioSource"コンポーネントを取得
-        audioSource = gameObject.GetComponent<AudioSource>();
-
-		if (DontDestroyEnabled)
+        GameObject StageBGM = GameObject.Find("StageBGM");
+        // ほかに"BGM"がある場合このオブジェクトを削除
+        if (otherBGM && otherBGM != this.gameObject)
+        {
+            Destroy(this.gameObject);
+        }
+        else if (StageBGM)
+        {
+            _audioSource = gameObject.GetComponent<AudioSource>();
+            _volume = StageBGM.GetComponent<StageBGMScript>().VolumeProperty;
+            Destroy(StageBGM.gameObject);
+        }
+        else
+        {
+            _audioSource = gameObject.GetComponent<AudioSource>();
+            _volume = _audioSource.volume;
+        }
+        ChangeVolume();
+        if (DontDestroyEnabled)
 		{
 			// Sceneを遷移してもBGMが消えない
 			DontDestroyOnLoad(this);
 		}
 	}
-
 	// スライドバー値の変更イベント
-	public void ChangeVolume(float volumeValue)
+	public void ChangeVolume()
 	{
-		// 音楽の音量をスライドバーの値に変更
-		audioSource.volume = volumeValue;
-	}
+        // 音楽の音量をスライドバーの値に変更
+        if (_audioSource)
+        {
+            _audioSource.volume = _volume;
+        }
+    }
 
     public void OptionStart()
     {
         Slider volumeSlider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
 		// スライドバーの値を音楽の音量に変更
-		volumeSlider.value = audioSource.volume;
+		volumeSlider.value = _volume;
     }
 }

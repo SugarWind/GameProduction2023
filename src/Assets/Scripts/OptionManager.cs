@@ -19,8 +19,8 @@ public class OptionManager : MonoBehaviour
     {
         if (_isSetUp)
         {
-            _bgmScript.ChangeVolume(value);
+            _bgmScript.VolumeProperty = value;
+            _bgmScript.ChangeVolume();
         }
-        
     }
 }

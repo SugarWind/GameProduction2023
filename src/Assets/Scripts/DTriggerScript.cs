@@ -6,7 +6,7 @@ public class DTriggerScript : MonoBehaviour
 {
     [SerializeField] private AnimationClip _decAnimation;
     [SerializeField] private AnimationClip _explosionAnimation;
-    [SerializeField] private float _explosionSize = 0.3f;
+    [SerializeField] private float _explosionSize = 0.5f;
     private GameObject _effectObject;
     private Animator _decAnimator;
     private Rigidbody _rb;

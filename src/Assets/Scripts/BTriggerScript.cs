@@ -6,7 +6,7 @@ public class BTriggerScript : MonoBehaviour
 {
     [SerializeField] private AnimationClip _accAnimation;
     [SerializeField] private AnimationClip _explosionAnimation;
-    [SerializeField] private float _explosionSize = 0.3f;
+    [SerializeField] private float _explosionSize = 0.5f;
     private GameObject _effectObject;
     private Animator _accAnimator;
     private Rigidbody _rb;
