@@ -326,7 +326,7 @@ public class PlayerScript : MonoBehaviour
         }
 
 
-        if (collision.gameObject.CompareTag("Press") && !isJumping && playerLife != 0)
+        if (collision.gameObject.CompareTag("Press") && playerLife != 0)
         {
             playerLife = 0;
         }

@@ -135,12 +135,16 @@ PrefabInstance:
       value: FallFloor (24)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -594,12 +598,16 @@ PrefabInstance:
       value: FallFloor (34)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -655,6 +663,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+--- !u!1001 &75115065
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1026073350}
+    m_Modifications:
+    - target: {fileID: 6401436131106618144, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_Name
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -397.51022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -223.80576
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.2971287
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
 --- !u!1001 &80853436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -869,12 +934,16 @@ PrefabInstance:
       value: FallFloor (44)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -999,12 +1068,16 @@ PrefabInstance:
       value: FallFloor (15)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -1788,12 +1861,16 @@ PrefabInstance:
       value: FallFloor (11)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -2003,12 +2080,16 @@ PrefabInstance:
       value: FallFloor (59)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -2198,12 +2279,16 @@ PrefabInstance:
       value: FallFloor (60)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -2271,12 +2356,16 @@ PrefabInstance:
       value: FallFloor (35)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -2693,12 +2782,16 @@ PrefabInstance:
       value: FallFloor (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -2901,12 +2994,16 @@ PrefabInstance:
       value: FallFloor (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -3120,12 +3217,16 @@ PrefabInstance:
       value: FallFloor (47)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -3193,12 +3294,16 @@ PrefabInstance:
       value: FallFloor (7)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -3334,12 +3439,16 @@ PrefabInstance:
       value: FallFloor (40)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -3407,12 +3516,16 @@ PrefabInstance:
       value: FallFloor (23)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -3659,12 +3772,16 @@ PrefabInstance:
       value: FallFloor (19)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -3968,12 +4085,16 @@ PrefabInstance:
       value: FallFloor (49)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -4041,12 +4162,16 @@ PrefabInstance:
       value: FallFloor (28)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -4187,12 +4312,16 @@ PrefabInstance:
       value: FallFloor (20)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -4655,12 +4784,16 @@ PrefabInstance:
       value: FallFloor (13)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -4911,6 +5044,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0b11007a323e1a46a5a022f755aeefd, type: 3}
+--- !u!1 &755888188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6401436131106618144, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+  m_PrefabInstance: {fileID: 75115065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &755888189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6401436131106618151, guid: 9cc0f8a7500cefd44b355faa522bf0a3, type: 3}
+  m_PrefabInstance: {fileID: 75115065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &760675902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4923,12 +5066,16 @@ PrefabInstance:
       value: FallFloor (21)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: -5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -4996,12 +5143,16 @@ PrefabInstance:
       value: FallFloor (26)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -5577,12 +5728,16 @@ PrefabInstance:
       value: FallFloor (37)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -5789,12 +5944,16 @@ PrefabInstance:
       value: FallFloor (14)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -5927,12 +6086,16 @@ PrefabInstance:
       value: FallFloor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -6000,12 +6163,16 @@ PrefabInstance:
       value: FallFloor (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -6073,12 +6240,16 @@ PrefabInstance:
       value: FallFloor (58)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7122,6 +7293,7 @@ RectTransform:
   - {fileID: 860156628}
   - {fileID: 867654925}
   - {fileID: 825307638}
+  - {fileID: 755888189}
   m_Father: {fileID: 0}
   m_RootOrder: 167
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7142,12 +7314,16 @@ PrefabInstance:
       value: FallFloor (51)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7415,12 +7591,16 @@ PrefabInstance:
       value: FallFloor (25)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: -5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7488,12 +7668,16 @@ PrefabInstance:
       value: FallFloor (16)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7606,12 +7790,16 @@ PrefabInstance:
       value: FallFloor
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7760,12 +7948,16 @@ PrefabInstance:
       value: FallFloor (48)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7833,12 +8025,16 @@ PrefabInstance:
       value: FallFloor (18)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -7910,12 +8106,16 @@ PrefabInstance:
       value: FallFloor (12)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -8040,12 +8240,16 @@ PrefabInstance:
       value: FallFloor (22)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -8178,12 +8382,16 @@ PrefabInstance:
       value: FallFloor (17)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: -5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -8624,12 +8832,16 @@ PrefabInstance:
       value: FallFloor (56)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -8957,12 +9169,16 @@ PrefabInstance:
       value: FallFloor (42)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -9087,12 +9303,16 @@ PrefabInstance:
       value: FallFloor (27)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -9400,12 +9620,16 @@ PrefabInstance:
       value: FallFloor (38)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -9542,12 +9766,16 @@ PrefabInstance:
       value: FallFloor (55)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -9737,12 +9965,16 @@ PrefabInstance:
       value: FallFloor (10)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -10204,12 +10436,16 @@ PrefabInstance:
       value: FallFloor (54)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -10358,12 +10594,16 @@ PrefabInstance:
       value: FallFloor (33)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -10431,12 +10671,16 @@ PrefabInstance:
       value: FallFloor (6)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -10504,12 +10748,16 @@ PrefabInstance:
       value: FallFloor (36)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -10642,12 +10890,16 @@ PrefabInstance:
       value: FallFloor (39)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -11288,12 +11540,16 @@ PrefabInstance:
       value: FallFloor (30)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -12056,12 +12312,16 @@ PrefabInstance:
       value: FallFloor (31)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -12666,6 +12926,8 @@ GameObject:
   - component: {fileID: 1996931246}
   - component: {fileID: 1996931245}
   - component: {fileID: 1996931244}
+  - component: {fileID: 1996931248}
+  - component: {fileID: 1996931247}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Ground
@@ -12700,7 +12962,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -42853,6 +43115,261 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &1996931247
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996931242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1996931244}
+    m_ColliderPaths:
+    - - X: 260000000
+        Y: 1260000000
+      - X: 390000000
+        Y: 1260000000
+      - X: 390000000
+        Y: 1350000000
+      - X: 380000000
+        Y: 1350000000
+      - X: 380000000
+        Y: 1300000000
+      - X: 160000000
+        Y: 1300000000
+      - X: 160000000
+        Y: 980000000
+      - X: 180000000
+        Y: 980000000
+      - X: 180000000
+        Y: 970000000
+      - X: 200000000
+        Y: 970000000
+      - X: 200000000
+        Y: 690000000
+      - X: 180000000
+        Y: 690000000
+      - X: 180000000
+        Y: 680000000
+      - X: 160000000
+        Y: 680000000
+      - X: 160000000
+        Y: 380000000
+      - X: 180000000
+        Y: 380000000
+      - X: 180000000
+        Y: 370000000
+      - X: 200000000
+        Y: 370000000
+      - X: 200000000
+        Y: -60000000
+      - X: 180000000
+        Y: -60000000
+      - X: 180000000
+        Y: -70000000
+      - X: 160000000
+        Y: -70000000
+      - X: 160000000
+        Y: -80000000
+      - X: -400000000
+        Y: -80000000
+      - X: -400000000
+        Y: -30000000
+      - X: -200000000
+        Y: -30000000
+      - X: -200000000
+        Y: 370000000
+      - X: -180000000
+        Y: 370000000
+      - X: -180000000
+        Y: 380000000
+      - X: -160000000
+        Y: 380000000
+      - X: -160000000
+        Y: 680000000
+      - X: -180000000
+        Y: 680000000
+      - X: -180000000
+        Y: 690000000
+      - X: -200000000
+        Y: 690000000
+      - X: -200000000
+        Y: 970000000
+      - X: -180000000
+        Y: 970000000
+      - X: -180000000
+        Y: 980000000
+      - X: -160000000
+        Y: 980000000
+      - X: -160000000
+        Y: 1310000000
+      - X: -140000000
+        Y: 1310000000
+      - X: -140000000
+        Y: 1350000000
+      - X: -120000000
+        Y: 1350000000
+      - X: -120000000
+        Y: 1380000000
+      - X: -100000000
+        Y: 1380000000
+      - X: -100000000
+        Y: 1420000000
+      - X: -80000000
+        Y: 1420000000
+      - X: -80000000
+        Y: 1440000000
+      - X: -60000000
+        Y: 1440000000
+      - X: -60000000
+        Y: 1460000000
+      - X: -40000000
+        Y: 1460000000
+      - X: -40000000
+        Y: 1470000000
+      - X: -20000000
+        Y: 1470000000
+      - X: -20000000
+        Y: 1480000000
+      - X: 380000000
+        Y: 1480000000
+      - X: 380000000
+        Y: 1500000000
+      - X: -260000000
+        Y: 1500000000
+      - X: -260000000
+        Y: -20000000
+      - X: -420000000
+        Y: -20000000
+      - X: -420000000
+        Y: -90000000
+      - X: -320000000
+        Y: -90000000
+      - X: -320000000
+        Y: -110000000
+      - X: 260000000
+        Y: -110000000
+    - - X: 30000000
+        Y: 670000000
+      - X: -30000000
+        Y: 670000000
+      - X: -30000000
+        Y: 430000000
+      - X: 30000000
+        Y: 430000000
+    - - X: 10000000
+        Y: 140000000
+      - X: -10000000
+        Y: 140000000
+      - X: -10000000
+        Y: -50000000
+      - X: 10000000
+        Y: -50000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 25.999971, y: -11}
+      - {x: 26.000029, y: 126}
+      - {x: 39, y: 126.00003}
+      - {x: 38.999973, y: 135}
+      - {x: 38, y: 134.99997}
+      - {x: 37.999973, y: 130}
+      - {x: 16, y: 129.99997}
+      - {x: 16.000029, y: 98}
+      - {x: 18, y: 97.99997}
+      - {x: 18.000029, y: 97}
+      - {x: 20, y: 96.99997}
+      - {x: 19.999971, y: 69}
+      - {x: 18, y: 68.99997}
+      - {x: 17.999971, y: 68}
+      - {x: 16, y: 67.99997}
+      - {x: 16.000029, y: 38}
+      - {x: 18, y: 37.999973}
+      - {x: 18.000029, y: 37}
+      - {x: 20, y: 36.999973}
+      - {x: 19.999971, y: -6}
+      - {x: 18, y: -6.000029}
+      - {x: 17.999971, y: -7}
+      - {x: 16, y: -7.0000296}
+      - {x: 15.999971, y: -8}
+      - {x: -40, y: -7.9999704}
+      - {x: -39.999973, y: -3}
+      - {x: -20, y: -2.999971}
+      - {x: -19.999971, y: 37}
+      - {x: -18, y: 37.00003}
+      - {x: -17.999971, y: 38}
+      - {x: -16, y: 38.00003}
+      - {x: -16.000029, y: 68}
+      - {x: -18, y: 68.00003}
+      - {x: -18.000029, y: 69}
+      - {x: -20, y: 69.00003}
+      - {x: -19.999971, y: 97}
+      - {x: -18, y: 97.00003}
+      - {x: -17.999971, y: 98}
+      - {x: -16, y: 98.00003}
+      - {x: -15.999971, y: 131}
+      - {x: -14, y: 131.00003}
+      - {x: -13.999971, y: 135}
+      - {x: -12, y: 135.00003}
+      - {x: -11.99997, y: 138}
+      - {x: -10, y: 138.00003}
+      - {x: -9.99997, y: 142}
+      - {x: -8, y: 142.00003}
+      - {x: -7.9999704, y: 144}
+      - {x: -6, y: 144.00003}
+      - {x: -5.9999704, y: 146}
+      - {x: -4, y: 146.00003}
+      - {x: -3.9999704, y: 147}
+      - {x: -2, y: 147.00003}
+      - {x: -1.9999707, y: 148}
+      - {x: 38, y: 148.00003}
+      - {x: 37.999973, y: 150}
+      - {x: -26, y: 149.99997}
+      - {x: -26.000029, y: -2}
+      - {x: -42, y: -2.0000293}
+      - {x: -41.999973, y: -9}
+      - {x: -32, y: -9.00003}
+      - {x: -31.999971, y: -11}
+    - - {x: 2.999971, y: 43}
+      - {x: 2.999971, y: 67}
+      - {x: -3, y: 66.99997}
+      - {x: -2.999971, y: 43}
+    - - {x: 0.99997073, y: -5}
+      - {x: 0.99997073, y: 14}
+      - {x: -1, y: 13.999971}
+      - {x: -0.99997073, y: -5}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &1996931248
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996931242}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1999573184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42995,12 +43512,16 @@ PrefabInstance:
       value: FallFloor (5)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -43147,7 +43668,7 @@ PrefabInstance:
     - target: {fileID: 4023970605626914920, guid: e12dc3ff0c5294e44823efb144be1bf5, type: 3}
       propertyPath: resultUI
       value: 
-      objectReference: {fileID: 867654924}
+      objectReference: {fileID: 755888188}
     - target: {fileID: 4023970605626914922, guid: e12dc3ff0c5294e44823efb144be1bf5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -43294,12 +43815,16 @@ PrefabInstance:
       value: FallFloor (8)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
@@ -43489,12 +44014,16 @@ PrefabInstance:
       value: FallFloor (41)
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
+      propertyPath: FallTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: FallSpeed
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740985, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: respawnPos
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7082198970412740987, guid: bcd3918163867cd4486d7056676af6d1, type: 3}
       propertyPath: m_SortingLayer
