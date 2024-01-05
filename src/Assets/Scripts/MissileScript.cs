@@ -95,7 +95,7 @@ public class MissileScript : MonoBehaviour
 
     public void DestroyObject()
     {
-        _destroyedPrefabPosition = transform.position;
+        _destroyedPrefabPosition = new Vector2(Mathf.Round(transform.position.x), transform.position.y);
         _destroyedPrefabPosition.x -= 2.5f;
         Instantiate(_destroyedPrefab, _destroyedPrefabPosition, transform.rotation = Quaternion.Euler(0, 0, -90));
         Destroy(gameObject);
