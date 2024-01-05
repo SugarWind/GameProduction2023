@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultUI: {fileID: 0}
   _warpObject: {fileID: 4760024459125469067, guid: 31bf8c923603dcf4f99cdbf870fb9a83, type: 3}
+  _goalSound: {fileID: 8300000, guid: af33db282ffd645419fba41fdf767f76, type: 3}
 --- !u!61 &4023970605626914927
 BoxCollider2D:
   m_ObjectHideFlags: 0

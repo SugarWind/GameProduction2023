@@ -9,7 +9,13 @@ public class Goal : MonoBehaviour
     public GameObject resultUI;
     private bool isUsed;
     [SerializeField] private GameObject _warpObject;
+    [SerializeField] private AudioClip _goalSound;
+    private AudioSource _audioSource;
 
+    void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player" && !isUsed)
@@ -26,6 +32,7 @@ public class Goal : MonoBehaviour
     private void BootWarp()
     {
         Instantiate(_warpObject, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+        _audioSource.PlayOneShot(_goalSound);
         Invoke("Stagefinished", 2.0f);
     }
     private void Stagefinished()

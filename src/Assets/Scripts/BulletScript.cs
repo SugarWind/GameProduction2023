@@ -23,12 +23,14 @@ public class BulletScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite rightSprite;
+    [SerializeField] private AudioClip _bulletSound;
+    private AudioSource _audioSource;
 
     private void Start()
     {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<PlayerScript>();
-
+        _audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -81,6 +83,7 @@ public class BulletScript : MonoBehaviour
 
     private void ShotBullet(GameObject bulletPrefab)
     {
+        _audioSource.PlayOneShot(_bulletSound);
         // mousePositionÇmousePosÇ…ïœçX 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0; // Zé≤Ç0Ç…å≈íË
