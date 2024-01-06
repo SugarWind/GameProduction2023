@@ -17,25 +17,26 @@ public class BGMScript : MonoBehaviour
 
     private void Start()
 	{
+        gameObject.name = "NewBGM";
+        _audioSource = gameObject.GetComponent<AudioSource>();
         GameObject otherBGM = GameObject.Find("BGM");
         GameObject StageBGM = GameObject.Find("StageBGM");
         // ほかに"BGM"がある場合このオブジェクトを削除
-        if (otherBGM && otherBGM != this.gameObject)
+        if (otherBGM)
         {
             Destroy(this.gameObject);
         }
         else if (StageBGM)
         {
-            _audioSource = gameObject.GetComponent<AudioSource>();
             _volume = StageBGM.GetComponent<StageBGMScript>().VolumeProperty;
             Destroy(StageBGM.gameObject);
         }
         else
         {
-            _audioSource = gameObject.GetComponent<AudioSource>();
             _volume = _audioSource.volume;
         }
         ChangeVolume();
+        gameObject.name = "BGM";
         if (DontDestroyEnabled)
 		{
 			// Sceneを遷移してもBGMが消えない
@@ -51,7 +52,6 @@ public class BGMScript : MonoBehaviour
             _audioSource.volume = _volume;
         }
     }
-
     public void OptionStart()
     {
         Slider volumeSlider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
