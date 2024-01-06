@@ -16,6 +16,7 @@ public class StageBGMScript : MonoBehaviour
     }
     private void Start()
 	{
+        gameObject.name = "NewStageBGM";
         // ほかに"BGM"がある場合このオブジェクトを削除
         GameObject otherBGM = GameObject.Find("BGM");
         GameObject otherStageBGM = GameObject.Find("StageBGM");
@@ -24,7 +25,7 @@ public class StageBGMScript : MonoBehaviour
             _volume = otherBGM.GetComponent<BGMScript>().VolumeProperty;
             Destroy(otherBGM.gameObject);
 		}
-        else if (otherStageBGM && otherStageBGM != otherStageBGM.gameObject)
+        else if (otherStageBGM)
         {
             _volume = otherStageBGM.GetComponent<StageBGMScript>().VolumeProperty;
             Destroy(otherStageBGM.gameObject);
@@ -32,6 +33,7 @@ public class StageBGMScript : MonoBehaviour
         // "AudioSource"コンポーネントを取得
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.volume = _volume;
+        gameObject.name = "StageBGM";
         if (DontDestroyEnabled)
         {
             // Sceneを遷移してもBGMが消えない
