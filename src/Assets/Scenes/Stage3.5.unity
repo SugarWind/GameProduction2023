@@ -1920,6 +1920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageBGM
       objectReference: {fileID: 0}
+    - target: {fileID: 4704680857218065573, guid: f94932cb57712e0419adc4a5860bc85d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b44ca12f6dd37f488cd3223388f0ea4, type: 3}
     - target: {fileID: 4704680857218065574, guid: f94932cb57712e0419adc4a5860bc85d, type: 3}
       propertyPath: m_RootOrder
       value: 65
